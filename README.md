@@ -1,5 +1,7 @@
-Python, Bash, R tutorial especially for bioinformatics
+Python, Bash, R tutorial 
 ===
+especially for bioinformatics
+===============
 
 This is a self-training tutorial for learning Python, Bash and R with amounts of examples especially in bioinformatics usages. 
 
