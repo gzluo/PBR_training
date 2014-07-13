@@ -1,5 +1,0 @@
-The best way to learn python contains two steps:
-1. Rember basic things mentionded here masterly.
-
-2. Practise with real demands.
-
