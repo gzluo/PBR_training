@@ -11,17 +11,17 @@ It is designed to contain Chinese and English version.
 
 * Watch this in [nbviewer](http://nbviewer.ipython.org/).
 
-		* [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training.html](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training.html)
+    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training.html](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training.html)
 
-		* [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training-chinese.html](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training-chinese.html)
+    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training-chinese.html](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training-chinese.html)
 
-		* [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training.html](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training.html)
+    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training.html](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training.html)
 
-		* [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training-chinese.html](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training-chinese.html)
+    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training-chinese.html](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training-chinese.html)
 		
-		* [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training.html](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training.html)
+    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training.html](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training.html)
 		
-		* [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training-chinese.html](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training-chinese.html)
+    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training-chinese.html](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training-chinese.html)
 
 * Transfer to other formats:
 
