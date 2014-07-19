@@ -9,13 +9,13 @@ It is designed to contain Chinese and English version.
 
 * Run Ipython notebook in linux by typing `ipython notebook` in terminal and windows using `start_Ipython_notebook_in_windows_PleaseChangeTargetDir.bat`. Do remember changing running dir.
 
-* Watch this in [nbviewer](http://nbviewer.ipython.org/).
-	* [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training)
-    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training)
-    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training)
-    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training-chinese](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training-chinese)
-    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training-chinese](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training-chinese)
-    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training-chinese](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training-chinese)
+* Watch this in [nbviewer](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/tree/master/).
+	* [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training.ipynb](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training.ipynb)
+    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training.ipynb](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training)
+    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training.ipynb](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training.ipynb)
+    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training-chinese.ipynb](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Python_training-chinese.ipynb)
+    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training-chinese.ipynb](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/Bash_training-chinese.ipynb)
+    * [http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training-chinese.ipynb](http://nbviewer.ipython.org/github/Tong-Chen/PBR_training/blob/master/R_training-chinese.ipynb)
 
 * Transfer to other formats:
 
