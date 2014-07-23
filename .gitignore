@@ -1,6 +1,10 @@
 ignore
 .ipynb_checkpoints/
 *.py
+*.txt
+*.pptx
+*.pdf
+*.zip
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
