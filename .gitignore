@@ -5,6 +5,8 @@ ignore
 *.pptx
 *.pdf
 *.zip
+*.bak
+bash_work
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
