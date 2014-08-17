@@ -1,0 +1,2685 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Python\_training-chinese}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Python 教程}\label{python-ux6559ux7a0b}
+
+\section{陈同
+(chentong\_biology@163.com)}\label{ux9648ux540c-chentongux5fbiology163.com}
+
+欢迎来到Python的世界，本教程将带你遨游\texttt{Python}，领悟\texttt{Python}的魅力。本教程专注于帮助初学者，尤其是生物信息分析人员快速学会\texttt{Python}的常用功能和使用方式，因此只精选了部分\texttt{Python}的功能，请额外参考Python经典教程\href{http://www.byteofpython.info/}{A
+byte of
+python}和它的\href{http://woodpecker.org.cn/abyteofpython_cn/chinese/index.html}{中文版}
+来更好的理解\emph{Python}. 本文档的概念和文字描述参考了A byte of
+python(中文版)，特此感谢。
+
+This work is licensed under a Creative Commons
+Attribution-NonCommercial-ShareAlike 2.0 Generic License.
+
+
+    \section{目录}
+
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \hyperref[ux80ccux666fux4ecbux7ecd]{背景介绍}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \hyperref[ux7f16ux7a0bux5f00ux7bc7]{编程开篇}
+  \item
+    \hyperref[ux4e3aux4ec0ux4e48ux5b66ux4e60Python]{为什么学习Python}
+  \item
+    \hyperref[ux5982ux4f55ux5b89ux88c5Python]{如何安装Python}
+  \item
+    \hyperref[ux5982ux4f55ux8fd0ux884cPythonux547dux4ee4ux548cux811aux672c]{如何运行Python命令和脚本}
+  \item
+    \hyperref[ux4f7fux7528ux4ec0ux4e48ux7f16ux8f91ux5668ux5199Pythonux811aux672c]{使用什么编辑器写Python脚本}
+  \end{enumerate}
+\item
+  \hyperref[Pythonux7a0bux5e8fux4e8bux4f8b]{Python程序事例}
+\item
+  \hyperref[Pythonux8bedux6cd5]{Python基本语法}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \hyperref[ux5c42ux7ea7ux7f29ux8fdb]{层级缩进}
+  \item
+    \hyperref[ux53d8ux91cfux3001ux6570ux636eux7ed3ux6784ux3001ux6d41ux7a0bux63a7ux5236]{变量、数据结构、流程控制}
+
+    \begin{enumerate}
+    \def\labelenumiii{\arabic{enumiii}.}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      \hyperref[ux6570ux503cux53d8ux91cfux64cdux4f5c]{数值变量操作}
+    \item
+      \hyperref[ux5b57ux7b26ux4e32ux53d8ux91cfux64cdux4f5c]{字符串变量操作}
+    \item
+      \hyperref[ux5217ux8868ux64cdux4f5c]{列表操作}
+    \item
+      \hyperref[ux5143ux7ec4ux64cdux4f5c]{元组操作}
+    \item
+      \hyperref[Rangeux4f7fux7528]{Range使用}
+    \item
+      \hyperref[ux5b57ux5178ux64cdux4f5c]{字典操作}
+    \end{enumerate}
+  \end{enumerate}
+\item
+  \hyperref[ux8f93ux5165ux8f93ux51fa]{输入输出}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \hyperref[ux4ea4ux4e92ux5f0fux8f93ux5165ux8f93ux51fa]{交互式输入输出}
+  \item
+    \hyperref[ux6587ux4ef6ux8bfbux5199]{文件读写}
+  \end{enumerate}
+\item
+  \hyperref[ux5b9eux6218ux7ec3ux4e60uxff08ux4e00uxff09]{实战练习（一）}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \hyperref[ux80ccux666fux77e5ux8bc6]{背景知识}
+  \item
+    \hyperref[ux4f5cux4e1auxff08ux4e00uxff09]{作业(一)}
+  \end{enumerate}
+\item
+  \hyperref[ux51fdux6570ux64cdux4f5c]{函数操作}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \hyperref[ux51fdux6570ux64cdux4f5c]{函数操作}
+  \item
+    \hyperref[ux4f5cux4e1auxff08ux4e8cuxff09]{作业（二）}
+  \end{enumerate}
+\item
+  \hyperref[ux6a21ux5757]{模块}
+\item
+  \hyperref[ux547dux4ee4ux884cux53c2ux6570]{命令行参数}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \hyperref[ux547dux4ee4ux884cux53c2ux6570]{命令行参数}
+  \item
+    \hyperref[ux4f5cux4e1auxff08ux4e09uxff09]{作业（三）}
+  \end{enumerate}
+\item
+  \hyperref[ux66f4ux591aPythonux5185ux5bb9]{更多Python内容}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \hyperref[ux5355ux8bedux53e5ux5757]{单语句块}
+  \item
+    \hyperref[ux5217ux8868ux7efcux5408]{列表综合，生成新列表的简化的for循环}
+  \item
+    \hyperref[lmfr]{lambda, map, filer, reduce (保留节目)}
+  \item
+    \hyperref[ee]{exec, eval (执行字符串python语句, 保留节目)}
+  \end{enumerate}
+\item
+  \hyperref[Reference]{Reference}
+\end{enumerate}
+
+
+    \section{背景介绍}
+
+
+
+    \section{编程开篇}
+
+
+    A：最近在看什么书？
+
+B：编程。
+
+A：沈从文的那本啊。
+
+B：\ldots{}\ldots{}
+
+\begin{itemize}
+\item
+\item
+\item
+\item
+\item
+\item
+\item
+\item
+\item
+\end{itemize}
+
+C：最近在学一门新语言，Python。
+
+D：那是哪个国家的语言？
+
+C：\ldots{}\ldots{}
+
+
+    \subsection{为什么学习Python}
+
+
+    \begin{itemize}
+\item
+  语法简单
+
+  Python语言写作的程序就像自然语言构建的伪代码一样，``所见即所想''。读\texttt{Python}代码就像读最简单的英文短文一样，写\texttt{Python}代码比写英文文章都要简单，``所想即所写''。在我教授过的朋友中，大家在写作\texttt{Python}的过程中都觉得很不可思议，原来怎么想怎么写出来就对了。
+\item
+  功能强大
+
+  现在程序语言的发展已经很成熟，每一种程序语言都能实现其它程序语言的全部功能。因此就程序语言本身来讲，功能都相差不大。\texttt{Python}语言的功能强大在于其活跃的社区和强大的第三方模块支持，使其作为科学计算的能力越来越强。
+\item
+  可扩展性好
+
+  能与C完美的融合，加快运行速度。可用加速模块有\texttt{Cython},
+  \texttt{PyPy}, \texttt{Pyrex}, \texttt{Psyco}等.
+\end{itemize}
+
+
+    \subsection{如何安装Python}
+
+
+    Python社区有很多功能很好的包，但逐个安装需要解决繁杂的依赖关系。通常我会推荐安装已经做好的集成包，一劳永逸的解决后续问题。这儿推荐的两个集成包有完全免费的\href{https://store.continuum.io/cshop/anaconda/}{Anaconda}和对学术用户、教育用户免费的\href{https://www.enthought.com/products/canopy/}{Canopy}.
+这两个分发包集成了常用的数值计算、图形处理、多维可视化和其它有用的工具包如\texttt{IPython}，可以节省大量的安装时间。
+
+
+    \subsection{如何运行Python命令和脚本}
+
+
+    \begin{itemize}
+\item
+  对于初学者，本手册推荐直接在\texttt{IPython Notebook}下学习\texttt{Python}命令和脚本。我们这套教程也是用\texttt{IPython Notebook}写作而成，里面的代码可以随时修改和运行，并能同时记录你的脚本和输出，符合现在流行的``可重复性计算''的概念。
+
+  \begin{itemize}
+  \item
+    Linux/Unix用户直接在终端(Terminal)进入你的目标文件夹\texttt{cd /working\_dir}{[}回车{]}，然后在终端输入\texttt{Ipython notebook}{[}回车{]}即可启动\texttt{Ipython notebook}。
+  \item
+    Windows用户可以新建一个\texttt{Ipython\_notebook.bat}文件(新建一个txt文件，写入内容后修改后缀为\texttt{.bat}。若不能修改后缀，请Google搜索``Window是如何显示文件扩展名'')，并写入以下内容（注意把前两行的\emph{盘符}和\emph{路径}替换为你的工作目录），双击即可运行。
+
+\begin{verbatim}
+    D:
+    cd PBR_training
+    ipython notebook
+    pause
+\end{verbatim}
+  \item
+    \texttt{Ipython notebook}启动后会打开默认的浏览器（需要在图形用户界面下工作），这时可以\texttt{新建}或\texttt{打开}相应路径下的ipynb文件。
+  \end{itemize}
+\item
+  对于LInux或Unix用户，直接在终端输入 \texttt{python}
+  然后回车即可打开交互式\texttt{python}解释器，如下图所示。在这个解释器了敲入任何合法的\texttt{python}语句即可执行。此外，所有的命令还可以存储到一个文件一起执行，如下图所示。我们有一个包含\texttt{python}程序的文件\texttt{test.py}，我们只要在终端输入\texttt{python test.py}并回车就可以运行这个文件。同时我们也可在终端通过输入\texttt{chmod 755 test.py}赋予程序\texttt{test.py}可执行权限，并在终端输入\texttt{./test.py}运行\texttt{Python}脚本。更多Linux下的高级使用和Linux命令使用请见教程Bash\_training-chinese.ipynb。
+\item
+  对于Windows用户，可以通过``Windows键+R''调出``Run''窗口并输入``cmd''打开Windows命令解释器，输入\texttt{python}即可打开交互式\texttt{python}解释器。同时也可以双击安装后的软件的快捷方式打开图形界面的\texttt{Python}解释器，可以处理交互式命令和导入Python文件并执行。下图所示是Canopy的界面：
+\item
+  对于交互式\texttt{Python}解释器，在使用结束后，通过键盘组合键\texttt{Ctrl-d}
+  (Linux/Unix)或\texttt{Ctrl-z} (Windows)关闭。
+\end{itemize}
+
+
+    \subsection{使用什么编辑器写Python脚本}
+
+
+    在你学成之后，可能主要操作都在服务器完成，而且日常工作一般会以脚本的形式解决。我个人推荐使用\href{http://www.vim.org/download.php}{Vim}来写作Python脚本。
+
+Linux下\texttt{vim}的配置文件可从\href{https://github.com/Tong-Chen/vim}{我的
+github}下载，Windows版可从\href{http://pan.baidu.com/s/1kT5KIN1}{我的百度云}
+下载。
+
+
+    \section{Python程序事例}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{c}{\PYZsh{}假如我们有如下FASTA格式的文件，我们想把多行序列合并为一行，怎么做？}
+        \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+            \PY{k}{print} \PY{n}{line}\PY{p}{,}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874 gene=Xkr4 CDS=151-2091
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcg
+aggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTG
+CCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACC
+CCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662 gene=Rp1 CDS=55-909
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGC
+AGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCA
+AGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGT
+GGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGC
+TGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACA
+CAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG
+>NM\_011283 gene=Rp1 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+ACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACAC
+CTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATAT
+CACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGG
+GTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCC
+TGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGA
+GGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGG
+CGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835 gene=Rp1 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+ACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACAC
+CTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATAT
+CACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGG
+GTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCC
+TGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGA
+GGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGG
+CGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{key} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{k}{else}\PY{p}{:}
+                 \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{for} \PY{n}{key}\PY{p}{,} \PY{n}{valueL} \PY{o+ow}{in} \PY{n}{aDict}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{print} \PY{n}{key}
+             \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{valueL}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_011283 gene=Rp1 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835 gene=Rp1 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_001011874 gene=Xkr4 CDS=151-2091
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662 gene=Rp1 CDS=55-909
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGCAGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG
+    \end{Verbatim}
+
+
+    \section{Python语法}
+
+
+
+    \subsection{层级缩进}
+
+
+    \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  合适的缩进。空白在Python中是很重要的，它称为缩进。在逻辑行首的空白（空格和制表符）用来决定逻辑行的缩进层次，从而用来决定语句的分组。这意味着同一层次的语句必须有相同的缩进。每一组这样的语句称为一个块。通常的缩进为4个空格,
+  在\texttt{Ipython Notebook}中为一个\texttt{Tab}键。
+\end{itemize}
+
+从下面这两个例子可以看出错误的缩进类型和对应的提示。 * ``unexpected
+indent'' 表示在不该出现空白的地方多了空白，并且指出问题出在第三行(line
+3)。 * ``expected an indented block''
+表示应该有缩进的地方未缩进，也指出了问题所在行。 * ``unindent does not
+match any outer indentation level''
+表示缩进出现了不一致，问题通常会在指定行\textbf{及其前面的行}。
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}123}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{不合适的缩进会引发错误，不该有的缩进}\PY{l+s}{\PYZdq{}}
+          \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{No indent}\PY{l+s}{\PYZsq{}}
+           \PY{n}{b} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{我前面有个空格……}\PY{l+s}{\PYZsq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+          File "<ipython-input-123-085115ffae95>", line 3
+        b = '我前面有个空格……'
+        \^{}
+    IndentationError: unexpected indent
+    
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}124}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{不合适的缩进，应该有，却溜掉的缩进}\PY{l+s}{\PYZdq{}}
+          \PY{n}{a} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}
+          
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{a}\PY{p}{:}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{我应该被缩进，我从属于for循环!!!}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+          File "<ipython-input-124-bd7d3136801b>", line 5
+        print "我应该被缩进，我从属于for循环!!!\textbackslash{}n"
+            \^{}
+    IndentationError: expected an indented block
+    
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}203}]:} \PY{n}{a} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}
+          \PY{k}{if} \PY{n}{a}\PY{p}{:}
+              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{a}\PY{p}{:}
+                  \PY{k}{print} \PY{n}{i}
+                 \PY{k}{print} \PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{为什么我的缩进跟其它行不一样呢，我的空格被谁吃了？}\PY{l+s}{\PYZdq{}}
+                   \PY{k}{print} \PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{为什么我的缩进跟其它行不一样呢，谁给了我个空格？}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+          File "<ipython-input-203-1af46ff5a29f>", line 5
+        print i + 1, "为什么我的缩进跟其它行不一样呢，我的空格被谁吃了？"
+                                                
+    \^{}
+    IndentationError: unindent does not match any outer indentation level
+    
+
+    \end{Verbatim}
+
+
+    \subsection{变量、数据结构、流程控制}
+
+
+    \begin{itemize}
+\item
+  常量，指固定的数字或字符串，如\texttt{2}, \texttt{2.9},
+  \texttt{Hello world}等。
+\item
+  变量，存储了数字或字符串的事物称为变量，它可以被赋值或被修改。简单的可以理解为变量是一个盒子，你可以把任何东西放在里面，通过盒子的名字来取出盒子内的东西。
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    数值变量：存储了数的变量。\\
+  \item
+    字符串变量：存储了字符串的变量。字符串变量的名字最好不为\texttt{str}，可以使用\texttt{aStr}。
+  \item
+    列表 (list):
+    list是处理一组\emph{有序}项目的数据结构，即你可以在一个列表中存储一个
+    \emph{序列}
+    的项目。假想你有一个购物列表，上面记载着你要买的东西，你就容易理解列表了。只不过在你的购物表上，可能每样东西都独自占有一行，而在Python中，你在每个项目之间用逗号分割。列表中的项目应该包括在\textbf{方括号}中，这样Python就知道你是在指明一个列表。一旦你创建了一个列表，你可以添加、删除或是搜索列表中的项目。由于你可以增加或删除项目，我们说列表是
+    \emph{可变的}
+    数据类型，即这种类型是可以被改变的。列表变量的名字最好不为\texttt{list}，可以使用\texttt{aList}。
+  \item
+    元组
+    (set，集合)：元组和列表十分类似，但元组中不允许重复值出现。元组通过\textbf{圆括号中用逗号分割的项目}定义。元组通常用在使语句或用户定义的函数能够安全地采用一组值的时候，即被使用的元组的值不会改变。元组变量的名字最好不为\texttt{set}，可以使用\texttt{aSet}。
+  \item
+    字典 (dict):
+    字典类似于你通过联系人名字查找地址和联系人详细情况的地址簿，即，我们把键（名字）和值（详细情况）联系在一起。注意，键必须是唯一的，就像如果有两个人恰巧同名的话，你无法找到正确的信息。多个键可以指向同一个值。当一个键需要指向多个值时，这些值需要放在列表、元组或字典里面。注意，你只能使用不可变的对象（字符串，数字，元组）来作为字典的键，但是可以用不可变或可变的对象作为字典的值。键值对在字典中以这样的方式标记：d
+    = \{key1 : value1, key2 : value2
+    \}。注意它们的键/值对用冒号分割，而各个对用逗号分割，所有这些都包括在\textbf{花括号}中。记住字典中的键/值对是没有顺序的。如果你想要一个特定的顺序，那么你应该在使用前自己对它们排序。列表变量的名字最好不为\texttt{dict}，可以使用\texttt{aDict}。
+  \item
+    序列：列表、元组、字符串都是一种序列格式。同时还可以使用range来产生序列。序列的两个主要操作时\emph{索引操作}和\emph{切片操作}。
+  \end{itemize}
+\item
+  标示符
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    变量的名字被称为标示符。标识符对大小写敏感，第一个字符必须是字母表中的字母（大写或小写）或者一个下划线（\_），其它部分额外包含数字。有效的标示符有:
+    \texttt{abc}, \texttt{\_abc}, \texttt{a\_b\_2},
+    \texttt{\_\_23}等。无效的标示符有: \texttt{2a}, \texttt{3b}。
+  \item
+    标示符最好不使用Python内置的关键字，如\texttt{str}, \texttt{list},
+    \texttt{int}, \texttt{def}, \texttt{split}, \texttt{dict}等。
+  \item
+    标示符最好能言词达意，即展示变量的类型，又带有变量的实际含义。如\texttt{line}表示文件的一行，\texttt{lineL}表示存有从文件读入的每一行的列表。
+  \end{itemize}
+\item
+  控制流
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \texttt{if}语句
+  \end{itemize}
+
+  \texttt{if}语句用来检验一个条件，如果条件为真，我们运行一块语句（称为
+  \texttt{if-块}），否则我们处理另外一块语句（称为
+  \texttt{else-块}）。\texttt{else}
+  从句是可选的。如果有多个条件，中间使用\texttt{elif}。
+
+  举个例子：``买五个包子，如果看到卖西瓜的，买一个''------最后程序猿买了一个包子''
+  \texttt{买包子 = 5   if 看到卖西瓜的:       买包子 = 1}
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \texttt{For}语句
+  \end{itemize}
+
+  for..in是一个循环语句，它在一序列的对象上递归,即逐一使用队列中的每个项目。
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \texttt{While}语句
+  \end{itemize}
+
+  只要在一个条件为真的情况下，\texttt{while}语句允许你重复执行一块语句。\texttt{while}语句是所谓
+  \emph{循环}
+  语句的一个例子。\texttt{while}语句有一个可选的\texttt{else}从句。
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    \texttt{break}语句是用来 \emph{终止}
+    循环语句的，即哪怕循环条件没有成为False或序列还没有被完全递归，也停止执行循环语句。
+  \end{itemize}
+
+  一个重要的注释是，如果你从\texttt{for}或\texttt{while}循环中
+  \emph{终止} ，任何对应的循环else块将不执行。
+
+  \begin{itemize}
+  \item
+    \texttt{continue}语句被用来告诉\texttt{Python}跳过当前循环块中的剩余语句，然后
+    \emph{继续} 进行下一轮循环。
+  \item
+    逻辑运算符 \texttt{and}, \texttt{or}, \texttt{not}。
+  \end{itemize}
+\end{itemize}
+
+
+    \subsubsection{数值变量操作}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}204}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{数值变量}\PY{l+s}{\PYZdq{}}
+          \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{5}   \PY{c}{\PYZsh{}注意等号两边的空格，为了易于辨识，操作符两侧最后有空格，数量不限}
+          \PY{k}{print} \PY{n}{a}
+          
+          \PY{k}{print}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The type of a is}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{type}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}print \PYZdq{}这是保留节目，通常判断变量的类型使用的不是type是isinstance.\PYZdq{}}
+          \PY{c}{\PYZsh{}print \PYZdq{}a is an int, \PYZdq{}, isinstance(a,int)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+数值变量
+5
+
+The type of a is <type 'int'>
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}205}]:} \PY{c}{\PYZsh{}判断}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{比较数值的大小}\PY{l+s}{\PYZdq{}}
+          \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{5} 
+          
+          \PY{k}{if} \PY{n}{a} \PY{o}{\PYZgt{}} \PY{l+m+mi}{4}\PY{p}{:} \PY{c}{\PYZsh{}注意大于号两边的空格，为了易于辨识，操作符两侧最后有空格，数量不限}
+              \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{a is larger than 4.}\PY{l+s}{\PYZdq{}}
+          \PY{k}{elif} \PY{n}{a} \PY{o}{==} \PY{l+m+mi}{4}\PY{p}{:}
+              \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{a is equal to 4.}\PY{l+s}{\PYZdq{}}
+          \PY{k}{else}\PY{p}{:}
+              \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{a is less than 4}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+比较数值的大小
+a is larger than 4.
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}206}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{给定数值变量a和b的值，通过判断和重新赋值使得a的值小，b的值大}\PY{l+s}{\PYZdq{}}
+          \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{5}
+          \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{3}
+          
+          \PY{k}{if} \PY{n}{a} \PY{o}{\PYZgt{}} \PY{n}{b}\PY{p}{:}
+              \PY{n}{c} \PY{o}{=} \PY{n}{a}
+              \PY{n}{a} \PY{o}{=} \PY{n}{b}
+              \PY{n}{b} \PY{o}{=} \PY{n}{c}
+              \PY{c}{\PYZsh{}print \PYZdq{}我是保留节目，Python特有，不通过中间变量直接就可以做交换，神奇吧！！\PYZdq{}}
+              \PY{c}{\PYZsh{}a,b = b,a}
+          \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+          \PY{k}{print} \PY{n}{a} 
+          \PY{k}{print} \PY{n}{b}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+给定数值变量a和b的值，通过判断和重新赋值使得a的值小，b的值大
+3
+5
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}207}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZsh{}数值运算, 符合传统的优先级，需要使用括号来改变优先级，和小学学的数学一模一样！！}\PY{l+s}{\PYZdq{}}
+          \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{5}
+          \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{3}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{a + b =}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a} \PY{o}{+} \PY{n}{b}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{a * b =}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a} \PY{o}{*} \PY{n}{b}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{2 * (a+b) =}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{2} \PY{o}{*} \PY{p}{(}\PY{n}{a}\PY{o}{+}\PY{n}{b}\PY{p}{)}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{取余数： a }\PY{l+s}{\PYZpc{}}\PY{l+s}{ b =}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a} \PY{o}{\PYZpc{}} \PY{n}{b}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{取余数是很好的判断循环的地方，因为每个固定的数余数就会循环一次}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\#数值运算, 符合传统的优先级，需要使用括号来改变优先级，和小学学的数学一模一样！！
+a + b = 8
+a * b = 15
+2 * (a+b) = 16
+取余数： a \% b = 2
+取余数是很好的判断循环的地方，因为每个固定的数余数就会循环一次
+    \end{Verbatim}
+
+
+    \subsubsection{字符串变量操作}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}208}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{字符串变量}\PY{l+s}{\PYZdq{}}
+          
+          \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hello, welcome to Python}\PY{l+s}{\PYZdq{}}
+          
+          \PY{c}{\PYZsh{}a = 123}
+          \PY{c}{\PYZsh{}a = str(a)}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The string a is:}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a}
+          \PY{k}{print}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The length of this string \PYZlt{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZgt{} is }\PY{l+s+si}{\PYZpc{}d}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{)}
+          \PY{k}{print}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The type of a is}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{type}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+字符串变量
+The string a is: Hello, welcome to Python
+
+The length of this string <Hello, welcome to Python> is 24
+
+The type of a is <type 'str'>
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}209}]:} \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hello, welcome to Python}\PY{l+s}{\PYZdq{}}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{取出字符串的第一个字符、最后一个字符、中间部分字符}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The first character of a is }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The first five characters of a are }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{l+m+mi}{5}\PY{p}{]}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The last character of a is }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{a}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The last character of a is }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{a}\PY{p}{[}\PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{这部分很重要啊，字符的索引和切片操作是及其常用的。}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+取出字符串的第一个字符、最后一个字符、中间部分字符
+The first character of a is H
+
+The first five characters of a are Hello
+
+The last character of a is n
+
+The last character of a is n
+
+
+这部分很重要啊，字符的索引和切片操作是及其常用的。
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}210}]:} \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{oaoaoaoa}\PY{l+s}{\PYZdq{}}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{遍历字符串}\PY{l+s}{\PYZdq{}}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{a}\PY{p}{:}
+              \PY{k}{print} \PY{n}{i}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{输出符合特定要求的字符的位置}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print}
+          \PY{n}{pos} \PY{o}{=} \PY{l+m+mi}{0}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{a}\PY{p}{:}
+              \PY{n}{pos} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+              \PY{k}{if} \PY{n}{i} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                  \PY{k}{print} \PY{n}{pos}
+              \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+          \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{知道吗？不经意间我们写出了Python的一个内置的标准函数find或者index,而且功能还更强大}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+遍历字符串
+o
+a
+o
+a
+o
+a
+o
+a
+输出符合特定要求的字符的位置
+
+1
+3
+5
+7
+
+知道吗？不经意间我们写出了Python的一个内置的标准函数find或者index,而且功能还更强大
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}211}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{我们看看用内置函数如何找到所有 o 的位置}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+          \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{oaoaoaoa}\PY{l+s}{\PYZdq{}}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{内置函数find只能确定最先出现的 o 的位置}\PY{l+s}{\PYZdq{}}
+          \PY{n}{pos} \PY{o}{=} \PY{n}{a}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{因此，我们要在发现 o 之后，截取其后的字符串，再执行find操作}\PY{l+s}{\PYZdq{}}
+          \PY{k}{while} \PY{n}{pos} \PY{o}{!=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{:}
+              \PY{k}{print} \PY{n}{pos} \PY{o}{+} \PY{l+m+mi}{1}
+              \PY{n}{new} \PY{o}{=} \PY{n}{a}\PY{p}{[}\PY{n}{pos}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+              \PY{k}{if} \PY{n}{new} \PY{o}{==} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{:}
+                  \PY{k}{break}
+              \PY{n}{pos} \PY{o}{=} \PY{n}{new} \PY{o}{+} \PY{n}{pos} \PY{o}{+} \PY{l+m+mi}{1}
+          \PY{c}{\PYZsh{}help(str)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+我们看看用内置函数如何找到所有 o 的位置
+
+内置函数find只能确定最先出现的 o 的位置
+因此，我们要在发现 o 之后，截取其后的字符串，再执行find操作
+1
+3
+5
+7
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}212}]:} \PY{k}{print}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{利用split分割字符串}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+          \PY{n}{str1} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{a b c d e f g}\PY{l+s}{\PYZdq{}}
+          \PY{n}{strL} \PY{o}{=} \PY{n}{str1}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{k}{print} \PY{n}{strL}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{使用split命令就可以把字符串分成列表了，想取用哪一列都随便我了。}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+          \PY{c}{\PYZsh{}使用下面的命令查看可以对字符串进行的操作}
+          \PY{c}{\PYZsh{}help(str)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+利用split分割字符串
+
+['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+使用split命令就可以把字符串分成列表了，想取用哪一列都随便我了。
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}213}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{字符串的连接}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+          
+          \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hello}\PY{l+s}{\PYZdq{}}
+          \PY{n}{b} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Python}\PY{l+s}{\PYZdq{}}
+          \PY{n}{c} \PY{o}{=} \PY{n}{a} \PY{o}{+} \PY{n}{b}
+          \PY{k}{print} \PY{n}{c}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{原来字符串相加就可以连起来啊！}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{注意，这不是连接字符串最好的方式。考虑到字符串是不可修改的，每次连接操作都是新开辟一个内存空间，}\PY{l+s+se}{\PYZbs{}}
+          \PY{l+s}{把字符串存到里面，这样的连接操作执行几十万次会很影响运行速度。}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+字符串的连接
+
+HelloPython
+
+原来字符串相加就可以连起来啊！
+
+
+
+注意，这不是连接字符串最好的方式。考虑到字符串是不可修改的，每次连接操作都是新开辟一个内存空间，把字符串存到里面，这样的连接操作执行几十万次会很影响运行速度。
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}214}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{去除字符串中特定的字符。通常我们在文件中读取的一行都包含换行符，linux下为}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{n}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+          \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{oneline}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Currently, the string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{**. The length of string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{**. 我为什么换到下一行了？}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+          
+          \PY{n}{a} \PY{o}{=} \PY{n}{a}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Currently, the string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{**. The length of string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{**. 删掉了换行符后，少了个字符，而且没换行！}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+          
+          \PY{n}{a} \PY{o}{=} \PY{n}{a}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Currently, the string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{**. The length of string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{**. 又少了个字符！！}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+去除字符串中特定的字符。通常我们在文件中读取的一行都包含换行符，linux下为\textbackslash{}n
+
+Currently, the string <a> is ** oneline
+**. The length of string <a> is ** 8 **. 我为什么换到下一行了？
+
+Currently, the string <a> is ** oneline **. The length of string <a> is ** 7 **. 删掉了换行符后，少了个字符，而且没换行！
+
+Currently, the string <a> is ** neline **. The length of string <a> is ** 6 **. 又少了个字符！！
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{字符串的替换}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+        
+        \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hello, Python}\PY{l+s}{\PYZdq{}}
+        \PY{n}{b} \PY{o}{=} \PY{n}{a}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Hello}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Welcome}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{原始字符串是:}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a}
+        \PY{k}{print}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{替换后的字符串是:}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{b}
+        \PY{k}{print}
+        
+        \PY{n}{c} \PY{o}{=} \PY{n}{a}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{o}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{O}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+        \PY{k}{print} \PY{n}{c}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{所有的o都被替换了！}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+        
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{如果我只第一个o怎么办呢？}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+        \PY{n}{c} \PY{o}{=} \PY{n}{a}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{o}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{O}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+        \PY{k}{print} \PY{n}{c}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+字符串的替换
+
+原始字符串是: Hello, Python
+
+替换后的字符串是: Welcome, Python
+
+HellO, PythOn
+所有的o都被替换了！
+
+如果我只第一个o怎么办呢？
+
+HellO, Python
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{字符串帮助}\PY{l+s}{\PYZdq{}}
+       \PY{n}{help}\PY{p}{(}\PY{n+nb}{str}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{大小写判断和转换}\PY{l+s}{\PYZdq{}}
+        \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{Sdsdsd}\PY{l+s}{\PYZsq{}}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{All elements in \PYZlt{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZgt{} is lowercase: }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{a}\PY{o}{.}\PY{n}{islower}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Transfer all elments in \PYZlt{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZgt{} to lowerse \PYZlt{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{a}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Transfer all elments in \PYZlt{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZgt{} to upperse \PYZlt{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{a}\PY{o}{.}\PY{n}{upper}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+大小写判断和转换
+All elements in <Sdsdsd> is lowercase: False
+Transfer all elments in <Sdsdsd> to lowerse <sdsdsd>
+Transfer all elments in <Sdsdsd> to upperse <SDSDSD>
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}218}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{这个是个保留节目，有兴趣的看，无兴趣的跳过不影响学习}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{字符串是不可修改的，同一个变量名字赋不同的只实际是产生了多个不同的变量。不同的变量名字赋同样的值，用于比较时相等，但引用不同的区域}\PY{l+s}{\PYZdq{}}
+          
+          
+          \PY{n}{b} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{123456}\PY{l+s}{\PYZdq{}}
+          \PY{c}{\PYZsh{}print b}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The memory index of b is}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{id}\PY{p}{(}\PY{n}{b}\PY{p}{)}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{15}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{:}
+              \PY{n}{b} \PY{o}{=} \PY{n}{b} \PY{o}{+} \PY{l+s}{\PYZsq{}}\PY{l+s}{123456}\PY{l+s}{\PYZsq{}}
+              \PY{c}{\PYZsh{}print b}
+              \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The memory index of b is}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{id}\PY{p}{(}\PY{n}{b}\PY{p}{)}
+              
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+这个是个保留节目，有兴趣的看，无兴趣的跳过不影响学习
+字符串是不可修改的，同一个变量名字赋不同的只实际是产生了多个不同的变量。不同的变量名字赋同样的值，用于比较时相等，但引用不同的区域
+The memory index of b is 37117024
+The memory index of b is 56557120
+The memory index of b is 57454016
+The memory index of b is 57334640
+The memory index of b is 57334640
+The memory index of b is 57350952
+The memory index of b is 57201408
+The memory index of b is 57142240
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}219}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{字符串转数组}\PY{l+s}{\PYZdq{}}
+          \PY{n}{str1} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{array}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print} \PY{n+nb}{list}\PY{p}{(}\PY{n}{str1}\PY{p}{)}
+          \PY{n}{a} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{str1}\PY{p}{)}
+          \PY{n}{a}\PY{o}{.}\PY{n}{reverse}\PY{p}{(}\PY{p}{)}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+字符串转数组
+['a', 'r', 'r', 'a', 'y']
+yarra
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{数字字符串转数值}\PY{l+s}{\PYZdq{}}
+        \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{123}\PY{l+s}{\PYZsq{}}
+        \PY{k}{print} \PY{n}{a}\PY{o}{+}\PY{l+s}{\PYZsq{}}\PY{l+s}{1}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n+nb}{int}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1}
+        \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{123.5}\PY{l+s}{\PYZsq{}}
+        \PY{k}{print} \PY{n}{a} \PY{o}{+} \PY{l+m+mi}{1}
+        \PY{k}{print} \PY{n+nb}{float}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+数字字符串转数值
+1231 124
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ---------------------------------------------------------------------------
+    TypeError                                 Traceback (most recent call last)
+
+        <ipython-input-8-e09ea72bfa6e> in <module>()
+          3 print a+'1', int(a)+1
+          4 a = '123.5'
+    ----> 5 print a + 1
+          6 print float(a)+1
+    
+
+        TypeError: cannot concatenate 'str' and 'int' objects
+
+    \end{Verbatim}
+
+
+    \subsubsection{列表操作}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}220}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsh{}构建一个数组}\PY{l+s}{\PYZdq{}}
+          \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
+          \PY{k}{print} \PY{n}{aList}
+          \PY{k}{print}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The first element is }\PY{l+s+si}{\PYZpc{}d}\PY{l+s}{.}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{aList}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+          \PY{k}{print}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The last element is }\PY{l+s+si}{\PYZpc{}d}\PY{l+s}{.}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{aList}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+          \PY{k}{print}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The first two elements are}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{aList}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{数组索引和切片操作与字符串是一样一样的，而且都很重要。}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\#构建一个数组
+[1, 2, 3, 4, 5]
+
+The first element is 1.
+
+The last element is 5.
+
+The first two elements are [1, 2]
+
+数组索引和切片操作与字符串是一样一样的，而且都很重要。
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}221}]:} \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsh{}向数组中增加元素}\PY{l+s}{\PYZdq{}}
+          \PY{n}{aList}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{6}\PY{p}{)}
+          \PY{k}{print} \PY{n}{aList}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZsh{}向数组中增加一个数组}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print} 
+          \PY{n}{bList} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{a}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+          \PY{n}{aList}\PY{o}{.}\PY{n}{extend}\PY{p}{(}\PY{n}{bList}\PY{p}{)}
+          \PY{k}{print} \PY{n}{aList}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\#向数组中增加元素
+[6]
+
+\#向数组中增加一个数组
+
+[6, 'a', 'b', 'c']
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}222}]:} \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{在数组中删除元素}\PY{l+s}{\PYZdq{}}
+          \PY{n}{aList}\PY{o}{.}\PY{n}{remove}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
+          \PY{k}{print}
+          \PY{k}{print} \PY{n}{aList}
+          
+          \PY{n}{aList}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
+          \PY{k}{print}
+          \PY{k}{print} \PY{n}{aList}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{pop和remove是不一样的，remove是移除等于给定值的元素，pop是移除给定位置的元素}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+在数组中删除元素
+
+[1, 2, 4, 3, 5]
+
+[1, 2, 4, 5]
+
+pop和remove是不一样的，remove是移除等于给定值的元素，pop是移除给定位置的元素
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}223}]:} \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsh{}遍历数组的每个元素}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print}
+          \PY{k}{for} \PY{n}{ele} \PY{o+ow}{in} \PY{n}{aList}\PY{p}{:}
+              \PY{k}{print} \PY{n}{ele}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsh{}输出数组中大于3的元素}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print} 
+          
+          \PY{k}{for} \PY{n}{ele} \PY{o+ow}{in} \PY{n}{aList}\PY{p}{:}
+              \PY{k}{if} \PY{n}{ele} \PY{o}{\PYZgt{}} \PY{l+m+mi}{3}\PY{p}{:}
+                  \PY{k}{print} \PY{n}{ele}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\#遍历数组的每个元素
+
+1
+2
+3
+4
+5
+\#输出数组中大于3的元素
+
+4
+5
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}224}]:} \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{30}\PY{p}{)}\PY{p}{]}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsh{}输出数组中大于3,且小于10的元素}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print} 
+          
+          \PY{k}{for} \PY{n}{ele} \PY{o+ow}{in} \PY{n}{aList}\PY{p}{:}
+              \PY{k}{if} \PY{n}{ele} \PY{o}{\PYZgt{}} \PY{l+m+mi}{3} \PY{o+ow}{and} \PY{n}{ele} \PY{o}{\PYZlt{}} \PY{l+m+mi}{10}\PY{p}{:} \PY{c}{\PYZsh{}逻辑与，当两个条件都符合时才输出}
+                  \PY{k}{print} \PY{n}{ele}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\#输出数组中大于3,且小于10的元素
+
+4
+5
+6
+7
+8
+9
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}225}]:} \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{30}\PY{p}{)}\PY{p}{]}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsh{}输出数组中大于3,且小于10的元素}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print} 
+          
+          \PY{k}{for} \PY{n}{ele} \PY{o+ow}{in} \PY{n}{aList}\PY{p}{:}
+              \PY{k}{if} \PY{n}{ele} \PY{o}{\PYZgt{}} \PY{l+m+mi}{25} \PY{o+ow}{or} \PY{n}{ele} \PY{o}{\PYZlt{}} \PY{l+m+mi}{5}\PY{p}{:} \PY{c}{\PYZsh{}逻辑或，当两个条件满足一个时就输出}
+                  \PY{k}{print} \PY{n}{ele}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\#输出数组中大于3,且小于10的元素
+
+0
+1
+2
+3
+4
+26
+27
+28
+29
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}226}]:} \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{30}\PY{p}{)}\PY{p}{]}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsh{}输出数组中大于3,且小于10的元素}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print} 
+          
+          \PY{k}{for} \PY{n}{ele} \PY{o+ow}{in} \PY{n}{aList}\PY{p}{:}
+              \PY{k}{if} \PY{o+ow}{not} \PY{n}{ele} \PY{o}{\PYZgt{}} \PY{l+m+mi}{3}\PY{p}{:} \PY{c}{\PYZsh{}逻辑非，当不符合给定条件时才输出。对于这个例子就是ele不大于3时才输出，相当于 if ele \PYZlt{}= 3:}
+                  \PY{k}{print} \PY{n}{ele}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\#输出数组中大于3,且小于10的元素
+
+0
+1
+2
+3
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}227}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{连接数组的每个元素（每个元素必须为字符串）}\PY{l+s}{\PYZdq{}}
+          \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]} \PY{c}{\PYZsh{}Wrong}
+          \PY{c}{\PYZsh{}print \PYZsq{}\PYZbs{}t\PYZsq{}.join(aList) \PYZsh{}wrong}
+          
+          \PY{k}{print} \PY{n}{aList}
+          \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{n+nb}{str}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{aList}\PY{p}{]}
+          \PY{k}{print} \PY{n}{aList}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)} 
+          
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{:}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{先把字符串存到列表，再使用join连接，是最合适的连接大量字符串的方式}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+连接数组的每个元素（每个元素必须为字符串）
+[1, 2, 3, 4, 5]
+['1', '2', '3', '4', '5']
+1	2	3	4	5
+1:2:3:4:5
+12345
+
+先把字符串存到列表，再使用join连接，是最合适的连接大量字符串的方式
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}228}]:} \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{数组反序}\PY{l+s}{\PYZdq{}}
+          \PY{n}{aList}\PY{o}{.}\PY{n}{reverse}\PY{p}{(}\PY{p}{)}
+          \PY{k}{print} \PY{n}{aList}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{数组元素排序}\PY{l+s}{\PYZdq{}}
+          \PY{n}{aList}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{p}{)}
+          \PY{k}{print} \PY{n}{aList}
+          
+          \PY{c}{\PYZsh{}print \PYZdq{}lambda排序，保留节目\PYZdq{}}
+          \PY{c}{\PYZsh{}aList.sort(key=lambda x: x*(\PYZhy{}1))}
+          \PY{c}{\PYZsh{}print aList}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+数组反序
+[5, 4, 3, 2, 1]
+数组元素排序
+[1, 2, 3, 4, 5]
+    \end{Verbatim}
+
+
+    \subsubsection{元组操作}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}229}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{构建一个元组}\PY{l+s}{\PYZdq{}}
+          \PY{n}{aSet} \PY{o}{=} \PY{n+nb}{set}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}
+          \PY{k}{print} \PY{n}{aSet}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{增加一个元素}\PY{l+s}{\PYZdq{}}
+          \PY{n}{aSet}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{)}
+          \PY{k}{print} \PY{n}{aSet}
+          \PY{n}{aSet}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
+          \PY{k}{print} \PY{n}{aSet}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+构建一个元组
+set([1, 2, 3])
+增加一个元素
+set([1, 2, 3, 4])
+set([1, 2, 3, 4])
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}230}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{采用转换为元组去除列表中的重复元素}\PY{l+s}{\PYZdq{}}
+          \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{]}
+          \PY{k}{print} \PY{n}{aList}
+          \PY{k}{print} \PY{n+nb}{set}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+          \PY{k}{print} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{set}\PY{p}{(}\PY{n}{aList}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+采用转换为元组去除列表中的重复元素
+[1, 2, 1, 3, 1, 5, 2, 4, 3, 3, 6]
+set([1, 2, 3, 4, 5, 6])
+[1, 2, 3, 4, 5, 6]
+    \end{Verbatim}
+
+
+    \subsubsection{Range使用}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}231}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{使用range，产生一系列的字符串}\PY{l+s}{\PYZdq{}}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{16}\PY{p}{)}\PY{p}{:}
+              \PY{k}{if} \PY{n}{i} \PY{o}{\PYZpc{}} \PY{l+m+mi}{4} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
+                  \PY{k}{print} \PY{n}{i}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{通过指定步长产生4的倍数的数}\PY{l+s}{\PYZdq{}}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{16}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{:}
+              \PY{k}{print} \PY{n}{i}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+使用range，产生一系列的字符串
+0
+4
+8
+12
+通过指定步长产生4的倍数的数
+0
+4
+8
+12
+    \end{Verbatim}
+
+
+    \subsubsection{字典操作}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}232}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsh{}构建一个字典}\PY{l+s}{\PYZdq{}}
+          \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+m+mi}{1}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{:}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{a}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{d}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{\PYZcb{}}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{打印字典}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print} \PY{n}{aDict}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{向字典中添加键值对}\PY{l+s}{\PYZdq{}}
+          \PY{n}{aDict}\PY{p}{[}\PY{l+m+mi}{5}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{6}
+          \PY{n}{aDict}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{e}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{f}\PY{l+s}{\PYZsq{}}
+          \PY{k}{print} \PY{n}{aDict}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\#构建一个字典
+打印字典
+\{'a': 'b', 1: 2, 3: 4, 'd': 'c'\}
+向字典中添加键值对
+\{'a': 'b', 1: 2, 3: 4, 'e': 'f', 'd': 'c', 5: 6\}
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}233}]:} \PY{k}{print}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{输出字典的键值对(key\PYZhy{}value)}\PY{l+s}{\PYZdq{}}
+          \PY{k}{for} \PY{n}{key}\PY{p}{,} \PY{n}{value} \PY{o+ow}{in} \PY{n}{aDict}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+              \PY{k}{print} \PY{n}{key}\PY{p}{,}\PY{n}{value}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+输出字典的键值对(key-value)
+a b
+1 2
+3 4
+e f
+d c
+5 6
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}234}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{有序输出字典的键值对(key\PYZhy{}value)}\PY{l+s}{\PYZdq{}}
+          \PY{n}{keyL} \PY{o}{=} \PY{n}{aDict}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}
+          \PY{k}{print} \PY{n}{keyL}
+          \PY{n}{keyL}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{p}{)}
+          \PY{k}{print} \PY{n}{keyL}
+          \PY{k}{for} \PY{n}{key} \PY{o+ow}{in} \PY{n}{keyL}\PY{p}{:}
+              \PY{k}{print} \PY{n}{key}\PY{p}{,} \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+有序输出字典的键值对(key-value)
+['a', 1, 3, 'e', 'd', 5]
+[1, 3, 5, 'a', 'd', 'e']
+1 2
+3 4
+5 6
+a b
+d c
+e f
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}235}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{字典的value可以是一个列表}\PY{l+s}{\PYZdq{}}
+          \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{key}\PY{l+s}{\PYZsq{}}
+          \PY{n}{b} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{key2}\PY{l+s}{\PYZsq{}}
+          \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+          \PY{k}{print} \PY{n}{aDict}
+          \PY{n}{aDict}\PY{p}{[}\PY{n}{a}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{print} \PY{n}{aDict}
+          \PY{n}{aDict}\PY{p}{[}\PY{n}{a}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+          \PY{n}{aDict}\PY{p}{[}\PY{n}{a}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+          \PY{k}{print} \PY{n}{aDict}
+          \PY{n}{aDict}\PY{p}{[}\PY{n}{b}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
+          
+          \PY{k}{print}
+          \PY{k}{for} \PY{n}{key}\PY{p}{,} \PY{n}{subL} \PY{o+ow}{in} \PY{n}{aDict}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+              \PY{k}{print} \PY{n}{key}
+              \PY{k}{for} \PY{n}{item} \PY{o+ow}{in} \PY{n}{subL}\PY{p}{:}
+                  \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{item}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{这个在存取读入的文件时会很有用的，下面的实战练习会用到这个。}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+字典的value可以是一个列表
+\{\}
+\{'key': []\}
+\{'key': [1, 2]\}
+
+key2
+	3
+	4
+	5
+key
+	1
+	2
+这个在存取读入的文件时会很有用的，下面的实战练习会用到这个。
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}236}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{字典的value也可以是字典}\PY{l+s}{\PYZdq{}}
+          \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{key}\PY{l+s}{\PYZsq{}}
+          \PY{n}{b} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{key2}\PY{l+s}{\PYZsq{}}
+          \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+          \PY{k}{print} \PY{n}{aDict}
+          \PY{n}{aDict}\PY{p}{[}\PY{n}{a}\PY{p}{]} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+          \PY{k}{print} \PY{n}{aDict}
+          \PY{n}{aDict}\PY{p}{[}\PY{n}{a}\PY{p}{]}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{subkey}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{subvalue}\PY{l+s}{\PYZsq{}}
+          \PY{k}{print} \PY{n}{aDict}
+          \PY{n}{aDict}\PY{p}{[}\PY{n}{b}\PY{p}{]} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+m+mi}{1}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{:}\PY{l+m+mi}{4}\PY{p}{\PYZcb{}}
+          
+          \PY{c}{\PYZsh{}aDict[(a,b)] = 2}
+          \PY{c}{\PYZsh{}aDict[\PYZsq{}a\PYZsq{}] = 2}
+          \PY{c}{\PYZsh{}aDict[\PYZsq{}b\PYZsq{}] = 2}
+          
+          \PY{k}{print}
+          \PY{k}{for} \PY{n}{key}\PY{p}{,} \PY{n}{subD} \PY{o+ow}{in} \PY{n}{aDict}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+              \PY{k}{print} \PY{n}{key}
+              \PY{k}{for} \PY{n}{subKey}\PY{p}{,} \PY{n}{subV} \PY{o+ow}{in} \PY{n}{subD}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                  \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{subKey}\PY{p}{,} \PY{n}{subV}\PY{p}{)}
+          
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{这个在存取读入的文件时会很有用的，下面的实战练习会用到这个。}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+字典的value也可以是字典
+\{\}
+\{'key': \{\}\}
+\{'key': \{'subkey': 'subvalue'\}\}
+
+key2
+	1	2
+	3	4
+key
+	subkey	subvalue
+
+这个在存取读入的文件时会很有用的，下面的实战练习会用到这个。
+    \end{Verbatim}
+
+
+    \section{输入输出}
+
+
+
+    \subsection{交互式输入输出}
+
+
+    在很多时候，你会想要让你的程序与用户（可能是你自己）交互。你会从用户那里得到输入，然后打印一些结果。我们可以分别使用raw\_input和print语句来完成这些功能。
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{a} \PY{o}{=} \PY{n+nb}{raw\PYZus{}input}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Please input a string}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZgt{} }\PY{l+s}{\PYZdq{}}\PY{p}{)}
+       
+       \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{The string you typed in is: }\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Please input a string
+> a
+The string you typed in is:  a
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{这是一个保留例子，仅供玩耍}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+       \PY{n}{lucky\PYZus{}num} \PY{o}{=} \PY{l+m+mi}{5}
+       \PY{n}{c} \PY{o}{=} \PY{l+m+mi}{0}
+       
+       \PY{k}{while} \PY{n+nb+bp}{True}\PY{p}{:}
+           \PY{n}{b} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n+nb}{raw\PYZus{}input}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Please input a number to check if you are lucky enough to guess right: }\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+           \PY{k}{if} \PY{n}{b} \PY{o}{==} \PY{n}{lucky\PYZus{}num}\PY{p}{:}
+               \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{Your are so smart!!! \PYZca{}\PYZus{}\PYZca{} \PYZca{}\PYZus{}\PYZca{}}\PY{l+s}{\PYZdq{}}
+               \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+           \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+           \PY{k}{else}\PY{p}{:}
+               \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{Sorry, but you are not right. }\PY{l+s}{\PYZpc{}}\PY{l+s}{\PYZgt{}\PYZus{}\PYZlt{}}\PY{l+s}{\PYZpc{}}\PY{l+s}{\PYZdq{}}
+               \PY{k}{while} \PY{l+m+mi}{1}\PY{p}{:}
+                   \PY{n}{c} \PY{o}{=} \PY{n+nb}{raw\PYZus{}input}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Do you want to try again? [Y/N] }\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+                   \PY{k}{if} \PY{n}{c} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{Y}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                       \PY{n}{try\PYZus{}again} \PY{o}{=} \PY{l+m+mi}{1}
+                       \PY{k}{break}                
+                   \PY{k}{elif} \PY{n}{c} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{N}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                       \PY{n}{try\PYZus{}again} \PY{o}{=} \PY{l+m+mi}{0}
+                       \PY{k}{break}
+                   \PY{k}{else}\PY{p}{:}
+                       \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{I can not understand you, please check your input. }\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+                       \PY{k}{continue}
+               \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+               \PY{k}{if} \PY{n}{try\PYZus{}again}\PY{p}{:}
+                   \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{Here comes another run. Enjoy!}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+                   \PY{k}{continue}
+               \PY{k}{else}\PY{p}{:}
+                   \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{Bye\PYZhy{}bye}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+                   \PY{k}{break}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+这是一个保留例子，仅供玩耍
+    \end{Verbatim}
+
+
+    \subsection{文件读写}
+
+
+    文件读写是最常见的输入和输出操作。你可以实用\texttt{file}或\texttt{open}来实现。
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{新建一个文件}\PY{l+s}{\PYZdq{}}
+        
+        \PY{n}{context} \PY{o}{=} \PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s}{The best way to learn python contains two steps:}
+        \PY{l+s}{1. Rember basic things mentionded here masterly.}
+        
+        \PY{l+s}{2. Practise with real demands.}
+        \PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}
+        
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{以写入模式(w)打开一个文件并命名为(Test\PYZus{}file.txt)}\PY{l+s}{\PYZdq{}}
+        \PY{n}{fh} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Test\PYZus{}file.txt}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{w}\PY{l+s}{\PYZdq{}}\PY{p}{)} 
+        \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{fh}\PY{p}{,} \PY{n}{context}
+        \PY{c}{\PYZsh{}fh.write(context)}
+        \PY{n}{fh}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)} \PY{c}{\PYZsh{}文件操作完成后必须关闭文件句柄}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+新建一个文件
+以写入模式(w)打开一个文件并命名为(Test\_file.txt)
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{以读写模式(r)读入一个名为(Test\PYZus{}file.txt)的文件}\PY{l+s}{\PYZdq{}}
+        
+        \PY{k}{print}
+        
+        \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Test\PYZus{}file.txt}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+            \PY{k}{print} \PY{n}{line}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+以读写模式(r)读入一个名为(Test\_file.txt)的文件
+
+The best way to learn python contains two steps:
+
+1. Rember basic things mentionded here masterly.
+
+
+
+2. Practise with real demands.
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{避免中间空行的输出。从文件中读取的每一行都带有一个换行符，而Python的print默认会在输出结束时加上换行符，}\PY{l+s+se}{\PYZbs{}}
+        \PY{l+s}{因此打印一行会空出一行。为了解决这个问题，有下面两套方案。}\PY{l+s}{\PYZdq{}}
+        
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{在print语句后加上逗号(,)可以阻止Python对每次输出自动添加的换行符}\PY{l+s}{\PYZdq{}}
+        \PY{k}{print}
+        
+        \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Test\PYZus{}file.txt}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+            \PY{k}{print} \PY{n}{line}\PY{p}{,}
+        
+        \PY{k}{print}
+        
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{去掉每行自身的换行符}\PY{l+s}{\PYZdq{}}
+        \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Test\PYZus{}file.txt}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+            \PY{k}{print} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+避免中间空行的输出。从文件中读取的每一行都带有一个换行符，而Python的print默认会在输出结束时加上换行符，因此打印一行会空出一行。为了解决这个问题，有下面两套方案。
+在print语句后加上逗号(,)可以阻止Python对每次输出自动添加的换行符
+
+The best way to learn python contains two steps:
+1. Rember basic things mentionded here masterly.
+
+2. Practise with real demands.
+
+
+去掉每行自身的换行符
+The best way to learn python contains two steps:
+1. Rember basic things mentionded here masterly.
+
+2. Practise with real demands.
+    \end{Verbatim}
+
+
+    \section{实战练习（一）}
+
+
+
+    \subsection{背景知识}
+
+
+    \textbf{1. FASTA文件格式}
+
+\begin{quote}
+\textgreater{}seq\_name\_1
+\end{quote}
+
+\begin{quote}
+sequence1
+\end{quote}
+
+\begin{quote}
+\textgreater{}seq\_name\_2
+\end{quote}
+
+\begin{quote}
+sequence2
+\end{quote}
+
+\textbf{2. FASTQ文件格式}
+
+\begin{quote}
+@HWI-ST1223:80:D1FMTACXX:2:1101:1243:2213 1:N:0:AGTCAA
+\end{quote}
+
+\begin{quote}
+TCTGTGTAGCCNTGGCTGTCCTGGAACTCACTTTGTAGACCAGGCTGGCATGCA
+\end{quote}
+
+\begin{quote}
+\begin{itemize}
+\item
+\end{itemize}
+\end{quote}
+
+\begin{quote}
+BCCFFFFFFHH\#4AFHIJJJJJJJJJJJJJJJJJIJIJJJJJGHIJJJJJJJJJ
+\end{quote}
+
+
+    \subsection{作业 (一)}
+
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  给定FASTA格式的文件(test1.fa 和 test2.fa)，写一个程序 \texttt{cat.py}
+  读入文件，并输出到屏幕
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      open(file)
+    \item
+      for .. in loop
+    \item
+      print
+    \item
+      the amazng , or strip() function
+    \end{itemize}
+  \end{itemize}
+\item
+  给定FASTQ格式的文件(test1.fq), 写一个程序 \texttt{cat.py}
+  读入文件，并输出到屏幕
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      同上
+    \end{itemize}
+  \end{itemize}
+\item
+  写程序 \texttt{splitName.py}, 读入test2.fa,
+  并取原始序列名字第一个空格前的名字为处理后的序列名字，输出到屏幕
+
+  \begin{itemize}
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      split
+    \item
+      字符串的索引
+    \end{itemize}
+  \item
+    输出格式为：
+
+\begin{verbatim}
+>NM_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctg.......
+\end{verbatim}
+  \end{itemize}
+\item
+  写程序 \texttt{formatFasta.py},
+  读入test2.fa，把每条FASTA序列连成一行然后输出
+
+  \begin{itemize}
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      join
+    \item
+      strip\\
+    \end{itemize}
+  \item
+    输出格式为:
+
+\begin{verbatim}
+>NM_001011874
+gcggcggcgggc......TCCGCTG......GCGTTCACC......CGGGGTCCGGAG
+\end{verbatim}
+  \end{itemize}
+\item
+  写程序 \texttt{formatFasta-2.py},
+  读入test2.fa，把每条FASTA序列分割成80个字母一行的序列
+
+  \begin{itemize}
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      字符串切片操作
+    \item
+      range
+    \end{itemize}
+  \item
+    输出格式为
+
+\begin{verbatim}
+>NM_001011874
+gcggcggcgc.(60个字母).TCCGCTGACG #(每行80个字母)
+acgtgctacg.(60个字母).GCGTTCACCC
+ACGTACGATG(最后一行可不足80个字母)
+\end{verbatim}
+  \end{itemize}
+\item
+  写程序 \texttt{sortFasta.py}, 读入test2.fa,
+  并取原始序列名字第一个空格前的名字为处理后的序列名字，排序后输出
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      sort
+    \item
+      dict
+    \item
+      aDict{[}key{]} = {[}{]}
+    \item
+      aDict{[}key{]}.append(value)
+    \end{itemize}
+  \end{itemize}
+\item
+  提取给定名字的序列
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    写程序 \texttt{grepFasta.py},
+    提取fasta.name中名字对应的test2.fa的序列，并输出到屏幕。
+  \item
+    写程序 \texttt{grepFastq.py},
+    提取fastq.name中名字对应的test1.fq的序列，并输出到文件。
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      用到的知识点
+
+      \begin{itemize}
+      \itemsep1pt\parskip0pt\parsep0pt
+      \item
+        print \textgreater{}\textgreater{}fh, or fh.write()
+      \item
+        取模运算，4 \% 2 == 0
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\item
+  写程序 \texttt{screenResult.py},
+  筛选test.expr中foldChange大于2的基因并且padj小于0.05的基因
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      逻辑与操作符 and
+    \item
+      文件中读取的内容都为字符串，需要用int转换为整数，float转换为浮点数
+    \end{itemize}
+  \end{itemize}
+\item
+  写程序 \texttt{transferMultipleColumToMatrix.py}
+  将文件(multipleColExpr.txt)中基因在多个组织中的表达数据转换为矩阵形式
+
+  \begin{itemize}
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      aDict{[}`key'{]} = \{\}
+    \item
+      aDict{[}`key'{]}{[}`key2'{]} = value
+    \item
+      if key not in aDict
+    \item
+      aDict = \{`ENSG00000000003': \{``A-431'': 21.3, ``A-549'',
+      32.5,\ldots{}\},``ENSG00000000003'':\{\},\}
+    \end{itemize}
+  \item
+    输入格式(只需要前3列就可以)
+
+\begin{verbatim}
+Gene    Sample  Value   Unit    Abundance
+ENSG00000000003 A-431   21.3    FPKM    Medium
+ENSG00000000003 A-549   32.5    FPKM    Medium
+ENSG00000000003 AN3-CA  38.2    FPKM    Medium
+ENSG00000000003 BEWO    31.4    FPKM    Medium
+ENSG00000000003 CACO-2  63.9    FPKM    High
+ENSG00000000005 A-431   0.0     FPKM    Not detected
+ENSG00000000005 A-549   0.0     FPKM    Not detected
+ENSG00000000005 AN3-CA  0.0     FPKM    Not detected
+ENSG00000000005 BEWO    0.0     FPKM    Not detected
+ENSG00000000005 CACO-2  0.0     FPKM    Not detected
+\end{verbatim}
+  \item
+    输出格式
+
+\begin{verbatim}
+Name    A-431   A-549   AN3-CA  BEWO    CACO-2
+ENSG00000000460 25.2    14.2    10.6    24.4    14.2
+ENSG00000000938 0.0 0.0 0.0 0.0 0.0
+ENSG00000001084 19.1    155.1   24.4    12.6    23.5
+ENSG00000000457 2.8 3.4 3.8 5.8 2.9
+\end{verbatim}
+  \end{itemize}
+\item
+  写程序 \texttt{reverseComplementary.py}计算序列
+  \texttt{ACGTACGTACGTCACGTCAGCTAGAC}的反向互补序列
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      reverse
+    \item
+      list(seq)
+    \end{itemize}
+  \end{itemize}
+\item
+  写程序 \texttt{collapsemiRNAreads.py}转换smRNA-Seq的测序数据
+
+  \begin{itemize}
+  \item
+    输入文件格式(mir.collapse,
+    tab-分割的两列文件，第一列为序列，第二列为序列被测到的次数)
+
+\begin{verbatim}
+    ID_REF        VALUE
+    ACTGCCCTAAGTGCTCCTTCTGGC        2
+    ATAAGGTGCATCTAGTGCAGATA        25
+    TGAGGTAGTAGTTTGTGCTGTTT        100
+    TCCTACGAGTTGCATGGATTC        4
+\end{verbatim}
+  \item
+    输出文件格式 (mir.collapse.fa,
+    名字的前3个字母为样品的特异标示，中间的数字表示第几条序列，是序列名字的唯一标示，第三部分是x加每个reads被测到的次数。三部分用下划线连起来作为fasta序列的名字。)
+
+\begin{verbatim}
+    >ESB_1_x2
+    ACTGCCCTAAGTGCTCCTTCTGGC
+    >ESB_2_x25
+    ATAAGGTGCATCTAGTGCAGATA
+    >ESB_3_x100
+    TGAGGTAGTAGTTTGTGCTGTTT
+    >ESB_4_x4
+    TCCTACGAGTTGCATGGATTC
+\end{verbatim}
+  \end{itemize}
+\item
+  简化的短序列匹配程序 (map.py) 把short.fa中的序列比对到ref.fa,
+  输出短序列匹配到ref.fa文件中哪些序列的哪些位置
+
+  \begin{itemize}
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      find
+    \end{itemize}
+  \item
+    输出格式
+    (输出格式为bed格式，第一列为匹配到的染色体，第二列和第三列为匹配到染色体序列的起始终止位置（位置标记以0为起始，代表第一个位置；终止位置不包含在内，第一个例子中所示序列的位置是(199,208{]}(前闭后开，实际是chr1染色体第199-206的序列，0起始).
+    第4列为短序列自身的序列.)。
+  \item
+    附加要求：可以只匹配到给定的模板链，也可以考虑匹配到模板链的互补链。这时第5列可以为短序列的名字，第六列为链的信息，匹配到模板链为'+`，匹配到互补链为'-'。注意匹配到互补链时起始位置也是从模板链的5'端算起的。
+
+\begin{verbatim}
+chr1    199 208 TGGCGTTCA
+chr1    207 216 ACCCCGCTG
+chr2    63  70  AAATTGC
+chr3    0   7   AATAAAT
+\end{verbatim}
+  \end{itemize}
+\item
+  备注：
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    每个提到提到的``用到的知识点''为相对于前面的题目新增的知识点，请综合考虑。此外，对于不同的思路并不是所有提到的知识点都会用着，而且也可能会用到未提到的知识点。但是所有知识点都在前面的讲义部分有介绍。
+  \item
+    每个程序对于你身边会写的人来说都很简单，因此你一定要克制住，独立去把答案做出，多看错误提示，多比对程序输出结果和预期结果的差异。
+  \item
+    学习锻炼``读程序''，即对着文件模拟整个的读入、处理过程来发现可能的逻辑问题。
+  \item
+    程序运行没有错误不代表你写的程序完成了你的需求，你要去查验输出结果是不是你想要的。
+  \end{itemize}
+\item
+  关于程序调试
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    在初写程序时，可能会出现各种各样的错误，常见的有缩进不一致，变量名字拼写错误，丢失冒号，文件名未加引号等，这时要根据错误提示查看错误类型是什么，出错的是哪一行来定位错误。当然，有的时候报错的行自身不一定有错，可能是其前面或后面的行出现了错误。
+  \item
+    当结果不符合预期时，要学会\textbf{使用print来查看每步的操作是否正确}，比如我读入了字典，我就打印下字典，看看读入的是不是我想要的，是否含有不该存在的字符；或者\textbf{在每个判断句、函数调入的情况下打印个字符，来跟踪程序的运行轨迹}。
+  \end{itemize}
+\end{enumerate}
+
+
+    \section{函数操作}
+
+
+    函数是重用的程序段。它们允许你给一块语句一个名称，然后你可以在你的程序的任何地方使用这个名称任意多次地运行这个语句块。这被称为
+\texttt{调用}
+函数。我们已经使用了许多内建的函数，比如\texttt{len}和\texttt{range}。
+
+函数通过\texttt{def}关键字定义。\texttt{def}关键字后跟一个函数的
+\texttt{标识符}
+名称，然后跟一对圆括号。圆括号之中可以包括一些变量名，该行以冒号结尾。接下来是一块语句，它们是函数体。
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}29}]:} \PY{k}{def} \PY{n+nf}{print\PYZus{}hello}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hello, you!}\PY{l+s}{\PYZdq{}}
+         
+         \PY{n}{print\PYZus{}hello}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Hello, you!
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}30}]:} \PY{k}{def} \PY{n+nf}{hello}\PY{p}{(}\PY{n}{who}\PY{p}{)}\PY{p}{:}
+             \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hello, }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{!}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{who}
+         
+         \PY{n}{hello}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{you}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{hello}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{me}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Hello, you!
+Hello, me!
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}31}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{把之前写过的语句块稍微包装下就是函数了}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+         
+         \PY{k}{def} \PY{n+nf}{findAll}\PY{p}{(}\PY{n}{string}\PY{p}{,} \PY{n}{pattern}\PY{p}{)}\PY{p}{:}
+             \PY{n}{posL} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{n}{pos} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{string}\PY{p}{:}
+                 \PY{n}{pos} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+                 \PY{k}{if} \PY{n}{i} \PY{o}{==} \PY{n}{pattern}\PY{p}{:}
+                     \PY{n}{posL}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{pos}\PY{p}{)}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{k}{return} \PY{n}{posL}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END of findAll\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{n}{a} \PY{o}{=} \PY{n}{findAll}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{ABCDEFDEACFBACACA}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{A}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+         \PY{k}{print} \PY{n}{a} 
+         \PY{k}{print} \PY{n}{findAll}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{ABCDEFDEACFBACACA}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{B}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+把之前写过的语句块稍微包装下就是函数了
+
+[1, 9, 13, 15, 17]
+[2, 12]
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}32}]:} \PY{k}{def} \PY{n+nf}{read}\PY{p}{(}\PY{n+nb}{file}\PY{p}{)}\PY{p}{:}
+             \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n+nb}{file}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{n}{name} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{k}{for} \PY{n}{name}\PY{p}{,} \PY{n}{lineL} \PY{o+ow}{in} \PY{n}{aDict}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{lineL}\PY{p}{)}
+             \PY{k}{return} \PY{n}{aDict}
+         
+         \PY{k}{print} \PY{n}{read}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data/test1.fa}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{read}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\{'>NM\_0112835 gene=Rp15 CDS=128-6412': 'AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC', '>NM\_011283 gene=Rp1 CDS=128-6412': 'AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC', '>NM\_001011874 gene=Xkr4 CDS=151-2091': 'gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcg', '>NM\_001195662 gene=Rp1 CDS=55-909': 'AGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCA'\}
+    \end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}32}]:} \{'>NM\_001011874 gene=Xkr4 CDS=151-2091': 'gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG',
+          '>NM\_001195662 gene=Rp1 CDS=55-909': 'AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGCAGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG',
+          '>NM\_011283 gene=Rp1 CDS=128-6412': 'AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA',
+          '>NM\_0112835 gene=Rp1 CDS=128-6412': 'AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA'\}
+\end{Verbatim}
+        
+
+    \subsection{作业（二）}
+
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  将 ``作业（一）'' 中的程序块用函数的方式重写，并调用执行
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      def func(para1,para2,\ldots{}):
+    \item
+      func(para1,para2,\ldots{})
+    \end{itemize}
+  \end{itemize}
+\item
+  备注：
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    每个提到提到的``用到的知识点''为相对于前面的题目新增的知识点，请综合考虑。此外，对于不同的思路并不是所有提到的知识点都会用着，而且也可能会用到未提到的知识点。但是所有知识点都在前面的讲义部分有介绍。
+  \item
+    每个程序对于你身边会写的人来说都很简单，因此你一定要克制住，独立去把答案做出，多看错误提示，多比对程序输出结果和预期结果的差异。
+  \item
+    学习锻炼``读程序''，即对着文件模拟整个的读入、处理过程来发现可能的逻辑问题。
+  \item
+    程序运行没有错误不代表你写的程序完成了你的需求，你要去插眼输出结果是不是你想要的。
+  \end{itemize}
+\item
+  关于程序调试
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    在初写程序时，可能会出现各种各样的错误，常见的有缩进不一致，变量名字拼写错误，丢失冒号，文件名未加引号等，这时要根据错误提示查看错误类型是什么，出错的是哪一行来定位错误。当然，有的时候报错的行自身不一定有错，可能是其前面或后面的行出现了错误。
+  \item
+    当结果不符合预期时，要学会使用print来查看每步的操作是否正确，比如我读入了字典，我就打印下字典，看看读入的是不是我想要的，是否含有不该存在的字符；或者在每个判断句、函数调入的情况下打印个字符，来跟踪程序的运行轨迹。
+  \end{itemize}
+\end{enumerate}
+
+
+    \section{模块}
+
+
+    Python内置了很多标准库，如做数学运算的 \texttt{math}, 调用系统功能的
+\texttt{sys}, 处理正则表达式的 \texttt{re}, 操作系统相关功能的
+\texttt{os}等。我们主要关注两个库: * sys * sys.argv 处理命令行参数 *
+sys.exit() 退出函数 * sys.stdin 标准输入 * sys.stderr 标准错误 * os *
+os.system()或os.popen() 执行系统命令 * os.getcwd() 获取当前目录 *
+os.remove() 删除文件
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}57}]:} \PY{k+kn}{import} \PY{n+nn}{os}
+         \PY{n}{os}\PY{o}{.}\PY{n}{getcwd}\PY{p}{(}\PY{p}{)}
+         \PY{c}{\PYZsh{}help(os.getcwd)}
+         \PY{c}{\PYZsh{}os.remove(r\PYZsq{}D:\PYZbs{}project\PYZbs{}github\PYZbs{}PBR\PYZus{}training\PYZbs{}script\PYZbs{}splitName.py\PYZsq{})}
+         \PY{c}{\PYZsh{}os.system(\PYZsq{}rm file\PYZsq{})}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}57}]:} 'D:\textbackslash{}\textbackslash{}project\textbackslash{}\textbackslash{}github\textbackslash{}\textbackslash{}PBR\_training'
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}58}]:} \PY{k+kn}{from} \PY{n+nn}{os} \PY{k+kn}{import} \PY{n}{getcwd}
+         \PY{n}{getcwd}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}58}]:} 'D:\textbackslash{}\textbackslash{}project\textbackslash{}\textbackslash{}github\textbackslash{}\textbackslash{}PBR\_training'
+\end{Verbatim}
+        
+
+    \section{命令行参数}
+
+
+    \texttt{sys.argv}是一个列表，存储了包含程序名字在内的传给程序的命令行参数。
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}59}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{testSys}\PY{o}{.}\PY{n}{py}
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         \PY{k}{print} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting testSys.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}60}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{testSys} \PY{l+s}{\PYZsq{}}\PY{l+s}{abc}\PY{l+s}{\PYZsq{}} \PY{n}{cde} \PY{l+m+mi}{1234}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+['testSys.py', "'abc'", 'cde', '1234']
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}61}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{cat}\PY{o}{.}\PY{n}{py}
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         
+         \PY{k}{def} \PY{n+nf}{read\PYZus{}print\PYZus{}file}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{print} \PY{n}{line}\PY{p}{,}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END read\PYZus{}print\PYZus{}file\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{c}{\PYZsh{}main函数及其调用部分是我个人写程序的固定格式，照搬就可以}
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:} \PY{c}{\PYZsh{}一般主程序会包含在main函数中，在文件的最后调用main函数即可运行程序}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{2}\PY{p}{:}  \PY{c}{\PYZsh{}如果命令行参数不足两个，则提示操作}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Usage: python }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ filename}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{\PYZsh{}一般提示信息输出到标准错误}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+             \PY{n+nb}{file} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{n}{read\PYZus{}print\PYZus{}file}\PY{p}{(}\PY{n+nb}{file}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{c}{\PYZsh{}这句话是说只有次文件被执行时才调用main函数。如果这个文件被其它文件调用，则不执行main函数。}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting cat.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}62}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{cat}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Usage: python cat.py filename
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}63}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{cat} \PY{n}{data}\PY{o}{/}\PY{n}{test1}\PY{o}{.}\PY{n}{fq}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+@HWI-ST1223:80:D1FMTACXX:2:1101:1243:2213 1:N:0:AGTCAA
+TCTGTGTAGCCNTGGCTGTCCTGGAACTCACTTTGTAGACCAGGCTGGCATGCACCACCACNNNCGGCTCATTTGTCTTTNNTTTTTGTTTTGTTCTGTA
++
+BCCFFFFFFHH\#4AFHIJJJJJJJJJJJJJJJJJIJIJJJJJGHIJJJJJJJJJJJJJIIJ\#\#\#--5ABECFFDDEEEEE\#\#,5=@B8?CDD<AD>C:@>
+@HWI-ST1223:80:D1FMTACXX:2:1101:1375:2060 1:N:0:AGTCAA
+NTGCTGAGCCACGACAAGGATCCCAGAGGGCCNAGCCCTGCATCTTGTATGGACCAGTTACNCATCAAAAGAGACTACTGTAGGCACCATCAATCAGATC
++
+\#1:DDDD;?CFFHDFEEIGIIIIIIG;DHFGG\#)0?BFBDHBFF<FCFEFD;@DD@A=7?E\#,,,;=(>3;=;;C>ACCC@CCCCCBBBCCAACCCCCCC
+@HWI-ST1223:80:D1FMTACXX:2:1101:1383:2091 1:N:0:AGTCAA
+NGTTCGTGTGGAACCTGGCGCTAAACCATTCGTAGACGACCTGCTTCTGGGTCGGGGTTTCGTACGTAGCAGAGCAGCTCCCTCGCTGCGATCTATTGAA
++
+\#1=DDFDFHHHHHJGJJJJJJJJJJJJJJJIJIGDHIHIGIJJJJJJJIIIGHHFDD3>BDDBDDDDDDDDDDBDCCBDDDDDDDDDDDBBDDDDEEACD
+@HWI-ST1223:80:D1FMTACXX:2:1101:1452:2138 1:N:0:AGTCAA
+NTCTAGGAGGTCTAGAAAGCCCAGGCCACCGGTACAAACATCAAGGGTGTTACGGATGTGCCGCTCTGAACCTCCAGGACGACTTTGATTTCAACTACAA
++
+\#4=DFFEFHHHHHJJJJJIJJJJHIIJGJJJJ@GIIJJJJJJIJJJJFGHIIIJJHHHDFFFFDDDDDDDDDDDDCDDDDDDDDDDDCCCEDEDDDDDDD
+    \end{Verbatim}
+
+    使用 \texttt{optparse}，功能更强大 (保留内容)
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}64}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{skeleton}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}!/usr/bin/env python}
+         
+         \PY{n}{desc} \PY{o}{=} \PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}
+         \PY{l+s}{Functional description:}
+         
+         \PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}
+         
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         \PY{k+kn}{import} \PY{n+nn}{os}
+         \PY{k+kn}{from} \PY{n+nn}{time} \PY{k+kn}{import} \PY{n}{localtime}\PY{p}{,} \PY{n}{strftime} 
+         \PY{n}{timeformat} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZpc{}}\PY{l+s}{Y\PYZhy{}}\PY{l+s}{\PYZpc{}}\PY{l+s}{m\PYZhy{}}\PY{l+s+si}{\PYZpc{}d}\PY{l+s}{ }\PY{l+s}{\PYZpc{}}\PY{l+s}{H:}\PY{l+s}{\PYZpc{}}\PY{l+s}{M:}\PY{l+s}{\PYZpc{}}\PY{l+s}{S}\PY{l+s}{\PYZdq{}}
+         \PY{k+kn}{from} \PY{n+nn}{optparse} \PY{k+kn}{import} \PY{n}{OptionParser} \PY{k}{as} \PY{n}{OP}
+         
+         \PY{k}{def} \PY{n+nf}{cmdparameter}\PY{p}{(}\PY{n}{argv}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{argv}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{:}
+                 \PY{k}{global} \PY{n}{desc}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PY{n}{desc}
+                 \PY{n}{cmd} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{python }\PY{l+s}{\PYZsq{}} \PY{o}{+} \PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} \PY{l+s}{\PYZsq{}}\PY{l+s}{ \PYZhy{}h}\PY{l+s}{\PYZsq{}}
+                 \PY{n}{os}\PY{o}{.}\PY{n}{system}\PY{p}{(}\PY{n}{cmd}\PY{p}{)}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+             \PY{n}{usages} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZpc{}}\PY{l+s}{prog \PYZhy{}i file}\PY{l+s}{\PYZdq{}}
+             \PY{n}{parser} \PY{o}{=} \PY{n}{OP}\PY{p}{(}\PY{n}{usage}\PY{o}{=}\PY{n}{usages}\PY{p}{)}
+             \PY{n}{parser}\PY{o}{.}\PY{n}{add\PYZus{}option}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZhy{}i}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZhy{}\PYZhy{}input\PYZhy{}file}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{dest}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{filein}\PY{l+s}{\PYZdq{}}\PY{p}{,}
+                 \PY{n}{metavar}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{FILEIN}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{help}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{The name of input file. }\PY{l+s+se}{\PYZbs{}}
+         \PY{l+s}{Standard input is accepted.}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+             \PY{n}{parser}\PY{o}{.}\PY{n}{add\PYZus{}option}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZhy{}v}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZhy{}\PYZhy{}verbose}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{dest}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{verbose}\PY{l+s}{\PYZdq{}}\PY{p}{,}
+                 \PY{n}{default}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{help}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Show process information}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+             \PY{n}{parser}\PY{o}{.}\PY{n}{add\PYZus{}option}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZhy{}d}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZhy{}\PYZhy{}debug}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{dest}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{debug}\PY{l+s}{\PYZdq{}}\PY{p}{,}
+                 \PY{n}{default}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{,} \PY{n}{help}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Debug the program}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+             \PY{p}{(}\PY{n}{options}\PY{p}{,} \PY{n}{args}\PY{p}{)} \PY{o}{=} \PY{n}{parser}\PY{o}{.}\PY{n}{parse\PYZus{}args}\PY{p}{(}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}\PY{p}{)}
+             \PY{k}{assert} \PY{n}{options}\PY{o}{.}\PY{n}{filein} \PY{o}{!=} \PY{n+nb+bp}{None}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{A filename needed for \PYZhy{}i}\PY{l+s}{\PYZdq{}}
+             \PY{k}{return} \PY{p}{(}\PY{n}{options}\PY{p}{,} \PY{n}{args}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{n}{options}\PY{p}{,} \PY{n}{args} \PY{o}{=} \PY{n}{cmdparameter}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{n+nb}{file} \PY{o}{=} \PY{n}{options}\PY{o}{.}\PY{n}{filein}
+             \PY{n}{verbose} \PY{o}{=} \PY{n}{options}\PY{o}{.}\PY{n}{verbose}
+             \PY{n}{debug} \PY{o}{=} \PY{n}{options}\PY{o}{.}\PY{n}{debug}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{k}{if} \PY{n+nb}{file} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{fh} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{stdin}
+             \PY{k}{else}\PY{p}{:}
+                 \PY{n}{fh} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{n+nb}{file}\PY{p}{)}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{fh}\PY{p}{:}
+                 \PY{k}{pass}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END reading file\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}close file handle for files\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{k}{if} \PY{n+nb}{file} \PY{o}{!=} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{fh}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}end close fh\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,}\PYZbs{}
+                     \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZhy{}\PYZhy{}Successful }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{strftime}\PY{p}{(}\PY{n}{timeformat}\PY{p}{,} \PY{n}{localtime}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+             \PY{n}{startTime} \PY{o}{=} \PY{n}{strftime}\PY{p}{(}\PY{n}{timeformat}\PY{p}{,} \PY{n}{localtime}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}
+             \PY{n}{endTime} \PY{o}{=} \PY{n}{strftime}\PY{p}{(}\PY{n}{timeformat}\PY{p}{,} \PY{n}{localtime}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+             \PY{n}{fh} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{python.log}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{a}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+             \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{fh}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}t}\PY{l+s}{Run time : }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ \PYZhy{} }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PYZbs{}
+                 \PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)}\PY{p}{,} \PY{n}{startTime}\PY{p}{,} \PY{n}{endTime}\PY{p}{)}
+             \PY{n}{fh}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting skeleton.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}65}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{skeleton} \PY{o}{\PYZhy{}}\PY{n}{h}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Usage: skeleton.py -i file
+
+Options:
+  -h, --help            show this help message and exit
+  -i FILEIN, --input-file=FILEIN
+                        The name of input file. Standard input is accepted.
+  -v VERBOSE, --verbose=VERBOSE
+                        Show process information
+  -d DEBUG, --debug=DEBUG
+                        Debug the program
+    \end{Verbatim}
+
+
+    \subsection{作业（三）}
+
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  使 ``作业（二）'' 中的程序都能接受命令行参数
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      import sys
+    \item
+      sys.argv
+    \item
+      import optparse
+    \end{itemize}
+  \end{itemize}
+\item
+  备注
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    每个提到提到的``用到的知识点''为相对于前面的题目新增的知识点，请综合考虑。此外，对于不同的思路并不是所有提到的知识点都会用着，而且也可能会用到未提到的知识点。但是所有知识点都在前面的讲义部分有介绍。
+  \item
+    每个程序对于你身边会写的人来说都很简单，因此你一定要克制住，独立去把答案做出，多看错误提示，多比对程序输出结果和预期结果的差异。
+  \item
+    学习锻炼``读程序''，即对着文件模拟整个的读入、处理过程来发现可能的逻辑问题。
+  \item
+    程序运行没有错误不代表你写的程序完成了你的需求，你要去插眼输出结果是不是你想要的。
+  \end{itemize}
+\item
+  关于程序调试
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    在初写程序时，可能会出现各种各样的错误，常见的有缩进不一致，变量名字拼写错误，丢失冒号，文件名未加引号等，这时要根据错误提示查看错误类型是什么，出错的是哪一行来定位错误。当然，有的时候报错的行自身不一定有错，可能是其前面或后面的行出现了错误。
+  \item
+    当结果不符合预期时，要学会使用print来查看每步的操作是否正确，比如我读入了字典，我就打印下字典，看看读入的是不是我想要的，是否含有不该存在的字符；或者在每个判断句、函数调入的情况下打印个字符，来跟踪程序的运行轨迹。
+  \end{itemize}
+\end{enumerate}
+
+
+    \section{更多Python内容}
+
+
+    
+
+    \textbf{单语句块}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}90}]:} \PY{k}{if} \PY{n+nb+bp}{True}\PY{p}{:}
+             \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{yes}\PY{l+s}{\PYZsq{}}
+             
+         \PY{k}{if} \PY{n+nb+bp}{True}\PY{p}{:} \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{yes}\PY{l+s}{\PYZsq{}}
+         
+         \PY{n}{x} \PY{o}{=} \PY{l+m+mi}{5}
+         \PY{n}{y} \PY{o}{=} \PY{l+m+mi}{3}
+         
+         \PY{k}{if} \PY{n}{x} \PY{o}{\PYZgt{}} \PY{n}{y}\PY{p}{:}
+             \PY{k}{print} \PY{n}{y}
+         \PY{k}{else}\PY{p}{:}
+             \PY{k}{print} \PY{n}{x}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{print} \PY{n}{y} \PY{k}{if} \PY{n}{y} \PY{o}{\PYZlt{}} \PY{n}{x} \PY{k}{else} \PY{n}{x} 
+         \PY{k}{print} \PY{n}{x}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+yes
+yes
+3
+3
+5
+    \end{Verbatim}
+
+    
+
+    \textbf{列表综合，生成新列表的简化的for循环}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}91}]:} \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
+         \PY{n}{bList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{aList}\PY{p}{:}
+             \PY{n}{bList}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{i} \PY{o}{*} \PY{l+m+mi}{2}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{c}{\PYZsh{}nameL = [line.strip() for line in open(file)]}
+             
+         \PY{n}{bList} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{o}{*} \PY{l+m+mi}{2} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{aList}\PY{p}{]}
+         \PY{k}{print} \PY{n}{bList}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[2, 4, 6, 8, 10]
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}92}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{列表综合可以做判断的}\PY{l+s}{\PYZdq{}}
+         \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
+         \PY{n}{bList} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{o}{*} \PY{l+m+mi}{2} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{aList} \PY{k}{if} \PY{n}{i}\PY{o}{\PYZpc{}}\PY{k}{2} \PY{o}{!=} \PY{l+m+mi}{0}\PY{p}{]}
+         \PY{k}{print} \PY{n}{bList}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+列表综合可以做判断的
+[2, 6, 10]
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}93}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{列表综合也可以嵌套的}\PY{l+s}{\PYZdq{}}
+         \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
+         \PY{n}{bList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}
+         \PY{n}{bList} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{o}{*} \PY{n}{j} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{aList} \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n}{bList}\PY{p}{]}
+         
+         \PY{c}{\PYZsh{}for i in aList:}
+         \PY{c}{\PYZsh{}    for j in bList:}
+         \PY{c}{\PYZsh{}        print i * j}
+         \PY{k}{print} \PY{n}{bList}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+列表综合也可以嵌套的
+[5, 4, 3, 2, 1, 10, 8, 6, 4, 2, 15, 12, 9, 6, 3, 20, 16, 12, 8, 4, 25, 20, 15, 10, 5]
+    \end{Verbatim}
+
+    断言，设定运行过程中必须满足的条件，当情况超出预期时报错。常用于文件读入或格式判断时，有助于预防异常的读入或操作。
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}94}]:} \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{1}
+         \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{2}
+         \PY{k}{assert} \PY{n}{a} \PY{o}{==} \PY{n}{b}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{a is }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{, b is }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}
+         
+         \PY{k}{if} \PY{n}{a} \PY{o}{==} \PY{n}{b}\PY{p}{:}
+             \PY{k}{pass}
+         \PY{k}{else}\PY{p}{:}
+             \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{a is }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{, b is }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ---------------------------------------------------------------------------
+    AssertionError                            Traceback (most recent call last)
+
+        <ipython-input-94-1cdfb2fe6c3a> in <module>()
+          1 a = 1
+          2 b = 2
+    ----> 3 assert a == b, "a is \%s, b is \%s" \% (a, b)
+          4 
+          5 if a == b:
+    
+
+        AssertionError: a is 1, b is 2
+
+    \end{Verbatim}
+
+    
+
+    \textbf{lambda, map, filer, reduce (保留节目)}
+
+\begin{verbatim}
+* lambda产生一个没有名字的函数，通常为了满足一次使用，其使用语法为`lambda argument_list: expression`。参数列表是用逗号分隔开的一个列表，表达式是这些参数的组合操作。 
+* map执行一个循环操作，使用语法为`map(func, seq)`。第一个参数是要调用的函数或函数的名字，第二个参数是一个序列（如列表、字符串、字典）。map会以序列的每个元素为参数调用func，并新建一个输出列表。
+* filter用于过滤列表，使用语法为`filter(func, list)`。以第二个参数的每个元素调用func，返回值为True则保留，否则舍弃。
+* reduce连续对列表的元素应用函数，使用语法为`reduce(func, list)`。如果我们有一个列表aList = [1,2,3, ... ,n ], 调用`reduce(func, aList)`后进行的操作为: 首先前两个元素会传入函数func做运算，返回值替换这两个元素，成为数组第一个元素aList = [func(1,2),3, ... , n];然后当前的前两个元素再传图func函数做运算，返回值返回值替换这两个元素，成为数组第一个元素aList = [func(func(1,2),3), ... , n]，直到列表只有一个元素。
+\end{verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}95}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{求和函数}\PY{l+s}{\PYZdq{}}
+         \PY{n}{f} \PY{o}{=} \PY{k}{lambda} \PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{:} \PY{n}{x} \PY{o}{+} \PY{n}{y}
+         \PY{k}{print} \PY{n}{f}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{]}\PY{p}{)}
+         \PY{k}{print} \PY{n}{f}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{15}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+求和函数
+[1, 2, 3, 4, 5, 6]
+25
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}96}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{单个参数的map, lambda调用}\PY{l+s}{\PYZdq{}}
+         \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
+         \PY{k}{print} \PY{n+nb}{map}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{:} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{aList}\PY{p}{)}
+         
+         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{多个参数的map, lambda调用}\PY{l+s}{\PYZdq{}}
+         \PY{n}{f} \PY{o}{=} \PY{k}{lambda} \PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{:} \PY{n}{x} \PY{o}{+} \PY{n}{y}
+         \PY{k}{print} \PY{n+nb}{map}\PY{p}{(}\PY{n}{f}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{]}\PY{p}{)}
+         
+         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{参数为字符串}\PY{l+s}{\PYZdq{}}
+         \PY{k}{print} \PY{n+nb}{map}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{:} \PY{n}{x}\PY{o}{.}\PY{n}{upper}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{acdf}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+单个参数的map, lambda调用
+[1, 4, 9, 16, 25]
+多个参数的map, lambda调用
+[5, 7, 9]
+参数为字符串
+['A', 'C', 'D', 'F']
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}97}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{输出所有的奇数}\PY{l+s}{\PYZdq{}}
+         \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
+         \PY{k}{print} \PY{n+nb}{filter}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{:} \PY{n}{x}\PY{o}{\PYZpc{}}\PY{k}{2}\PY{p}{,} \PY{n}{aList}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+输出所有的奇数
+[1, 3, 5]
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}98}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{列表求和}\PY{l+s}{\PYZdq{}}
+         \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
+         \PY{k}{print} \PY{n+nb}{reduce}\PY{p}{(}\PY{k}{lambda} \PY{n}{a}\PY{p}{,}\PY{n}{b}\PY{p}{:} \PY{n}{a}\PY{o}{+}\PY{n}{b}\PY{p}{,} \PY{n}{aList}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+列表求和
+15
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}99}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{列表取最大值}\PY{l+s}{\PYZdq{}}
+         \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
+         \PY{k}{print} \PY{n+nb}{reduce}\PY{p}{(}\PY{k}{lambda} \PY{n}{a}\PY{p}{,}\PY{n}{b}\PY{p}{:} \PY{n}{a} \PY{k}{if} \PY{n}{a} \PY{o}{\PYZgt{}} \PY{n}{b} \PY{k}{else} \PY{n}{b}\PY{p}{,} \PY{n}{aList}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+列表取最大值
+5
+    \end{Verbatim}
+
+    
+
+    \textbf{exec, eval (执行字符串python语句, 保留节目)}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}100}]:} \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{print }\PY{l+s}{\PYZdq{}}\PY{l+s}{Executing a string as a command}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsq{}}
+          \PY{k}{exec}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Executing a string as a command
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}101}]:} \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{(2 + 3) * 5}\PY{l+s}{\PYZsq{}}
+          \PY{n+nb}{eval}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}101}]:} 25
+\end{Verbatim}
+        
+
+    \section{Reference}
+
+
+    \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  http://www.byteofpython.info/
+\item
+  http://woodpecker.org.cn/abyteofpython\_cn/chinese/index.html
+\item
+  http://www.python-course.eu/
+\item
+  http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-189-a-gentle-introduction-to-programming-using-python-january-iap-2008/
+\end{itemize}
+
+    http://my.oschina.net/taogang/blog/286955
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
