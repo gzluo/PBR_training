@@ -737,7 +737,8 @@ The type of a is <type 'int'>
           \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{比较数值的大小}\PY{l+s}{\PYZdq{}}
           \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{5} 
           
-          \PY{k}{if} \PY{n}{a} \PY{o}{\PYZgt{}} \PY{l+m+mi}{4}\PY{p}{:} \PY{c}{\PYZsh{}注意大于号两边的空格，为了易于辨识，操作符两侧最后有空格，数量不限}
+          \PY{c}{\PYZsh{}注意大于号两边的空格，为了易于辨识，操作符两侧最后有空格，数量不限}
+          \PY{k}{if} \PY{n}{a} \PY{o}{\PYZgt{}} \PY{l+m+mi}{4}\PY{p}{:} 
               \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{a is larger than 4.}\PY{l+s}{\PYZdq{}}
           \PY{k}{elif} \PY{n}{a} \PY{o}{==} \PY{l+m+mi}{4}\PY{p}{:}
               \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{a is equal to 4.}\PY{l+s}{\PYZdq{}}
@@ -759,7 +760,7 @@ a is larger than 4.
               \PY{n}{c} \PY{o}{=} \PY{n}{a}
               \PY{n}{a} \PY{o}{=} \PY{n}{b}
               \PY{n}{b} \PY{o}{=} \PY{n}{c}
-              \PY{c}{\PYZsh{}print \PYZdq{}我是保留节目，Python特有，不通过中间变量直接就可以做交换，神奇吧！！\PYZdq{}}
+              \PY{c}{\PYZsh{}print \PYZdq{}保留节目，Python特有，不通过中间变量直接做交换，神奇吧！！\PYZdq{}}
               \PY{c}{\PYZsh{}a,b = b,a}
           \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
           \PY{k}{print} \PY{n}{a} 
@@ -773,19 +774,21 @@ a is larger than 4.
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}207}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZsh{}数值运算, 符合传统的优先级，需要使用括号来改变优先级，和小学学的数学一模一样！！}\PY{l+s}{\PYZdq{}}
-          \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{5}
-          \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{3}
-          
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{a + b =}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a} \PY{o}{+} \PY{n}{b}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{a * b =}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a} \PY{o}{*} \PY{n}{b}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{2 * (a+b) =}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{2} \PY{o}{*} \PY{p}{(}\PY{n}{a}\PY{o}{+}\PY{n}{b}\PY{p}{)}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{取余数： a }\PY{l+s}{\PYZpc{}}\PY{l+s}{ b =}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a} \PY{o}{\PYZpc{}} \PY{n}{b}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{取余数是很好的判断循环的地方，因为每个固定的数余数就会循环一次}\PY{l+s}{\PYZdq{}}
+{\color{incolor}In [{\color{incolor}3}]:} \PY{k}{print} \PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s}{\PYZsh{}数值运算, 符合传统的优先级，需要使用括号来改变优先级，}
+        \PY{l+s}{和小学学的数学一模一样！！}\PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}
+        \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{5}
+        \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{3}
+        
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{a + b =}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a} \PY{o}{+} \PY{n}{b}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{a * b =}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a} \PY{o}{*} \PY{n}{b}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{2 * (a+b) =}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{2} \PY{o}{*} \PY{p}{(}\PY{n}{a}\PY{o}{+}\PY{n}{b}\PY{p}{)}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{取余数： a }\PY{l+s}{\PYZpc{}}\PY{l+s}{ b =}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a} \PY{o}{\PYZpc{}} \PY{n}{b}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{取余数是很好的判断循环的地方，因为每个固定的周期余数就会循环一次}\PY{l+s}{\PYZdq{}}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-\#数值运算, 符合传统的优先级，需要使用括号来改变优先级，和小学学的数学一模一样！！
+\#数值运算, 符合传统的优先级，需要使用括号来改变优先级，
+和小学学的数学一模一样！！
 a + b = 8
 a * b = 15
 2 * (a+b) = 16
@@ -851,22 +854,23 @@ The last character of a is n
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}210}]:} \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{oaoaoaoa}\PY{l+s}{\PYZdq{}}
-          
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{遍历字符串}\PY{l+s}{\PYZdq{}}
-          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{a}\PY{p}{:}
-              \PY{k}{print} \PY{n}{i}
-          
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{输出符合特定要求的字符的位置}\PY{l+s}{\PYZdq{}}
-          \PY{k}{print}
-          \PY{n}{pos} \PY{o}{=} \PY{l+m+mi}{0}
-          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{a}\PY{p}{:}
-              \PY{n}{pos} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
-              \PY{k}{if} \PY{n}{i} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{:}
-                  \PY{k}{print} \PY{n}{pos}
-              \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
-          \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{知道吗？不经意间我们写出了Python的一个内置的标准函数find或者index,而且功能还更强大}\PY{l+s}{\PYZdq{}}
+{\color{incolor}In [{\color{incolor}4}]:} \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{oaoaoaoa}\PY{l+s}{\PYZdq{}}
+        
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{遍历字符串}\PY{l+s}{\PYZdq{}}
+        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{a}\PY{p}{:}
+            \PY{k}{print} \PY{n}{i}
+        
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{输出符合特定要求的字符的位置}\PY{l+s}{\PYZdq{}}
+        \PY{k}{print}
+        \PY{n}{pos} \PY{o}{=} \PY{l+m+mi}{0}
+        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{a}\PY{p}{:}
+            \PY{n}{pos} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+            \PY{k}{if} \PY{n}{i} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                \PY{k}{print} \PY{n}{pos}
+            \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+        \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+        \PY{k}{print} \PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{知道吗？不经意间我们写出了Python的}
+        \PY{l+s}{一个内置的标准函数find或者index,而且功能还更强大}\PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -886,7 +890,8 @@ a
 5
 7
 
-知道吗？不经意间我们写出了Python的一个内置的标准函数find或者index,而且功能还更强大
+知道吗？不经意间我们写出了Python的
+一个内置的标准函数find或者index,而且功能还更强大
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -923,7 +928,7 @@ a
           \PY{n}{str1} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{a b c d e f g}\PY{l+s}{\PYZdq{}}
           \PY{n}{strL} \PY{o}{=} \PY{n}{str1}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}}\PY{p}{)}
           \PY{k}{print} \PY{n}{strL}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{使用split命令就可以把字符串分成列表了，想取用哪一列都随便我了。}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{使用split命令就可以把字符串分成列表了，想取用哪一列都随便你了。}\PY{l+s}{\PYZdq{}}
           \PY{c}{\PYZsh{}使用下面的命令查看可以对字符串进行的操作}
           \PY{c}{\PYZsh{}help(str)}
 \end{Verbatim}
@@ -937,15 +942,16 @@ a
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}213}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{字符串的连接}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
-          
-          \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hello}\PY{l+s}{\PYZdq{}}
-          \PY{n}{b} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Python}\PY{l+s}{\PYZdq{}}
-          \PY{n}{c} \PY{o}{=} \PY{n}{a} \PY{o}{+} \PY{n}{b}
-          \PY{k}{print} \PY{n}{c}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{原来字符串相加就可以连起来啊！}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{注意，这不是连接字符串最好的方式。考虑到字符串是不可修改的，每次连接操作都是新开辟一个内存空间，}\PY{l+s+se}{\PYZbs{}}
-          \PY{l+s}{把字符串存到里面，这样的连接操作执行几十万次会很影响运行速度。}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+{\color{incolor}In [{\color{incolor}1}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{字符串的连接}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+        
+        \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hello}\PY{l+s}{\PYZdq{}}
+        \PY{n}{b} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Python}\PY{l+s}{\PYZdq{}}
+        \PY{n}{c} \PY{o}{=} \PY{n}{a} \PY{o}{+} \PY{n}{b}
+        \PY{k}{print} \PY{n}{c}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{原来字符串相加就可以连起来啊！}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+        \PY{k}{print} \PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s}{注意，这不是连接字符串最好的方式。}
+        \PY{l+s}{考虑到字符串是不可修改的，每次连接操作都是新开辟一个内存空间，}
+        \PY{l+s}{把字符串存到里面，这样的连接操作执行几十万次会很影响运行速度。}\PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -955,32 +961,43 @@ HelloPython
 
 原来字符串相加就可以连起来啊！
 
-
-
-注意，这不是连接字符串最好的方式。考虑到字符串是不可修改的，每次连接操作都是新开辟一个内存空间，把字符串存到里面，这样的连接操作执行几十万次会很影响运行速度。
+注意，这不是连接字符串最好的方式。
+考虑到字符串是不可修改的，每次连接操作都是新开辟一个内存空间，
+把字符串存到里面，这样的连接操作执行几十万次会很影响运行速度。
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}214}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{去除字符串中特定的字符。通常我们在文件中读取的一行都包含换行符，linux下为}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{n}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
-          \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{oneline}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Currently, the string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{**. The length of string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{**. 我为什么换到下一行了？}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
-          
-          \PY{n}{a} \PY{o}{=} \PY{n}{a}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Currently, the string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{**. The length of string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{**. 删掉了换行符后，少了个字符，而且没换行！}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
-          
-          \PY{n}{a} \PY{o}{=} \PY{n}{a}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Currently, the string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{**. The length of string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{**. 又少了个字符！！}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+{\color{incolor}In [{\color{incolor}2}]:} \PY{k}{print} \PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s}{去除字符串中特定的字符。通常我们在文件中读取的一行都包含换行符，}
+        \PY{l+s}{linux下为}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{n}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}
+        
+        \PY{n}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{oneline}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Currently, the string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{**. }\PY{l+s+se}{\PYZbs{}}
+        \PY{l+s+se}{\PYZbs{}n}\PY{l+s}{ The length of string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{**. }\PY{l+s+se}{\PYZbs{}}
+        \PY{l+s+se}{\PYZbs{}n}\PY{l+s}{ 我为什么换到下一行了？}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+        
+        \PY{n}{a} \PY{o}{=} \PY{n}{a}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Currently, the string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{**. }\PY{l+s+se}{\PYZbs{}}
+        \PY{l+s+se}{\PYZbs{}n}\PY{l+s}{ The length of string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{**. }\PY{l+s+se}{\PYZbs{}}
+        \PY{l+s+se}{\PYZbs{}n}\PY{l+s}{ 删掉了换行符后，少了个字符，而且没换行！}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+        
+        \PY{n}{a} \PY{o}{=} \PY{n}{a}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Currently, the string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{a}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{**. }\PY{l+s+se}{\PYZbs{}}
+        \PY{l+s+se}{\PYZbs{}n}\PY{l+s}{ The length of string \PYZlt{}a\PYZgt{} is **}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{**. }\PY{l+s+se}{\PYZbs{}}
+        \PY{l+s}{又少了个字符！！}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 去除字符串中特定的字符。通常我们在文件中读取的一行都包含换行符，linux下为\textbackslash{}n
 
 Currently, the string <a> is ** oneline
-**. The length of string <a> is ** 8 **. 我为什么换到下一行了？
+**. 
+ The length of string <a> is ** 8 **. 我为什么换到下一行了？
 
-Currently, the string <a> is ** oneline **. The length of string <a> is ** 7 **. 删掉了换行符后，少了个字符，而且没换行！
+Currently, the string <a> is ** oneline **. 
+ The length of string <a> is ** 7 **. 删掉了换行符后，少了个字符，而且没换行！
 
-Currently, the string <a> is ** neline **. The length of string <a> is ** 6 **. 又少了个字符！！
+Currently, the string <a> is ** neline **. 
+ The length of string <a> is ** 6 **. 又少了个字符！！
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1039,7 +1056,9 @@ Transfer all elments in <Sdsdsd> to upperse <SDSDSD>
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}218}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{这个是个保留节目，有兴趣的看，无兴趣的跳过不影响学习}\PY{l+s}{\PYZdq{}}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{字符串是不可修改的，同一个变量名字赋不同的只实际是产生了多个不同的变量。不同的变量名字赋同样的值，用于比较时相等，但引用不同的区域}\PY{l+s}{\PYZdq{}}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s}{字符串是不可修改的，}
+          \PY{l+s}{同一个变量名字赋不同的只实际是产生了多个不同的变量。}
+          \PY{l+s}{不同的变量名字赋同样的值，用于比较时相等，但引用不同的区域}\PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}
           
           
           \PY{n}{b} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{123456}\PY{l+s}{\PYZdq{}}
@@ -1163,16 +1182,17 @@ The first two elements are [1, 2]
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}222}]:} \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{在数组中删除元素}\PY{l+s}{\PYZdq{}}
-          \PY{n}{aList}\PY{o}{.}\PY{n}{remove}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
-          \PY{k}{print}
-          \PY{k}{print} \PY{n}{aList}
-          
-          \PY{n}{aList}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
-          \PY{k}{print}
-          \PY{k}{print} \PY{n}{aList}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{pop和remove是不一样的，remove是移除等于给定值的元素，pop是移除给定位置的元素}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{在数组中删除元素}\PY{l+s}{\PYZdq{}}
+        \PY{n}{aList}\PY{o}{.}\PY{n}{remove}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
+        \PY{k}{print}
+        \PY{k}{print} \PY{n}{aList}
+        
+        \PY{n}{aList}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
+        \PY{k}{print}
+        \PY{k}{print} \PY{n}{aList}
+        \PY{k}{print} \PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{pop和remove是不一样的，remove是移除等于给定值的元素，}
+        \PY{l+s}{pop是移除给定位置的元素}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1182,7 +1202,8 @@ The first two elements are [1, 2]
 
 [1, 2, 4, 5]
 
-pop和remove是不一样的，remove是移除等于给定值的元素，pop是移除给定位置的元素
+pop和remove是不一样的，remove是移除等于给定值的元素，
+pop是移除给定位置的元素
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1261,13 +1282,15 @@ pop和remove是不一样的，remove是移除等于给定值的元素，pop是�
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}226}]:} \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{30}\PY{p}{)}\PY{p}{]}
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsh{}输出数组中大于3,且小于10的元素}\PY{l+s}{\PYZdq{}}
-          \PY{k}{print} 
-          
-          \PY{k}{for} \PY{n}{ele} \PY{o+ow}{in} \PY{n}{aList}\PY{p}{:}
-              \PY{k}{if} \PY{o+ow}{not} \PY{n}{ele} \PY{o}{\PYZgt{}} \PY{l+m+mi}{3}\PY{p}{:} \PY{c}{\PYZsh{}逻辑非，当不符合给定条件时才输出。对于这个例子就是ele不大于3时才输出，相当于 if ele \PYZlt{}= 3:}
-                  \PY{k}{print} \PY{n}{ele}
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{30}\PY{p}{)}\PY{p}{]}
+        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsh{}输出数组中大于3,且小于10的元素}\PY{l+s}{\PYZdq{}}
+        \PY{k}{print} 
+        
+        \PY{k}{for} \PY{n}{ele} \PY{o+ow}{in} \PY{n}{aList}\PY{p}{:}
+            \PY{c}{\PYZsh{}逻辑非，当不符合给定条件时才输出。}
+            \PY{c}{\PYZsh{}对于这个例子就是ele不大于3时才输出，相当于 if ele \PYZlt{}= 3:}
+            \PY{k}{if} \PY{o+ow}{not} \PY{n}{ele} \PY{o}{\PYZgt{}} \PY{l+m+mi}{3}\PY{p}{:} 
+                \PY{k}{print} \PY{n}{ele}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1280,19 +1303,20 @@ pop和remove是不一样的，remove是移除等于给定值的元素，pop是�
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}227}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{连接数组的每个元素（每个元素必须为字符串）}\PY{l+s}{\PYZdq{}}
-          \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]} \PY{c}{\PYZsh{}Wrong}
-          \PY{c}{\PYZsh{}print \PYZsq{}\PYZbs{}t\PYZsq{}.join(aList) \PYZsh{}wrong}
-          
-          \PY{k}{print} \PY{n}{aList}
-          \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{n+nb}{str}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{aList}\PY{p}{]}
-          \PY{k}{print} \PY{n}{aList}
-          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)} 
-          
-          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{:}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
-          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
-          
-          \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{先把字符串存到列表，再使用join连接，是最合适的连接大量字符串的方式}\PY{l+s}{\PYZdq{}}
+{\color{incolor}In [{\color{incolor}7}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{连接数组的每个元素（每个元素必须为字符串）}\PY{l+s}{\PYZdq{}}
+        \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]} \PY{c}{\PYZsh{}Wrong}
+        \PY{c}{\PYZsh{}print \PYZsq{}\PYZbs{}t\PYZsq{}.join(aList) \PYZsh{}wrong}
+        
+        \PY{k}{print} \PY{n}{aList}
+        \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{n+nb}{str}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{aList}\PY{p}{]}
+        \PY{k}{print} \PY{n}{aList}
+        \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)} 
+        
+        \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{:}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+        \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+        
+        \PY{k}{print} \PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{先把字符串存到列表，再使用join连接，}
+        \PY{l+s}{是最合适的连接大量字符串的方式}\PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1303,7 +1327,8 @@ pop和remove是不一样的，remove是移除等于给定值的元素，pop是�
 1:2:3:4:5
 12345
 
-先把字符串存到列表，再使用join连接，是最合适的连接大量字符串的方式
+先把字符串存到列表，再使用join连接，
+是最合适的连接大量字符串的方式
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1565,7 +1590,8 @@ The string you typed in is:  a
        \PY{n}{c} \PY{o}{=} \PY{l+m+mi}{0}
        
        \PY{k}{while} \PY{n+nb+bp}{True}\PY{p}{:}
-           \PY{n}{b} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n+nb}{raw\PYZus{}input}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Please input a number to check if you are lucky enough to guess right: }\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+           \PY{n}{b} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n+nb}{raw\PYZus{}input}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Please input a number to check if you are }\PY{l+s+se}{\PYZbs{}}
+       \PY{l+s}{lucky enough to guess right: }\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
            \PY{k}{if} \PY{n}{b} \PY{o}{==} \PY{n}{lucky\PYZus{}num}\PY{p}{:}
                \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{Your are so smart!!! \PYZca{}\PYZus{}\PYZca{} \PYZca{}\PYZus{}\PYZca{}}\PY{l+s}{\PYZdq{}}
                \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
@@ -1603,7 +1629,7 @@ The string you typed in is:  a
     文件读写是最常见的输入和输出操作。你可以实用\texttt{file}或\texttt{open}来实现。
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}1}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{新建一个文件}\PY{l+s}{\PYZdq{}}
+{\color{incolor}In [{\color{incolor}9}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{新建一个文件}\PY{l+s}{\PYZdq{}}
         
         \PY{n}{context} \PY{o}{=} \PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s}{The best way to learn python contains two steps:}
         \PY{l+s}{1. Rember basic things mentionded here masterly.}
@@ -1645,24 +1671,29 @@ The best way to learn python contains two steps:
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}3}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{避免中间空行的输出。从文件中读取的每一行都带有一个换行符，而Python的print默认会在输出结束时加上换行符，}\PY{l+s+se}{\PYZbs{}}
-        \PY{l+s}{因此打印一行会空出一行。为了解决这个问题，有下面两套方案。}\PY{l+s}{\PYZdq{}}
-        
-        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{在print语句后加上逗号(,)可以阻止Python对每次输出自动添加的换行符}\PY{l+s}{\PYZdq{}}
-        \PY{k}{print}
-        
-        \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Test\PYZus{}file.txt}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
-            \PY{k}{print} \PY{n}{line}\PY{p}{,}
-        
-        \PY{k}{print}
-        
-        \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{去掉每行自身的换行符}\PY{l+s}{\PYZdq{}}
-        \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Test\PYZus{}file.txt}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
-            \PY{k}{print} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}10}]:} \PY{k}{print} \PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s}{避免中间空行的输出。}
+         \PY{l+s}{从文件中读取的每一行都带有一个换行符，}
+         \PY{l+s}{而Python的print默认会在输出结束时加上换行符，}
+         \PY{l+s}{因此打印一行会空出一行。为了解决这个问题，有下面两套方案。}\PY{l+s}{\PYZsq{}\PYZsq{}\PYZsq{}}
+         
+         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{在print语句后加上逗号(,)可以阻止Python对每次输出自动添加的换行符}\PY{l+s}{\PYZdq{}}
+         \PY{k}{print}
+         
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Test\PYZus{}file.txt}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+             \PY{k}{print} \PY{n}{line}\PY{p}{,}
+         
+         \PY{k}{print}
+         
+         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{去掉每行自身的换行符}\PY{l+s}{\PYZdq{}}
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Test\PYZus{}file.txt}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+             \PY{k}{print} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-避免中间空行的输出。从文件中读取的每一行都带有一个换行符，而Python的print默认会在输出结束时加上换行符，因此打印一行会空出一行。为了解决这个问题，有下面两套方案。
+避免中间空行的输出。
+从文件中读取的每一行都带有一个换行符，
+而Python的print默认会在输出结束时加上换行符，
+因此打印一行会空出一行。为了解决这个问题，有下面两套方案。
 在print语句后加上逗号(,)可以阻止Python对每次输出自动添加的换行符
 
 The best way to learn python contains two steps:
@@ -1887,7 +1918,7 @@ ACGTACGATG(最后一行可不足80个字母)
   \end{itemize}
 \item
   写程序 \texttt{screenResult.py},
-  筛选test.expr中foldChange大于2的基因并且padj小于0.05的基因
+  筛选test.expr中foldChange大于2的基因并且padj小于0.05的基，可以输出整行或只输出基因名字
 
   \begin{itemize}
   \itemsep1pt\parskip0pt\parsep0pt
@@ -2262,7 +2293,7 @@ Overwriting testSys.py
              \PY{n+nb}{file} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
              \PY{n}{read\PYZus{}print\PYZus{}file}\PY{p}{(}\PY{n+nb}{file}\PY{p}{)}
          \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
-         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{c}{\PYZsh{}这句话是说只有次文件被执行时才调用main函数。如果这个文件被其它文件调用，则不执行main函数。}
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{c}{\PYZsh{}这句话是说只有在文件被执行时才调用main函数。如果这个文件被其它文件调用，则不执行main函数。}
              \PY{n}{main}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
@@ -2451,7 +2482,9 @@ Options:
 
     
 
-    \textbf{单语句块}
+
+    \subsection{\textbf{单语句块}}
+
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}90}]:} \PY{k}{if} \PY{n+nb+bp}{True}\PY{p}{:}
@@ -2481,7 +2514,9 @@ yes
 
     
 
-    \textbf{列表综合，生成新列表的简化的for循环}
+
+    \subsection{\textbf{列表综合，生成新列表的简化的for循环}}
+
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}91}]:} \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}
@@ -2560,14 +2595,27 @@ yes
 
     
 
-    \textbf{lambda, map, filer, reduce (保留节目)}
 
-\begin{verbatim}
-* lambda产生一个没有名字的函数，通常为了满足一次使用，其使用语法为`lambda argument_list: expression`。参数列表是用逗号分隔开的一个列表，表达式是这些参数的组合操作。 
-* map执行一个循环操作，使用语法为`map(func, seq)`。第一个参数是要调用的函数或函数的名字，第二个参数是一个序列（如列表、字符串、字典）。map会以序列的每个元素为参数调用func，并新建一个输出列表。
-* filter用于过滤列表，使用语法为`filter(func, list)`。以第二个参数的每个元素调用func，返回值为True则保留，否则舍弃。
-* reduce连续对列表的元素应用函数，使用语法为`reduce(func, list)`。如果我们有一个列表aList = [1,2,3, ... ,n ], 调用`reduce(func, aList)`后进行的操作为: 首先前两个元素会传入函数func做运算，返回值替换这两个元素，成为数组第一个元素aList = [func(1,2),3, ... , n];然后当前的前两个元素再传图func函数做运算，返回值返回值替换这两个元素，成为数组第一个元素aList = [func(func(1,2),3), ... , n]，直到列表只有一个元素。
-\end{verbatim}
+    \subsection{lambda, map, filer, reduce (保留节目)}
+
+
+    \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  lambda产生一个没有名字的函数，通常为了满足一次使用，其使用语法为\texttt{lambda argument\_list: expression}。参数列表是用逗号分隔开的一个列表，表达式是这些参数的组合操作。
+\item
+  map执行一个循环操作，使用语法为\texttt{map(func, seq)}。第一个参数是要调用的函数或函数的名字，第二个参数是一个序列（如列表、字符串、字典）。map会以序列的每个元素为参数调用func，并新建一个输出列表。
+\item
+  filter用于过滤列表，使用语法为\texttt{filter(func, list)}。以第二个参数的每个元素调用func，返回值为True则保留，否则舍弃。
+\item
+  reduce连续对列表的元素应用函数，使用语法为\texttt{reduce(func, list)}。如果我们有一个列表aList
+  = {[}1,2,3, \ldots{} ,n {]},
+  调用\texttt{reduce(func, aList)}后进行的操作为:
+  首先前两个元素会传入函数func做运算，返回值替换这两个元素，成为数组第一个元素aList
+  = {[}func(1,2),3, \ldots{} ,
+  n{]};然后当前的前两个元素再传图func函数做运算，返回值返回值替换这两个元素，成为数组第一个元素aList
+  = {[}func(func(1,2),3), \ldots{} , n{]}，直到列表只有一个元素。
+\end{itemize}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}95}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{求和函数}\PY{l+s}{\PYZdq{}}

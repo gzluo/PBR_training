@@ -1,0 +1,2777 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Python\_training-chinese-Assignment\_answer}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Python 教程}\label{python-ux6559ux7a0b}
+
+\section{陈同
+(chentong\_biology@163.com)}\label{ux9648ux540c-chentongux5fbiology163.com}
+
+欢迎来到Python的世界，本教程将带你遨游\texttt{Python}，领悟\texttt{Python}的魅力。本教程专注于帮助初学者，尤其是生物信息分析人员快速学会\texttt{Python}的常用功能和使用方式，因此只精选了部分\texttt{Python}的功能，请额外参考Python经典教程\href{http://www.byteofpython.info/}{A
+byte of
+python}和它的\href{http://woodpecker.org.cn/abyteofpython_cn/chinese/index.html}{中文版}
+来更好的理解\emph{Python}. 本文档的概念和文字描述参考了A byte of
+python(中文版)，特此感谢。
+
+This work is licensed under a Creative Commons
+Attribution-NonCommercial-ShareAlike 2.0 Generic License.
+
+
+    \section{实战练习（一）}
+
+
+
+    \subsection{背景知识}
+
+
+    \textbf{1. FASTA文件格式}
+
+\begin{quote}
+\textgreater{}seq\_name\_1
+\end{quote}
+
+\begin{quote}
+sequence1
+\end{quote}
+
+\begin{quote}
+\textgreater{}seq\_name\_2
+\end{quote}
+
+\begin{quote}
+sequence2
+\end{quote}
+
+\textbf{2. FASTQ文件格式}
+
+\begin{quote}
+@HWI-ST1223:80:D1FMTACXX:2:1101:1243:2213 1:N:0:AGTCAA
+\end{quote}
+
+\begin{quote}
+TCTGTGTAGCCNTGGCTGTCCTGGAACTCACTTTGTAGACCAGGCTGGCATGCA
+\end{quote}
+
+\begin{quote}
+\begin{itemize}
+\item
+\end{itemize}
+\end{quote}
+
+\begin{quote}
+BCCFFFFFFHH\#4AFHIJJJJJJJJJJJJJJJJJIJIJJJJJGHIJJJJJJJJJ
+\end{quote}
+
+
+    \subsection{作业 (一)}
+
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  给定FASTA格式的文件(test1.fa 和 test2.fa)，写一个程序 \texttt{cat.py}
+  读入文件，并输出到屏幕
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      open(file)
+    \item
+      for .. in loop
+    \item
+      print
+    \item
+      the amazng , or strip() function
+    \end{itemize}
+  \end{itemize}
+\item
+  给定FASTQ格式的文件(test1.fq), 写一个程序 \texttt{cat.py}
+  读入文件，并输出到屏幕
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      同上
+    \end{itemize}
+  \end{itemize}
+\item
+  写程序 \texttt{splitName.py}, 读入test2.fa,
+  并取原始序列名字第一个空格前的名字为处理后的序列名字，输出到屏幕
+
+  \begin{itemize}
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      split
+    \item
+      字符串的索引
+    \end{itemize}
+  \item
+    输出格式为：
+
+\begin{verbatim}
+>NM_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctg.......
+\end{verbatim}
+  \end{itemize}
+\item
+  写程序 \texttt{formatFasta.py},
+  读入test2.fa，把每条FASTA序列连成一行然后输出
+
+  \begin{itemize}
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      join
+    \item
+      strip\\
+    \end{itemize}
+  \item
+    输出格式为:
+
+\begin{verbatim}
+>NM_001011874
+gcggcggcgggc......TCCGCTG......GCGTTCACC......CGGGGTCCGGAG
+\end{verbatim}
+  \end{itemize}
+\item
+  写程序 \texttt{formatFasta-2.py},
+  读入test2.fa，把每条FASTA序列分割成80个字母一行的序列
+
+  \begin{itemize}
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      字符串切片操作
+    \item
+      range
+    \end{itemize}
+  \item
+    输出格式为
+
+\begin{verbatim}
+>NM_001011874
+gcggcggcgc.(60个字母).TCCGCTGACG #(每行80个字母)
+acgtgctacg.(60个字母).GCGTTCACCC
+ACGTACGATG(最后一行可不足80个字母)
+\end{verbatim}
+  \end{itemize}
+\item
+  写程序 \texttt{sortFasta.py}, 读入test2.fa,
+  并取原始序列名字第一个空格前的名字为处理后的序列名字，排序后输出
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      sort
+    \item
+      dict
+    \item
+      aDict{[}key{]} = {[}{]}
+    \item
+      aDict{[}key{]}.append(value)
+    \end{itemize}
+  \end{itemize}
+\item
+  提取给定名字的序列
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    写程序 \texttt{grepFasta.py},
+    提取fasta.name中名字对应的test2.fa的序列，并输出到屏幕。
+  \item
+    写程序 \texttt{grepFastq.py},
+    提取fastq.name中名字对应的test1.fq的序列，并输出到文件。
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      用到的知识点
+
+      \begin{itemize}
+      \itemsep1pt\parskip0pt\parsep0pt
+      \item
+        print \textgreater{}\textgreater{}fh, or fh.write()
+      \item
+        取模运算，4 \% 2 == 0
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\item
+  写程序 \texttt{screenResult.py},
+  筛选test.expr中foldChange大于2的基因并且padj小于0.05的基因
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      逻辑与操作符 and
+    \item
+      文件中读取的内容都为字符串，需要用int转换为整数，float转换为浮点数
+    \end{itemize}
+  \end{itemize}
+\item
+  写程序 \texttt{transferMultipleColumToMatrix.py}
+  将文件(multipleColExpr.txt)中基因在多个组织中的表达数据转换为矩阵形式
+
+  \begin{itemize}
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      aDict{[}`key'{]} = \{\}
+    \item
+      aDict{[}`key'{]}{[}`key2'{]} = value
+    \item
+      if key not in aDict
+    \item
+      aDict = \{`ENSG00000000003': \{``A-431'': 21.3, ``A-549'',
+      32.5,\ldots{}\},``ENSG00000000003'':\{\},\}
+    \end{itemize}
+  \item
+    输入格式(只需要前3列就可以)
+
+\begin{verbatim}
+Gene    Sample  Value   Unit    Abundance
+ENSG00000000003 A-431   21.3    FPKM    Medium
+ENSG00000000003 A-549   32.5    FPKM    Medium
+ENSG00000000003 AN3-CA  38.2    FPKM    Medium
+ENSG00000000003 BEWO    31.4    FPKM    Medium
+ENSG00000000003 CACO-2  63.9    FPKM    High
+ENSG00000000005 A-431   0.0     FPKM    Not detected
+ENSG00000000005 A-549   0.0     FPKM    Not detected
+ENSG00000000005 AN3-CA  0.0     FPKM    Not detected
+ENSG00000000005 BEWO    0.0     FPKM    Not detected
+ENSG00000000005 CACO-2  0.0     FPKM    Not detected
+\end{verbatim}
+  \item
+    输出格式
+
+\begin{verbatim}
+Name    A-431   A-549   AN3-CA  BEWO    CACO-2
+ENSG00000000460 25.2    14.2    10.6    24.4    14.2
+ENSG00000000938 0.0 0.0 0.0 0.0 0.0
+ENSG00000001084 19.1    155.1   24.4    12.6    23.5
+ENSG00000000457 2.8 3.4 3.8 5.8 2.9
+\end{verbatim}
+  \end{itemize}
+\item
+  写程序 \texttt{reverseComplementary.py}计算序列
+  \texttt{ACGTACGTACGTCACGTCAGCTAGAC}的反向互补序列
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      reverse
+    \item
+      list(seq)
+    \end{itemize}
+  \end{itemize}
+\item
+  写程序 \texttt{collapsemiRNAreads.py}转换smRNA-Seq的测序数据
+
+  \begin{itemize}
+  \item
+    输入文件格式(mir.collapse,
+    tab-分割的两列文件，第一列为序列，第二列为序列被测到的次数)
+
+\begin{verbatim}
+    ID_REF        VALUE
+    ACTGCCCTAAGTGCTCCTTCTGGC        2
+    ATAAGGTGCATCTAGTGCAGATA        25
+    TGAGGTAGTAGTTTGTGCTGTTT        100
+    TCCTACGAGTTGCATGGATTC        4
+\end{verbatim}
+  \item
+    输出文件格式 (mir.collapse.fa,
+    名字的前3个字母为样品的特异标示，中间的数字表示第几条序列，是序列名字的唯一标示，第三部分是x加每个reads被测到的次数。三部分用下划线连起来作为fasta序列的名字。)
+
+\begin{verbatim}
+    >ESB_1_x2
+    ACTGCCCTAAGTGCTCCTTCTGGC
+    >ESB_2_x25
+    ATAAGGTGCATCTAGTGCAGATA
+    >ESB_3_x100
+    TGAGGTAGTAGTTTGTGCTGTTT
+    >ESB_4_x4
+    TCCTACGAGTTGCATGGATTC
+\end{verbatim}
+  \end{itemize}
+\item
+  简化的短序列匹配程序 (map.py) 把short.fa中的序列比对到ref.fa,
+  输出短序列匹配到ref.fa文件中哪些序列的哪些位置
+
+  \begin{itemize}
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      find
+    \end{itemize}
+  \item
+    输出格式
+    (输出格式为bed格式，第一列为匹配到的染色体，第二列和第三列为匹配到染色体序列的起始终止位置（位置标记以0为起始，代表第一个位置；终止位置不包含在内，第一个例子中所示序列的位置是(199,208{]}(前闭后开，实际是chr1染色体第199-206的序列，0起始).
+    第4列为短序列自身的序列.)。
+  \item
+    附加要求：可以只匹配到给定的模板链，也可以考虑匹配到模板链的互补链。这时第5列可以为短序列的名字，第六列为链的信息，匹配到模板链为'+`，匹配到互补链为'-'。注意匹配到互补链时起始位置也是从模板链的5'端算起的。
+
+\begin{verbatim}
+chr1    199 208 TGGCGTTCA
+chr1    207 216 ACCCCGCTG
+chr2    63  70  AAATTGC
+chr3    0   7   AATAAAT
+\end{verbatim}
+  \end{itemize}
+\item
+  备注：
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    每个提到提到的``用到的知识点''为相对于前面的题目新增的知识点，请综合考虑。此外，对于不同的思路并不是所有提到的知识点都会用着，而且也可能会用到未提到的知识点。但是所有知识点都在前面的讲义部分有介绍。
+  \item
+    每个程序对于你身边会写的人来说都很简单，因此你一定要克制住，独立去把答案做出，多看错误提示，多比对程序输出结果和预期结果的差异。
+  \item
+    学习锻炼``读程序''，即对着文件模拟整个的读入、处理过程来发现可能的逻辑问题。
+  \item
+    程序运行没有错误不代表你写的程序完成了你的需求，你要去查验输出结果是不是你想要的。
+  \end{itemize}
+\item
+  关于程序调试
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    在初写程序时，可能会出现各种各样的错误，常见的有缩进不一致，变量名字拼写错误，丢失冒号，文件名未加引号等，这时要根据错误提示查看错误类型是什么，出错的是哪一行来定位错误。当然，有的时候报错的行自身不一定有错，可能是其前面或后面的行出现了错误。
+  \item
+    当结果不符合预期时，要学会\textbf{使用print来查看每步的操作是否正确}，比如我读入了字典，我就打印下字典，看看读入的是不是我想要的，是否含有不该存在的字符；或者\textbf{在每个判断句、函数调入的情况下打印个字符，来跟踪程序的运行轨迹}。
+  \end{itemize}
+\end{enumerate}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{cat}\PY{o}{.}\PY{n}{py}
+        \PY{c}{\PYZsh{}作业1和2, cat.py}
+        \PY{c}{\PYZsh{}包含了三中处理换行符的写法}
+        \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data/test1.fa}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+            \PY{k}{print} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+        
+        \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+            \PY{k}{print} \PY{n}{line}\PY{p}{,}
+        
+        \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data/test1.fq}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+            \PY{n}{line} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+            \PY{k}{print} \PY{n}{line}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting script/cat.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{cat}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874 gene=Xkr4 CDS=151-2091
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcg
+>NM\_001195662 gene=Rp1 CDS=55-909
+AGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCA
+>NM\_011283 gene=Rp1 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+>NM\_0112835 gene=Rp15 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+>NM\_001011874 gene=Xkr4 CDS=151-2091
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcg
+aggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTG
+CCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACC
+CCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662 gene=Rp1 CDS=55-909
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGC
+AGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCA
+AGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGT
+GGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGC
+TGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACA
+CAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG
+>NM\_011283 gene=Rp1 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+ACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACAC
+CTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATAT
+CACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGG
+GTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCC
+TGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGA
+GGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGG
+CGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835 gene=Rp1 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+ACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACAC
+CTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATAT
+CACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGG
+GTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCC
+TGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGA
+GGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGG
+CGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+@HWI-ST1223:80:D1FMTACXX:2:1101:1243:2213 1:N:0:AGTCAA
+TCTGTGTAGCCNTGGCTGTCCTGGAACTCACTTTGTAGACCAGGCTGGCATGCACCACCACNNNCGGCTCATTTGTCTTTNNTTTTTGTTTTGTTCTGTA
++
+BCCFFFFFFHH\#4AFHIJJJJJJJJJJJJJJJJJIJIJJJJJGHIJJJJJJJJJJJJJIIJ\#\#\#--5ABECFFDDEEEEE\#\#,5=@B8?CDD<AD>C:@>
+@HWI-ST1223:80:D1FMTACXX:2:1101:1375:2060 1:N:0:AGTCAA
+NTGCTGAGCCACGACAAGGATCCCAGAGGGCCNAGCCCTGCATCTTGTATGGACCAGTTACNCATCAAAAGAGACTACTGTAGGCACCATCAATCAGATC
++
+\#1:DDDD;?CFFHDFEEIGIIIIIIG;DHFGG\#)0?BFBDHBFF<FCFEFD;@DD@A=7?E\#,,,;=(>3;=;;C>ACCC@CCCCCBBBCCAACCCCCCC
+@HWI-ST1223:80:D1FMTACXX:2:1101:1383:2091 1:N:0:AGTCAA
+NGTTCGTGTGGAACCTGGCGCTAAACCATTCGTAGACGACCTGCTTCTGGGTCGGGGTTTCGTACGTAGCAGAGCAGCTCCCTCGCTGCGATCTATTGAA
++
+\#1=DDFDFHHHHHJGJJJJJJJJJJJJJJJIJIGDHIHIGIJJJJJJJIIIGHHFDD3>BDDBDDDDDDDDDDBDCCBDDDDDDDDDDDBBDDDDEEACD
+@HWI-ST1223:80:D1FMTACXX:2:1101:1452:2138 1:N:0:AGTCAA
+NTCTAGGAGGTCTAGAAAGCCCAGGCCACCGGTACAAACATCAAGGGTGTTACGGATGTGCCGCTCTGAACCTCCAGGACGACTTTGATTTCAACTACAA
++
+\#4=DFFEFHHHHHJJJJJIJJJJHIIJGJJJJ@GIIJJJJJJIJJJJFGHIIIJJHHHDFFFFDDDDDDDDDDDDCDDDDDDDDDDDCCCEDEDDDDDDD
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{splitName}\PY{o}{.}\PY{n}{py}
+        \PY{c}{\PYZsh{}作业3}
+        \PY{n}{filename} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}
+        \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+            \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                \PY{k}{print} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+            \PY{k}{else}\PY{p}{:}
+                \PY{k}{print} \PY{n}{line}\PY{p}{,}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting script/splitName.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{splitName}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcg
+aggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTG
+CCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACC
+CCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGC
+AGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCA
+AGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGT
+GGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGC
+TGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACA
+CAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+ACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACAC
+CTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATAT
+CACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGG
+GTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCC
+TGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGA
+GGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGG
+CGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+ACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACAC
+CTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATAT
+CACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGG
+GTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCC
+TGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGA
+GGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGG
+CGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{formatFasta}\PY{o}{.}\PY{n}{py}
+        \PY{c}{\PYZsh{}作业4}
+        \PY{n}{filename} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}
+        \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+            \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                \PY{k}{if} \PY{n}{aList}\PY{p}{:}
+                    \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+                    \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                \PY{n}{name} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                \PY{k}{print} \PY{n}{name}
+            \PY{k}{else}\PY{p}{:}
+                \PY{n}{aList}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+        \PY{c}{\PYZsh{}不要忘了最后一个序列}
+        \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting script/formatFasta.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{formatFasta}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGCAGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{formatFasta}\PY{o}{\PYZhy{}}\PY{l+m+mf}{2.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业5 }
+         \PY{n}{filename} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}
+         \PY{n}{length} \PY{o}{=} \PY{l+m+mi}{80}
+         \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                 \PY{k}{if} \PY{n}{aList}\PY{p}{:}
+                     \PY{n}{seq} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+                     \PY{n}{len\PYZus{}seq} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{seq}\PY{p}{)}
+                     \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{len\PYZus{}seq}\PY{p}{,}\PY{n}{length}\PY{p}{)}\PY{p}{:}
+                         \PY{k}{print} \PY{n}{seq}\PY{p}{[}\PY{n}{i}\PY{p}{:}\PY{n}{i}\PY{o}{+}\PY{n}{length}\PY{p}{]}
+                     \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                 \PY{n}{name} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                 \PY{k}{print} \PY{n}{name}
+             \PY{k}{else}\PY{p}{:}
+                 \PY{n}{aList}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{c}{\PYZsh{}不要忘了最后一个序列}
+         \PY{n}{seq} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+         \PY{n}{len\PYZus{}seq} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{seq}\PY{p}{)}
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{len\PYZus{}seq}\PY{p}{,}\PY{n}{length}\PY{p}{)}\PY{p}{:}
+             \PY{k}{print} \PY{n}{seq}\PY{p}{[}\PY{n}{i}\PY{p}{:}\PY{n}{i}\PY{o}{+}\PY{n}{length}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting script/formatFasta-2.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{formatFasta}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggag
+gtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTA
+AGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCT
+GTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGCAGGTCTCACC
+CAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATT
+CAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTG
+GTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGT
+AAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCT
+CCCACAATAAGAAGGTGCTG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATT
+TACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATG
+ATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAG
+TTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTC
+TGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATC
+ACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAA
+GGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATT
+TACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATG
+ATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAG
+TTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTC
+TGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATC
+ACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAA
+GGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{sortFasta}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业6}
+         \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+         
+         \PY{n}{filename} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}
+         
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{key} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                 \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{k}{else}\PY{p}{:}
+                 \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END reading\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{n}{keyL} \PY{o}{=} \PY{n}{aDict}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}
+         \PY{n}{keyL}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{p}{)}
+         
+         \PY{k}{for} \PY{n}{key} \PY{o+ow}{in} \PY{n}{keyL}\PY{p}{:}
+             \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{key}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting sortFasta.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{sortFasta}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGCAGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{grepFasta}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业7.1}
+         \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+         
+         \PY{n}{seqFile} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}
+         \PY{n}{nameFile} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/fasta.name}\PY{l+s}{\PYZdq{}}
+         
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{seqFile}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{key} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]} \PY{c}{\PYZsh{}注意去掉开头的\PYZsq{}\PYZgt{}\PYZsq{}，只取序列的名字}
+                 \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{]}  \PY{c}{\PYZsh{}字典的值是一个列表}
+             \PY{k}{else}\PY{p}{:}
+                 \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END reading\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{nameFile}\PY{p}{)}\PY{p}{:}
+             \PY{n}{name} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+             \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZgt{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{name}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting grepFasta.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{grepFasta}\PY{o}{.}\PY{n}{py}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{grepFastq}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业7.2}
+         \PY{n}{seqFile} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test1.fq}\PY{l+s}{\PYZdq{}}
+         \PY{n}{nameFile} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/fastq.name}\PY{l+s}{\PYZdq{}}
+         
+         \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+         \PY{n}{count} \PY{o}{=} \PY{l+m+mi}{0}
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{seqFile}\PY{p}{)}\PY{p}{:}
+             \PY{n}{count} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+             \PY{k}{if} \PY{n}{count} \PY{o}{\PYZpc{}} \PY{l+m+mi}{4} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{:}
+                 \PY{n}{name} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]} \PY{c}{\PYZsh{}去掉开头的@}
+                 \PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{n}{line}\PY{p}{]} \PY{c}{\PYZsh{}存储名字行}
+             \PY{k}{else}\PY{p}{:}
+                 \PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END reading\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}这行知识注释，可有可无\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{nameFile}\PY{p}{)}\PY{p}{:}
+             \PY{n}{name} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+             \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting grepFastq.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{grepFastq}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+@HWI-ST1223:80:D1FMTACXX:2:1101:1243:2213 1:N:0:AGTCAA
+TCTGTGTAGCCNTGGCTGTCCTGGAACTCACTTTGTAGACCAGGCTGGCATGCACCACCACNNNCGGCTCATTTGTCTTTNNTTTTTGTTTTGTTCTGTA
++
+BCCFFFFFFHH\#4AFHIJJJJJJJJJJJJJJJJJIJIJJJJJGHIJJJJJJJJJJJJJIIJ\#\#\#--5ABECFFDDEEEEE\#\#,5=@B8?CDD<AD>C:@>
+@HWI-ST1223:80:D1FMTACXX:2:1101:1375:2060 1:N:0:AGTCAA
+NTGCTGAGCCACGACAAGGATCCCAGAGGGCCNAGCCCTGCATCTTGTATGGACCAGTTACNCATCAAAAGAGACTACTGTAGGCACCATCAATCAGATC
++
+\#1:DDDD;?CFFHDFEEIGIIIIIIG;DHFGG\#)0?BFBDHBFF<FCFEFD;@DD@A=7?E\#,,,;=(>3;=;;C>ACCC@CCCCCBBBCCAACCCCCCC
+@HWI-ST1223:80:D1FMTACXX:2:1101:1383:2091 1:N:0:AGTCAA
+NGTTCGTGTGGAACCTGGCGCTAAACCATTCGTAGACGACCTGCTTCTGGGTCGGGGTTTCGTACGTAGCAGAGCAGCTCCCTCGCTGCGATCTATTGAA
++
+\#1=DDFDFHHHHHJGJJJJJJJJJJJJJJJIJIGDHIHIGIJJJJJJJIIIGHHFDD3>BDDBDDDDDDDDDDBDCCBDDDDDDDDDDDBBDDDDEEACD
+@HWI-ST1223:80:D1FMTACXX:2:1101:1452:2138 1:N:0:AGTCAA
+NTCTAGGAGGTCTAGAAAGCCCAGGCCACCGGTACAAACATCAAGGGTGTTACGGATGTGCCGCTCTGAACCTCCAGGACGACTTTGATTTCAACTACAA
++
+\#4=DFFEFHHHHHJJJJJIJJJJHIIJGJJJJ@GIIJJJJJJIJJJJFGHIIIJJHHHDFFFFDDDDDDDDDDDDCDDDDDDDDDDDCCCEDEDDDDDDD
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}19}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{screenResult}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业8}
+         \PY{n+nb}{file} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test.expr}\PY{l+s}{\PYZdq{}}
+         
+         \PY{n}{head} \PY{o}{=} \PY{l+m+mi}{1} \PY{c}{\PYZsh{}This is used to indicate there is one head line needing to skip}
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n+nb}{file}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{head}\PY{p}{:}
+                 \PY{n}{head} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+                 \PY{k}{continue}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}Begin data lines\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+             
+             \PY{n}{foldChange} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{)}
+             \PY{n}{adjP} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{)}
+             \PY{k}{if} \PY{n}{foldChange} \PY{o}{\PYZgt{}} \PY{l+m+mi}{2} \PY{o+ow}{and} \PY{n}{adjP} \PY{o}{\PYZlt{}} \PY{l+m+mf}{0.05}\PY{p}{:}
+                 \PY{k}{print} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting screenResult.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{screenResult}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Novel00011
+Novel00043
+Novel00047
+Novel00077
+Novel00079
+Novel00080
+Novel00084
+Novel00085
+Novel00086
+Novel00087
+Novel00090
+Novel00124
+Novel00148
+Novel00156
+Novel00162
+Novel00166
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}21}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{transferMultipleColumToMatrix}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业9}
+         \PY{n+nb}{file} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/multipleColExpr.txt}\PY{l+s}{\PYZdq{}}
+         \PY{n}{head} \PY{o}{=} \PY{l+m+mi}{1}
+         \PY{n}{tissueSet} \PY{o}{=} \PY{n+nb}{set}\PY{p}{(}\PY{p}{)}
+         \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n+nb}{file}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{head}\PY{p}{:} \PY{c}{\PYZsh{}skip header line}
+                 \PY{n}{head} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+                 \PY{k}{continue}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+             \PY{n}{gene} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+             \PY{n}{tissue} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{n}{expr} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+             \PY{k}{if} \PY{n}{gene} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{aDict}\PY{p}{:}
+                 \PY{n}{aDict}\PY{p}{[}\PY{n}{gene}\PY{p}{]} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+             \PY{k}{assert} \PY{n}{tissue} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{aDict}\PY{p}{[}\PY{n}{gene}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Duplicate tissues}\PY{l+s}{\PYZdq{}}
+             \PY{n}{aDict}\PY{p}{[}\PY{n}{gene}\PY{p}{]}\PY{p}{[}\PY{n}{tissue}\PY{p}{]} \PY{o}{=} \PY{n}{expr}
+             \PY{n}{tissueSet}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{tissue}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}END reading\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{n}{tissueL} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{tissueSet}\PY{p}{)}
+         \PY{n}{tissueL}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{p}{)}
+         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gene}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{l+s}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{tissueL}\PY{p}{)}
+         
+         \PY{k}{for} \PY{n}{gene}\PY{p}{,} \PY{n}{tissueD} \PY{o+ow}{in} \PY{n}{aDict}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{n}{exprL} \PY{o}{=} \PY{p}{[}\PY{n}{gene}\PY{p}{]}
+             \PY{k}{for} \PY{n}{tissue} \PY{o+ow}{in} \PY{n}{tissueL}\PY{p}{:}
+                 \PY{n}{exprL}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{tissueD}\PY{p}{[}\PY{n}{tissue}\PY{p}{]}\PY{p}{)}
+             \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{exprL}\PY{p}{)}
+             
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting transferMultipleColumToMatrix.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}22}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{transferMultipleColumToMatrix}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Gene	A-431	A-549	AN3-CA	BEWO	CACO-2
+ENSG00000000460	25.2	14.2	10.6	24.4	14.2
+ENSG00000000938	0.0	0.0	0.0	0.0	0.0
+ENSG00000000457	2.8	3.4	3.8	5.8	2.9
+ENSG00000000419	73.8	38.6	33.9	53.7	155.5
+ENSG00000000003	21.3	32.5	38.2	31.4	63.9
+ENSG00000000005	0.0	0.0	0.0	0.0	0.0
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}23}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{reverseComplementary}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业10}
+         \PY{n}{str1} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ACGTACGTACGTCACGTCAGCTAGAC}\PY{l+s}{\PYZdq{}}
+         
+         \PY{n}{ATCG\PYZus{}dict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{A}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{T}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{T}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{A}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{C}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{G}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{G}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{C}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{a}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{t}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{t}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{a}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{\PYZcb{}}
+         
+         \PY{n}{tmpL} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{str1}\PY{p}{:}
+             \PY{n}{tmpL}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{ATCG\PYZus{}dict}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+         \PY{n}{tmpL}\PY{o}{.}\PY{n}{reverse}\PY{p}{(}\PY{p}{)}
+         \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{tmpL}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting reverseComplementary.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}24}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{reverseComplementary}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+GTCTAGCTGACGTGACGTACGTACGT
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}25}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{collapsemiRNAreads}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业11}
+         \PY{n}{smRNA\PYZus{}file} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/mir.collapse}\PY{l+s}{\PYZdq{}}
+         
+         \PY{n}{head} \PY{o}{=} \PY{l+m+mi}{1}
+         \PY{n}{sample} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{ESB}\PY{l+s}{\PYZsq{}}
+         \PY{n}{lineno} \PY{o}{=} \PY{l+m+mi}{0}
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{smRNA\PYZus{}file}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{head}\PY{p}{:}
+                 \PY{n}{head} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+                 \PY{k}{continue}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}end skip header line\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{n}{seq}\PY{p}{,} \PY{n}{value} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+             \PY{n}{lineno} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+             \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZgt{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZus{}}\PY{l+s+si}{\PYZpc{}d}\PY{l+s}{\PYZus{}x}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{sample}\PY{p}{,} \PY{n}{lineno}\PY{p}{,} \PY{n}{value}\PY{p}{,} \PY{n}{seq}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting collapsemiRNAreads.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}26}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{collapsemiRNAreads}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>ESB\_1\_x2
+ACTGCCCTAAGTGCTCCTTCTGGC
+>ESB\_2\_x2
+ATAAGGTGCATCTAGTGCAGATA
+>ESB\_3\_x1
+TGAGGTAGTAGTTTGTGCTGTTT
+>ESB\_4\_x1
+TCCTACGAGTTGCATGGATTC
+>ESB\_5\_x1
+ACCGGGTGGAGCCGCCGCA
+>ESB\_6\_x1
+ACTGCCCTAAGTGCTCCTTCTGGT
+>ESB\_7\_x1
+TACAGGGCTGGGGATGG
+>ESB\_8\_x1
+CCCTGGATGCTGTAGGATG
+>ESB\_9\_x1
+AAAATGCTACTACTTTTGAGTC
+>ESB\_10\_x1
+TCCCTGGTGGTCTAGTGGCTAGGAT
+>ESB\_11\_x4
+CTCTTAGATCGATGTGGTGCTC
+>ESB\_12\_x1
+TTGGTGGTTCAGTGGTA
+>ESB\_13\_x1
+TCACAATTCCCCTATACCATGGGCCAT
+>ESB\_14\_x1
+CAAATGCTAGGGTTGGTGG
+>ESB\_15\_x4
+AGGCAGCTTCCACAGCA
+>ESB\_16\_x3
+GCACTGAGATGGAGTGGTGTAA
+>ESB\_17\_x3
+CTCCATTTGTTTGATGATGGA
+>ESB\_18\_x1
+GCACTGAGATGGAGTGGTGTAT
+>ESB\_19\_x2
+AGTGCCCAGAGTTTGTAGTGT
+>ESB\_20\_x1
+ATAAGGTGCATCTAGTGCTGTTAGA
+>ESB\_21\_x9
+AAAATGCTTCCACTTTGTGTG
+>ESB\_22\_x2
+GGTAATTCTAGAGCTAATACATGCCG
+>ESB\_23\_x6
+CCGGGCGGAAACACCA
+>ESB\_24\_x1
+TGAAAGGCTGACCCGCCGGGC
+>ESB\_25\_x1
+TTCGTACAGTGGTCGTAAGTTCGTGC
+>ESB\_26\_x1
+GGTTAGCACTCTGGACTC
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}27}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n+nb}{map}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业12}
+         \PY{n}{ref} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/ref.fa}\PY{l+s}{\PYZdq{}}
+         \PY{n}{short} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/short.fa}\PY{l+s}{\PYZdq{}}
+         
+         \PY{n}{refD} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{ref}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{n}{name} \PY{o}{=} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+                 \PY{k}{assert} \PY{n}{name} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{refD}
+                 \PY{n}{refD}\PY{p}{[}\PY{n}{name}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{k}{else}\PY{p}{:}
+                 \PY{n}{refD}\PY{p}{[}\PY{n}{name}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END reading\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{for} \PY{n}{key}\PY{p}{,} \PY{n}{valueL} \PY{o+ow}{in} \PY{n}{refD}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{n}{refD}\PY{p}{[}\PY{n}{key}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{valueL}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{short}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{k}{pass}
+             \PY{k}{else}\PY{p}{:}
+                 \PY{n}{seq} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{len\PYZus{}seq} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{seq}\PY{p}{)}
+                 \PY{k}{for} \PY{n}{key}\PY{p}{,} \PY{n}{value} \PY{o+ow}{in} \PY{n}{refD}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                     \PY{n}{pos} \PY{o}{=} \PY{n}{value}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{n}{seq}\PY{p}{)}
+                     \PY{k}{while} \PY{n}{pos} \PY{o}{!=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{:}
+                         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}d}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}d}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{key}\PY{p}{,} \PY{n}{pos}\PY{p}{,} \PY{n}{pos}\PY{o}{+}\PY{n}{len\PYZus{}seq}\PY{p}{,} \PY{n}{seq}\PY{p}{)}
+                         \PY{n}{current} \PY{o}{=} \PY{n}{pos} \PY{o}{+} \PY{l+m+mi}{1}
+                         \PY{n}{newpos} \PY{o}{=} \PY{n}{value}\PY{p}{[}\PY{n}{current}\PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{n}{seq}\PY{p}{)}
+                         \PY{k}{if} \PY{n}{newpos} \PY{o}{==} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{:}
+                             \PY{k}{break}
+                         \PY{n}{pos} \PY{o}{=} \PY{n}{current} \PY{o}{+} \PY{n}{newpos}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting map.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}28}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n+nb}{map}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+chr1	199	208	TGGCGTTCA
+chr1	207	216	ACCCCGCTG
+chr2	63	70	AAATTGC
+chr3	0	7	AATAAAT
+chr3	66	74	CCACACAA
+chr3	206	214	ATATCACT
+chr2	163	171	ATATCACT
+chr3	417	423	AGAGGA
+chr2	374	380	AGAGGA
+chrX	137	143	AGAGGA
+    \end{Verbatim}
+
+
+    \subsection{作业（二）}
+
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  将 ``作业（一）'' 中的程序块用函数的方式重写，并调用执行
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      def func(para1,para2,\ldots{}):
+    \item
+      func(para1,para2,\ldots{})
+    \end{itemize}
+  \end{itemize}
+\item
+  备注：
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    每个提到提到的``用到的知识点''为相对于前面的题目新增的知识点，请综合考虑。此外，对于不同的思路并不是所有提到的知识点都会用着，而且也可能会用到未提到的知识点。但是所有知识点都在前面的讲义部分有介绍。
+  \item
+    每个程序对于你身边会写的人来说都很简单，因此你一定要克制住，独立去把答案做出，多看错误提示，多比对程序输出结果和预期结果的差异。
+  \item
+    学习锻炼``读程序''，即对着文件模拟整个的读入、处理过程来发现可能的逻辑问题。
+  \item
+    程序运行没有错误不代表你写的程序完成了你的需求，你要去插眼输出结果是不是你想要的。
+  \end{itemize}
+\item
+  关于程序调试
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    在初写程序时，可能会出现各种各样的错误，常见的有缩进不一致，变量名字拼写错误，丢失冒号，文件名未加引号等，这时要根据错误提示查看错误类型是什么，出错的是哪一行来定位错误。当然，有的时候报错的行自身不一定有错，可能是其前面或后面的行出现了错误。
+  \item
+    当结果不符合预期时，要学会使用print来查看每步的操作是否正确，比如我读入了字典，我就打印下字典，看看读入的是不是我想要的，是否含有不该存在的字符；或者在每个判断句、函数调入的情况下打印个字符，来跟踪程序的运行轨迹。
+  \end{itemize}
+\end{enumerate}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}33}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{cat}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业1和2, cat.py}
+         \PY{c}{\PYZsh{}包含了三中处理换行符的写法}
+         
+         \PY{k}{def} \PY{n+nf}{cat}\PY{p}{(}\PY{n+nb}{file}\PY{p}{)}\PY{p}{:}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n+nb}{file}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{print} \PY{n}{line}\PY{p}{,}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END of cat\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{n}{cat}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data/test1.fa}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{cat}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{cat}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data/test1.fq}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting script/cat.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}34}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{cat}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874 gene=Xkr4 CDS=151-2091
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcg
+>NM\_001195662 gene=Rp1 CDS=55-909
+AGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCA
+>NM\_011283 gene=Rp1 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+>NM\_0112835 gene=Rp15 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+>NM\_001011874 gene=Xkr4 CDS=151-2091
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcg
+aggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTG
+CCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACC
+CCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662 gene=Rp1 CDS=55-909
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGC
+AGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCA
+AGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGT
+GGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGC
+TGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACA
+CAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG
+>NM\_011283 gene=Rp1 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+ACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACAC
+CTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATAT
+CACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGG
+GTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCC
+TGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGA
+GGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGG
+CGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835 gene=Rp1 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+ACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACAC
+CTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATAT
+CACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGG
+GTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCC
+TGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGA
+GGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGG
+CGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+@HWI-ST1223:80:D1FMTACXX:2:1101:1243:2213 1:N:0:AGTCAA
+TCTGTGTAGCCNTGGCTGTCCTGGAACTCACTTTGTAGACCAGGCTGGCATGCACCACCACNNNCGGCTCATTTGTCTTTNNTTTTTGTTTTGTTCTGTA
++
+BCCFFFFFFHH\#4AFHIJJJJJJJJJJJJJJJJJIJIJJJJJGHIJJJJJJJJJJJJJIIJ\#\#\#--5ABECFFDDEEEEE\#\#,5=@B8?CDD<AD>C:@>
+@HWI-ST1223:80:D1FMTACXX:2:1101:1375:2060 1:N:0:AGTCAA
+NTGCTGAGCCACGACAAGGATCCCAGAGGGCCNAGCCCTGCATCTTGTATGGACCAGTTACNCATCAAAAGAGACTACTGTAGGCACCATCAATCAGATC
++
+\#1:DDDD;?CFFHDFEEIGIIIIIIG;DHFGG\#)0?BFBDHBFF<FCFEFD;@DD@A=7?E\#,,,;=(>3;=;;C>ACCC@CCCCCBBBCCAACCCCCCC
+@HWI-ST1223:80:D1FMTACXX:2:1101:1383:2091 1:N:0:AGTCAA
+NGTTCGTGTGGAACCTGGCGCTAAACCATTCGTAGACGACCTGCTTCTGGGTCGGGGTTTCGTACGTAGCAGAGCAGCTCCCTCGCTGCGATCTATTGAA
++
+\#1=DDFDFHHHHHJGJJJJJJJJJJJJJJJIJIGDHIHIGIJJJJJJJIIIGHHFDD3>BDDBDDDDDDDDDDBDCCBDDDDDDDDDDDBBDDDDEEACD
+@HWI-ST1223:80:D1FMTACXX:2:1101:1452:2138 1:N:0:AGTCAA
+NTCTAGGAGGTCTAGAAAGCCCAGGCCACCGGTACAAACATCAAGGGTGTTACGGATGTGCCGCTCTGAACCTCCAGGACGACTTTGATTTCAACTACAA
++
+\#4=DFFEFHHHHHJJJJJIJJJJHIIJGJJJJ@GIIJJJJJJIJJJJFGHIIIJJHHHDFFFFDDDDDDDDDDDDCDDDDDDDDDDDCCCEDEDDDDDDD
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}35}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{splitName}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业3}
+         \PY{n}{filename} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}
+         \PY{k}{def} \PY{n+nf}{splitName}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                     \PY{k}{print} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{k}{print} \PY{n}{line}\PY{p}{,}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END splitName\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{n}{splitName}\PY{p}{(}\PY{n}{filename}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting script/splitName.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}36}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{splitName}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcg
+aggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTG
+CCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACC
+CCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGC
+AGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCA
+AGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGT
+GGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGC
+TGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACA
+CAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+ACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACAC
+CTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATAT
+CACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGG
+GTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCC
+TGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGA
+GGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGG
+CGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+ACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACAC
+CTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATAT
+CACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGG
+GTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCC
+TGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGA
+GGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGG
+CGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}37}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{formatFasta}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业4}
+         \PY{n}{filename} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}
+         
+         \PY{k}{def} \PY{n+nf}{formatFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                     \PY{k}{if} \PY{n}{aList}\PY{p}{:}
+                         \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+                         \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                     \PY{n}{name} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                     \PY{k}{print} \PY{n}{name}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{aList}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{c}{\PYZsh{}不要忘了最后一个序列}
+             \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}End formatFasta\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{n}{formatFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting script/formatFasta.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}38}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{formatFasta}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGCAGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}39}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{formatFasta}\PY{o}{\PYZhy{}}\PY{l+m+mf}{2.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业5 }
+         \PY{n}{filename} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}
+         \PY{n}{length} \PY{o}{=} \PY{l+m+mi}{80}
+         \PY{k}{def} \PY{n+nf}{formatSeq}\PY{p}{(}\PY{n}{aList}\PY{p}{)}\PY{p}{:}
+             \PY{n}{seq} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+             \PY{n}{len\PYZus{}seq} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{seq}\PY{p}{)}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{len\PYZus{}seq}\PY{p}{,}\PY{n}{length}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{print} \PY{n}{seq}\PY{p}{[}\PY{n}{i}\PY{p}{:}\PY{n}{i}\PY{o}{+}\PY{n}{length}\PY{p}{]} 
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END formatSeq\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{def} \PY{n+nf}{formatFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{,}\PY{n}{length}\PY{p}{)}\PY{p}{:}
+             \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                     \PY{k}{if} \PY{n}{aList}\PY{p}{:}
+                         \PY{n}{formatSeq}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+                         \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                     \PY{n}{name} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                     \PY{k}{print} \PY{n}{name}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{aList}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+             \PY{c}{\PYZsh{}不要忘了最后一个序列}
+             \PY{n}{formatSeq}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END of formatFasta\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{n}{formatFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{,}\PY{n}{length}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting script/formatFasta-2.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}40}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{formatFasta}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggag
+gtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTA
+AGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCT
+GTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGCAGGTCTCACC
+CAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATT
+CAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTG
+GTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGT
+AAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCT
+CCCACAATAAGAAGGTGCTG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATT
+TACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATG
+ATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAG
+TTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTC
+TGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATC
+ACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAA
+GGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATT
+TACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATG
+ATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAG
+TTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTC
+TGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATC
+ACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAA
+GGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}41}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{sortFasta}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业6}
+         
+         
+         \PY{n}{filename} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}
+         
+         \PY{k}{def} \PY{n+nf}{readFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{n}{key} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{]} \PY{c}{\PYZsh{}字典的值是一个列表, = 左边的字符串可以认为是右边列表的名字}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)} 
+             \PY{k}{return} \PY{n}{aDict}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END readFasta\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{def} \PY{n+nf}{sortFasta}\PY{p}{(}\PY{n}{aDict}\PY{p}{)}\PY{p}{:}
+             \PY{n}{keyL} \PY{o}{=} \PY{n}{aDict}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}
+             \PY{n}{keyL}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{p}{)}
+             
+             \PY{k}{for} \PY{n}{key} \PY{o+ow}{in} \PY{n}{keyL}\PY{p}{:}
+                 \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{key}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END sortFasta\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{n}{aDict} \PY{o}{=} \PY{n}{readFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{)}
+         \PY{n}{sortFasta}\PY{p}{(}\PY{n}{aDict}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting sortFasta.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}42}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{sortFasta}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGCAGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}43}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{grepFasta}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业7.1}
+         
+         
+         \PY{n}{seqFile} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test2.fa}\PY{l+s}{\PYZdq{}}
+         \PY{n}{nameFile} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/fasta.name}\PY{l+s}{\PYZdq{}}
+         
+         \PY{k}{def} \PY{n+nf}{readFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{n}{key} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]} \PY{c}{\PYZsh{}注意去掉开头的\PYZsq{}\PYZgt{}\PYZsq{}，只取序列的名字}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{]}  \PY{c}{\PYZsh{}字典的值是一个列表}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+             \PY{k}{return} \PY{n}{aDict}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END readFasta\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{n}{aDict} \PY{o}{=} \PY{n}{readFasta}\PY{p}{(}\PY{n}{seqFile}\PY{p}{)}
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{nameFile}\PY{p}{)}\PY{p}{:}
+             \PY{n}{name} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+             \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZgt{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{name}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting grepFasta.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}44}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{grepFasta}\PY{o}{.}\PY{n}{py}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}45}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{grepFastq}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业7.2}
+         \PY{n}{seqFile} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test1.fq}\PY{l+s}{\PYZdq{}}
+         \PY{n}{nameFile} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/fastq.name}\PY{l+s}{\PYZdq{}}
+         
+         \PY{k}{def} \PY{n+nf}{readFastq}\PY{p}{(}\PY{n}{seqFile}\PY{p}{)}\PY{p}{:}
+             \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+             \PY{n}{count} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{seqFile}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{count} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+                 \PY{k}{if} \PY{n}{count} \PY{o}{\PYZpc{}} \PY{l+m+mi}{4} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{:}
+                     \PY{n}{name} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]} \PY{c}{\PYZsh{}去掉开头的@}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{n}{line}\PY{p}{]} \PY{c}{\PYZsh{}存储名字行}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{p}{)}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END reading\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{k}{return} \PY{n}{aDict}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END readFastq\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}这行只是注释，可有可无\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{n}{aDict} \PY{o}{=} \PY{n}{readFastq}\PY{p}{(}\PY{n}{seqFile}\PY{p}{)}
+         
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{nameFile}\PY{p}{)}\PY{p}{:}
+             \PY{n}{name} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+             \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting grepFastq.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}46}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{grepFastq}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+@HWI-ST1223:80:D1FMTACXX:2:1101:1243:2213 1:N:0:AGTCAA
+TCTGTGTAGCCNTGGCTGTCCTGGAACTCACTTTGTAGACCAGGCTGGCATGCACCACCACNNNCGGCTCATTTGTCTTTNNTTTTTGTTTTGTTCTGTA
++
+BCCFFFFFFHH\#4AFHIJJJJJJJJJJJJJJJJJIJIJJJJJGHIJJJJJJJJJJJJJIIJ\#\#\#--5ABECFFDDEEEEE\#\#,5=@B8?CDD<AD>C:@>
+@HWI-ST1223:80:D1FMTACXX:2:1101:1375:2060 1:N:0:AGTCAA
+NTGCTGAGCCACGACAAGGATCCCAGAGGGCCNAGCCCTGCATCTTGTATGGACCAGTTACNCATCAAAAGAGACTACTGTAGGCACCATCAATCAGATC
++
+\#1:DDDD;?CFFHDFEEIGIIIIIIG;DHFGG\#)0?BFBDHBFF<FCFEFD;@DD@A=7?E\#,,,;=(>3;=;;C>ACCC@CCCCCBBBCCAACCCCCCC
+@HWI-ST1223:80:D1FMTACXX:2:1101:1383:2091 1:N:0:AGTCAA
+NGTTCGTGTGGAACCTGGCGCTAAACCATTCGTAGACGACCTGCTTCTGGGTCGGGGTTTCGTACGTAGCAGAGCAGCTCCCTCGCTGCGATCTATTGAA
++
+\#1=DDFDFHHHHHJGJJJJJJJJJJJJJJJIJIGDHIHIGIJJJJJJJIIIGHHFDD3>BDDBDDDDDDDDDDBDCCBDDDDDDDDDDDBBDDDDEEACD
+@HWI-ST1223:80:D1FMTACXX:2:1101:1452:2138 1:N:0:AGTCAA
+NTCTAGGAGGTCTAGAAAGCCCAGGCCACCGGTACAAACATCAAGGGTGTTACGGATGTGCCGCTCTGAACCTCCAGGACGACTTTGATTTCAACTACAA
++
+\#4=DFFEFHHHHHJJJJJIJJJJHIIJGJJJJ@GIIJJJJJJIJJJJFGHIIIJJHHHDFFFFDDDDDDDDDDDDCDDDDDDDDDDDCCCEDEDDDDDDD
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}47}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{screenResult}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业8}
+         \PY{n}{filename} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/test.expr}\PY{l+s}{\PYZdq{}}
+         
+         \PY{k}{def} \PY{n+nf}{screenResult}\PY{p}{(}\PY{n}{filename}\PY{p}{,} \PY{n}{fc\PYZus{}value}\PY{p}{,} \PY{n}{adjP\PYZus{}value}\PY{p}{)}\PY{p}{:}
+             \PY{n}{head} \PY{o}{=} \PY{l+m+mi}{1} \PY{c}{\PYZsh{}This is used to indicate there is one head line needing to skip}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{head}\PY{p}{:}
+                     \PY{n}{head} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+                     \PY{k}{continue}
+                 \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}Begin data lines\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+                 \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+             
+                 \PY{n}{foldChange} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{adjP} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{)}
+                 \PY{k}{if} \PY{n}{foldChange} \PY{o}{\PYZgt{}} \PY{n}{fc\PYZus{}value} \PY{o+ow}{and} \PY{n}{adjP} \PY{o}{\PYZlt{}} \PY{n}{adjP\PYZus{}value}\PY{p}{:}
+                     \PY{k}{print} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END screenResult\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{n}{screenResult}\PY{p}{(}\PY{n}{filename}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mf}{0.05}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting screenResult.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}48}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{screenResult}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Novel00011
+Novel00043
+Novel00047
+Novel00077
+Novel00079
+Novel00080
+Novel00084
+Novel00085
+Novel00086
+Novel00087
+Novel00090
+Novel00124
+Novel00148
+Novel00156
+Novel00162
+Novel00166
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}49}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{transferMultipleColumToMatrix}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业9}
+         \PY{n}{filename} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/multipleColExpr.txt}\PY{l+s}{\PYZdq{}}
+         
+         \PY{k}{def} \PY{n+nf}{readMultipleColFile}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{n}{head} \PY{o}{=} \PY{l+m+mi}{1}
+             \PY{n}{tissueSet} \PY{o}{=} \PY{n+nb}{set}\PY{p}{(}\PY{p}{)}
+             \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{head}\PY{p}{:} \PY{c}{\PYZsh{}skip header line}
+                     \PY{n}{head} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+                     \PY{k}{continue}
+                 \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+                 \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{gene} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                 \PY{n}{tissue} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+                 \PY{n}{expr} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+                 \PY{k}{if} \PY{n}{gene} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{aDict}\PY{p}{:}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{gene}\PY{p}{]} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+                 \PY{k}{assert} \PY{n}{tissue} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{aDict}\PY{p}{[}\PY{n}{gene}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Duplicate tissues}\PY{l+s}{\PYZdq{}}
+                 \PY{n}{aDict}\PY{p}{[}\PY{n}{gene}\PY{p}{]}\PY{p}{[}\PY{n}{tissue}\PY{p}{]} \PY{o}{=} \PY{n}{expr}
+                 \PY{n}{tissueSet}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{tissue}\PY{p}{)}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}END reading\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{n}{tissueL} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{tissueSet}\PY{p}{)}
+             \PY{n}{tissueL}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{p}{)}
+             \PY{k}{return} \PY{n}{tissueL}\PY{p}{,} \PY{n}{aDict}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END readMultipleColFile\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{n}{tissueL}\PY{p}{,} \PY{n}{aDict} \PY{o}{=} \PY{n}{readMultipleColFile}\PY{p}{(}\PY{n}{filename}\PY{p}{)}
+         
+         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gene}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{l+s}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{tissueL}\PY{p}{)}
+         
+         \PY{k}{for} \PY{n}{gene}\PY{p}{,} \PY{n}{tissueD} \PY{o+ow}{in} \PY{n}{aDict}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{n}{exprL} \PY{o}{=} \PY{p}{[}\PY{n}{gene}\PY{p}{]}
+             \PY{k}{for} \PY{n}{tissue} \PY{o+ow}{in} \PY{n}{tissueL}\PY{p}{:}
+                 \PY{n}{exprL}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{tissueD}\PY{p}{[}\PY{n}{tissue}\PY{p}{]}\PY{p}{)}
+             \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{exprL}\PY{p}{)}
+             
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting transferMultipleColumToMatrix.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}50}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{transferMultipleColumToMatrix}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Gene	A-431	A-549	AN3-CA	BEWO	CACO-2
+ENSG00000000460	25.2	14.2	10.6	24.4	14.2
+ENSG00000000938	0.0	0.0	0.0	0.0	0.0
+ENSG00000000457	2.8	3.4	3.8	5.8	2.9
+ENSG00000000419	73.8	38.6	33.9	53.7	155.5
+ENSG00000000003	21.3	32.5	38.2	31.4	63.9
+ENSG00000000005	0.0	0.0	0.0	0.0	0.0
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}51}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{reverseComplementary}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业10}
+         \PY{n}{str1} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ACGTACGTACGTCACGTCAGCTAGAC}\PY{l+s}{\PYZdq{}}
+         
+         \PY{k}{def} \PY{n+nf}{reverseComplementary}\PY{p}{(}\PY{n}{string}\PY{p}{)}\PY{p}{:}
+             \PY{n}{ATCG\PYZus{}dict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{A}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{T}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{T}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{A}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{C}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{G}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{G}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{C}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{a}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{t}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{t}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{a}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{\PYZcb{}}
+         
+             \PY{n}{tmpL} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{string}\PY{p}{:}
+                 \PY{n}{tmpL}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{ATCG\PYZus{}dict}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+             \PY{n}{tmpL}\PY{o}{.}\PY{n}{reverse}\PY{p}{(}\PY{p}{)}
+             \PY{k}{return} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{tmpL}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END reverseComplementary\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{print} \PY{n}{reverseComplementary}\PY{p}{(}\PY{n}{str1}\PY{p}{)}
+         \PY{k}{print} \PY{n}{reverseComplementary}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ACGT}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting reverseComplementary.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}52}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{reverseComplementary}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+GTCTAGCTGACGTGACGTACGTACGT
+ACGT
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}53}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{collapsemiRNAreads}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业11}
+         \PY{n}{smRNA\PYZus{}file} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/mir.collapse}\PY{l+s}{\PYZdq{}}
+         \PY{k}{def} \PY{n+nf}{collapsemiRNAreads}\PY{p}{(}\PY{n}{smRNA\PYZus{}file}\PY{p}{,} \PY{n}{sample}\PY{p}{,} \PY{n}{head} \PY{o}{=} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+             \PY{n}{lineno} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{smRNA\PYZus{}file}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{head}\PY{p}{:}
+                     \PY{n}{head} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+                     \PY{k}{continue}
+                 \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}end skip header line\PYZhy{}\PYZhy{}\PYZhy{}}
+                 \PY{n}{seq}\PY{p}{,} \PY{n}{value} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{lineno} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+                 \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZgt{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZus{}}\PY{l+s+si}{\PYZpc{}d}\PY{l+s}{\PYZus{}x}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{sample}\PY{p}{,} \PY{n}{lineno}\PY{p}{,} \PY{n}{value}\PY{p}{,} \PY{n}{seq}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}end collapsemiRNAreads\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{n}{collapsemiRNAreads}\PY{p}{(}\PY{n}{smRNA\PYZus{}file}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ESB}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting collapsemiRNAreads.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}54}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{collapsemiRNAreads}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>ESB\_1\_x2
+ACTGCCCTAAGTGCTCCTTCTGGC
+>ESB\_2\_x2
+ATAAGGTGCATCTAGTGCAGATA
+>ESB\_3\_x1
+TGAGGTAGTAGTTTGTGCTGTTT
+>ESB\_4\_x1
+TCCTACGAGTTGCATGGATTC
+>ESB\_5\_x1
+ACCGGGTGGAGCCGCCGCA
+>ESB\_6\_x1
+ACTGCCCTAAGTGCTCCTTCTGGT
+>ESB\_7\_x1
+TACAGGGCTGGGGATGG
+>ESB\_8\_x1
+CCCTGGATGCTGTAGGATG
+>ESB\_9\_x1
+AAAATGCTACTACTTTTGAGTC
+>ESB\_10\_x1
+TCCCTGGTGGTCTAGTGGCTAGGAT
+>ESB\_11\_x4
+CTCTTAGATCGATGTGGTGCTC
+>ESB\_12\_x1
+TTGGTGGTTCAGTGGTA
+>ESB\_13\_x1
+TCACAATTCCCCTATACCATGGGCCAT
+>ESB\_14\_x1
+CAAATGCTAGGGTTGGTGG
+>ESB\_15\_x4
+AGGCAGCTTCCACAGCA
+>ESB\_16\_x3
+GCACTGAGATGGAGTGGTGTAA
+>ESB\_17\_x3
+CTCCATTTGTTTGATGATGGA
+>ESB\_18\_x1
+GCACTGAGATGGAGTGGTGTAT
+>ESB\_19\_x2
+AGTGCCCAGAGTTTGTAGTGT
+>ESB\_20\_x1
+ATAAGGTGCATCTAGTGCTGTTAGA
+>ESB\_21\_x9
+AAAATGCTTCCACTTTGTGTG
+>ESB\_22\_x2
+GGTAATTCTAGAGCTAATACATGCCG
+>ESB\_23\_x6
+CCGGGCGGAAACACCA
+>ESB\_24\_x1
+TGAAAGGCTGACCCGCCGGGC
+>ESB\_25\_x1
+TTCGTACAGTGGTCGTAAGTTCGTGC
+>ESB\_26\_x1
+GGTTAGCACTCTGGACTC
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}55}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n+nb}{map}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业12}
+         \PY{n}{ref} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/ref.fa}\PY{l+s}{\PYZdq{}}
+         \PY{n}{short} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{data/short.fa}\PY{l+s}{\PYZdq{}}
+         
+         \PY{k}{def} \PY{n+nf}{readRef}\PY{p}{(}\PY{n}{ref}\PY{p}{)}\PY{p}{:}
+             \PY{n}{refD} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{ref}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{n}{name} \PY{o}{=} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+                     \PY{k}{assert} \PY{n}{name} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{refD}
+                     \PY{n}{refD}\PY{p}{[}\PY{n}{name}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{refD}\PY{p}{[}\PY{n}{name}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END reading\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{k}{for} \PY{n}{key}\PY{p}{,} \PY{n}{valueL} \PY{o+ow}{in} \PY{n}{refD}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{refD}\PY{p}{[}\PY{n}{key}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{valueL}\PY{p}{)}
+             \PY{k}{return} \PY{n}{refD}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END readRef\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{def} \PY{n+nf}{mapSeq}\PY{p}{(}\PY{n}{seq}\PY{p}{,} \PY{n}{refD}\PY{p}{)}\PY{p}{:}
+             \PY{n}{len\PYZus{}seq} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{seq}\PY{p}{)}
+             \PY{k}{for} \PY{n}{key}\PY{p}{,} \PY{n}{value} \PY{o+ow}{in} \PY{n}{refD}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{pos} \PY{o}{=} \PY{n}{value}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{n}{seq}\PY{p}{)}
+                 \PY{k}{while} \PY{n}{pos} \PY{o}{!=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{:}
+                     \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}d}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}d}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{key}\PY{p}{,} \PY{n}{pos}\PY{p}{,} \PY{n}{pos}\PY{o}{+}\PY{n}{len\PYZus{}seq}\PY{p}{,} \PY{n}{seq}\PY{p}{)}
+                     \PY{n}{current} \PY{o}{=} \PY{n}{pos} \PY{o}{+} \PY{l+m+mi}{1}
+                     \PY{n}{newpos} \PY{o}{=} \PY{n}{value}\PY{p}{[}\PY{n}{current}\PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{n}{seq}\PY{p}{)}
+                     \PY{k}{if} \PY{n}{newpos} \PY{o}{==} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{:}
+                         \PY{k}{break}
+                     \PY{n}{pos} \PY{o}{=} \PY{n}{current} \PY{o}{+} \PY{n}{newpos}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END mapSeq\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{n}{refD} \PY{o}{=} \PY{n}{readRef}\PY{p}{(}\PY{n}{ref}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{short}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                 \PY{k}{pass}
+             \PY{k}{else}\PY{p}{:}
+                 \PY{n}{seq} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{mapSeq}\PY{p}{(}\PY{n}{seq}\PY{p}{,} \PY{n}{refD}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting map.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}102}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n+nb}{map}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+ERROR: File `u'script/map.py'` not found.
+    \end{Verbatim}
+
+
+    \subsection{作业（三）}
+
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  使 ``作业（二）'' 中的程序都能接受命令行参数
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    用到的知识点
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      import sys
+    \item
+      sys.argv
+    \item
+      import optparse
+    \end{itemize}
+  \end{itemize}
+\item
+  备注
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    每个提到提到的``用到的知识点''为相对于前面的题目新增的知识点，请综合考虑。此外，对于不同的思路并不是所有提到的知识点都会用着，而且也可能会用到未提到的知识点。但是所有知识点都在前面的讲义部分有介绍。
+  \item
+    每个程序对于你身边会写的人来说都很简单，因此你一定要克制住，独立去把答案做出，多看错误提示，多比对程序输出结果和预期结果的差异。
+  \item
+    学习锻炼``读程序''，即对着文件模拟整个的读入、处理过程来发现可能的逻辑问题。
+  \item
+    程序运行没有错误不代表你写的程序完成了你的需求，你要去插眼输出结果是不是你想要的。
+  \end{itemize}
+\item
+  关于程序调试
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    在初写程序时，可能会出现各种各样的错误，常见的有缩进不一致，变量名字拼写错误，丢失冒号，文件名未加引号等，这时要根据错误提示查看错误类型是什么，出错的是哪一行来定位错误。当然，有的时候报错的行自身不一定有错，可能是其前面或后面的行出现了错误。
+  \item
+    当结果不符合预期时，要学会使用print来查看每步的操作是否正确，比如我读入了字典，我就打印下字典，看看读入的是不是我想要的，是否含有不该存在的字符；或者在每个判断句、函数调入的情况下打印个字符，来跟踪程序的运行轨迹。
+  \end{itemize}
+\end{enumerate}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}66}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{cat}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业1和2, cat.py}
+         \PY{c}{\PYZsh{}包含了三中处理换行符的写法}
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+             
+         \PY{k}{def} \PY{n+nf}{cat}\PY{p}{(}\PY{n+nb}{file}\PY{p}{)}\PY{p}{:}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n+nb}{file}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{print} \PY{n}{line}\PY{p}{,}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END of cat\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{2}\PY{p}{:}  \PY{c}{\PYZsh{}}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Usage: python }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ filename}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{\PYZsh{}一般提示信息输出到标准错误}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+         
+             \PY{n+nb}{file} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{n}{cat}\PY{p}{(}\PY{n+nb}{file}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting script/cat.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}67}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{cat} \PY{n}{data}\PY{o}{/}\PY{n}{test1}\PY{o}{.}\PY{n}{fa}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874 gene=Xkr4 CDS=151-2091
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcg
+>NM\_001195662 gene=Rp1 CDS=55-909
+AGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCA
+>NM\_011283 gene=Rp1 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+>NM\_0112835 gene=Rp15 CDS=128-6412
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}68}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{splitName}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业3}
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         
+         \PY{k}{def} \PY{n+nf}{splitName}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                     \PY{k}{print} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{k}{print} \PY{n}{line}\PY{p}{,}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END splitName\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{2}\PY{p}{:}  \PY{c}{\PYZsh{}}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Usage: python }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ filename}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{\PYZsh{}一般提示信息输出到标准错误}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+         
+             \PY{n}{filename} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{n}{splitName}\PY{p}{(}\PY{n}{filename}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting script/splitName.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}69}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{splitName} \PY{n}{data}\PY{o}{/}\PY{n}{test2}\PY{o}{.}\PY{n}{fa}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcg
+aggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTG
+CCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACC
+CCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGC
+AGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCA
+AGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGT
+GGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGC
+TGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACA
+CAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+ACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACAC
+CTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATAT
+CACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGG
+GTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCC
+TGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGA
+GGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGG
+CGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCAC
+ACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACAC
+CTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATAT
+CACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGG
+GTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCC
+TGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGA
+GGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGG
+CGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}70}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{formatFasta}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业4}
+         
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         
+         \PY{k}{def} \PY{n+nf}{formatFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                     \PY{k}{if} \PY{n}{aList}\PY{p}{:}
+                         \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+                         \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                     \PY{n}{name} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                     \PY{k}{print} \PY{n}{name}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{aList}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{c}{\PYZsh{}不要忘了最后一个序列}
+             \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}End formatFasta\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{2}\PY{p}{:}  \PY{c}{\PYZsh{}}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Usage: python }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ filename}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{\PYZsh{}一般提示信息输出到标准错误}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+         
+             \PY{n}{filename} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{n}{formatFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting script/formatFasta.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}71}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{formatFasta} \PY{n}{data}\PY{o}{/}\PY{n}{test2}\PY{o}{.}\PY{n}{fa}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGCAGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}72}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{formatFasta}\PY{o}{\PYZhy{}}\PY{l+m+mf}{2.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业5 }
+         
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         
+         \PY{k}{def} \PY{n+nf}{formatSeq}\PY{p}{(}\PY{n}{aList}\PY{p}{,} \PY{n}{length}\PY{p}{)}\PY{p}{:}
+             \PY{n}{seq} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aList}\PY{p}{)}
+             \PY{n}{len\PYZus{}seq} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{seq}\PY{p}{)}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{len\PYZus{}seq}\PY{p}{,}\PY{n}{length}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{print} \PY{n}{seq}\PY{p}{[}\PY{n}{i}\PY{p}{:}\PY{n}{i}\PY{o}{+}\PY{n}{length}\PY{p}{]} 
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END formatSeq\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{def} \PY{n+nf}{formatFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{,}\PY{n}{length}\PY{p}{)}\PY{p}{:}
+             \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                     \PY{k}{if} \PY{n}{aList}\PY{p}{:}
+                         \PY{n}{formatSeq}\PY{p}{(}\PY{n}{aList}\PY{p}{,} \PY{n}{length}\PY{p}{)}
+                         \PY{n}{aList} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                     \PY{n}{name} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                     \PY{k}{print} \PY{n}{name}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{aList}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+             \PY{c}{\PYZsh{}不要忘了最后一个序列}
+             \PY{n}{formatSeq}\PY{p}{(}\PY{n}{aList}\PY{p}{,} \PY{n}{length}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END of formatFasta\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{3}\PY{p}{:}  \PY{c}{\PYZsh{}注意这儿参数改变了}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Usage: python }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ filename length\PYZus{}of\PYZus{}seq\PYZus{}in\PYZus{}each\PYZus{}line}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{\PYZsh{}一般提示信息输出到标准错误}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+         
+             \PY{n}{filename} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{n}{length} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+             \PY{n}{formatFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{,} \PY{n}{length}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting script/formatFasta-2.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}73}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{formatFasta}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2} \PY{n}{data}\PY{o}{/}\PY{n}{test2}\PY{o}{.}\PY{n}{fa} \PY{l+m+mi}{80}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggag
+gtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTA
+AGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCT
+GTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGCAGGTCTCACC
+CAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATT
+CAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTG
+GTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGT
+AAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCT
+CCCACAATAAGAAGGTGCTG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATT
+TACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATG
+ATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAG
+TTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTC
+TGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATC
+ACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAA
+GGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATT
+TACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATG
+ATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAG
+TTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTC
+TGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATC
+ACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAA
+GGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATA
+TGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}74}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{sortFasta}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业6}
+         
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         
+         \PY{k}{def} \PY{n+nf}{readFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{n}{key} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{]} \PY{c}{\PYZsh{}字典的值是一个列表, = 左边的字符串可以认为是右边列表的名字}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)} 
+             \PY{k}{return} \PY{n}{aDict}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END readFasta\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{def} \PY{n+nf}{sortFasta}\PY{p}{(}\PY{n}{aDict}\PY{p}{)}\PY{p}{:}
+             \PY{n}{keyL} \PY{o}{=} \PY{n}{aDict}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}
+             \PY{n}{keyL}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{p}{)}
+             
+             \PY{k}{for} \PY{n}{key} \PY{o+ow}{in} \PY{n}{keyL}\PY{p}{:}
+                 \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{key}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END sortFasta\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{2}\PY{p}{:}  \PY{c}{\PYZsh{}注意这儿参数改变了}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Usage: python }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ filename}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{\PYZsh{}一般提示信息输出到标准错误}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+         
+             \PY{n}{filename} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{n}{aDict} \PY{o}{=} \PY{n}{readFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{)}
+             \PY{n}{sortFasta}\PY{p}{(}\PY{n}{aDict}\PY{p}{)}
+             
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting sortFasta.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}75}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{sortFasta} \PY{n}{data}\PY{o}{/}\PY{n}{test2}\PY{o}{.}\PY{n}{fa}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_001195662
+AAGCTCAGCCTTTGCTCAGATTCTCCTCTTGATGAAACAAAGGGATTTCTGCACATGCTTGAGAAATTGCAGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+>NM\_0112835
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}76}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{grepFasta}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业7.1}
+         
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         
+         \PY{k}{def} \PY{n+nf}{readFasta}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{n}{key} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]} \PY{c}{\PYZsh{}注意去掉开头的\PYZsq{}\PYZgt{}\PYZsq{}，只取序列的名字}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{]}  \PY{c}{\PYZsh{}字典的值是一个列表}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{key}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+             \PY{k}{return} \PY{n}{aDict}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END readFasta\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{3}\PY{p}{:}  \PY{c}{\PYZsh{}注意这儿参数改变了}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Usage: python }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ seqFile nameFile}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{\PYZsh{}一般提示信息输出到标准错误}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+         
+             \PY{n}{seqFile} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{n}{nameFile} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+             \PY{n}{aDict} \PY{o}{=} \PY{n}{readFasta}\PY{p}{(}\PY{n}{seqFile}\PY{p}{)}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{nameFile}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{name} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+                 \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZgt{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{name}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting grepFasta.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}77}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{grepFasta}\PY{o}{.}\PY{n}{py} \PY{n}{data}\PY{o}{/}\PY{n}{test2}\PY{o}{.}\PY{n}{fa} \PY{n}{data}\PY{o}{/}\PY{n}{fasta}\PY{o}{.}\PY{n}{name}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>NM\_001011874
+gcggcggcgggcgagcgggcgctggagtaggagctggggagcggcgcggccggggaaggaagccagggcgaggcgaggaggtggcgggaggaggagacagcagggacaggTGTCAGATAAAGGAGTGCTCTCCTCCGCTGCCGAGGCATCATGGCCGCTAAGTCAGACGGGAGGCTGAAGATGAAGAAGAGCAGCGACGTGGCGTTCACCCCGCTGCAGAACTCGGACAATTCGGGCTCTGTGCAAGGACTGGCTCCAGGCTTGCCGTCGGGGTCCGGAG
+>NM\_011283
+AATAAATCCAAAGACATTTGTTTACGTGAAACAAGCAGGTTGCATATCCAGTGACGTTTATACAGACCACACAAACTATTTACTCTTTTCTTCGTAAGGAAAGGTTCAACTTCTGGTCTCACCCAAAATGAGTGACACACCTTCTACTAGTTTCTCCATGATTCATCTGACTTCTGAAGGTCAAGTTCCTTCCCCTCGCCATTCAAATATCACTCATCCTGTAGTGGCTAAACGCATCAGTTTCTATAAGAGTGGAGACCCACAGTTTGGCGGCGTTCGGGTGGTGGTCAACCCTCGTTCCTTTAAGACTTTTGACGCTCTGCTGGACAGTTTATCCAGGAAGGTACCCCTGCCCTTTGGGGTAAGGAACATCAGCACGCCCCGTGGACGACACAGCATCACCAGGCTGGAGGAGCTAGAGGACGGCAAGTCTTATGTGTGCTCCCACAATAAGAAGGTGCTGCCAGTTGACCTGGACAAGGCCCGCAGGCGCCCTCGGCCCTGGCTGAGTAGTCGCTCCATAAGCACGCATGTGCAGCTCTGTCCTGCAACTGCCAATATGTCCACCATGGCACCTGGCATGCTCCGTGCCCCAAGGAGGCTCGTGGTCTTCCGGAATGGTGACCCGAA
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}78}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{grepFastq}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业7.2}
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         
+         \PY{k}{def} \PY{n+nf}{readFastq}\PY{p}{(}\PY{n}{seqFile}\PY{p}{)}\PY{p}{:}
+             \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+             \PY{n}{count} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{seqFile}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{count} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+                 \PY{k}{if} \PY{n}{count} \PY{o}{\PYZpc{}} \PY{l+m+mi}{4} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{:}
+                     \PY{n}{name} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]} \PY{c}{\PYZsh{}去掉开头的@}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{n}{line}\PY{p}{]} \PY{c}{\PYZsh{}存储名字行}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{p}{)}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END reading\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{k}{return} \PY{n}{aDict}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END readFastq\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}这行只是注释，可有可无\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{3}\PY{p}{:}  \PY{c}{\PYZsh{}注意这儿参数改变了}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Usage: python }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ seqFile nameFile}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{\PYZsh{}一般提示信息输出到标准错误}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+         
+             \PY{n}{seqFile} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{n}{nameFile} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+             \PY{n}{aDict} \PY{o}{=} \PY{n}{readFastq}\PY{p}{(}\PY{n}{seqFile}\PY{p}{)}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{nameFile}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{name} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+                 \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{aDict}\PY{p}{[}\PY{n}{name}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting grepFastq.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}79}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{grepFastq} \PY{n}{data}\PY{o}{/}\PY{n}{test1}\PY{o}{.}\PY{n}{fq} \PY{n}{data}\PY{o}{/}\PY{n}{fastq}\PY{o}{.}\PY{n}{name}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+@HWI-ST1223:80:D1FMTACXX:2:1101:1243:2213 1:N:0:AGTCAA
+TCTGTGTAGCCNTGGCTGTCCTGGAACTCACTTTGTAGACCAGGCTGGCATGCACCACCACNNNCGGCTCATTTGTCTTTNNTTTTTGTTTTGTTCTGTA
++
+BCCFFFFFFHH\#4AFHIJJJJJJJJJJJJJJJJJIJIJJJJJGHIJJJJJJJJJJJJJIIJ\#\#\#--5ABECFFDDEEEEE\#\#,5=@B8?CDD<AD>C:@>
+@HWI-ST1223:80:D1FMTACXX:2:1101:1375:2060 1:N:0:AGTCAA
+NTGCTGAGCCACGACAAGGATCCCAGAGGGCCNAGCCCTGCATCTTGTATGGACCAGTTACNCATCAAAAGAGACTACTGTAGGCACCATCAATCAGATC
++
+\#1:DDDD;?CFFHDFEEIGIIIIIIG;DHFGG\#)0?BFBDHBFF<FCFEFD;@DD@A=7?E\#,,,;=(>3;=;;C>ACCC@CCCCCBBBCCAACCCCCCC
+@HWI-ST1223:80:D1FMTACXX:2:1101:1383:2091 1:N:0:AGTCAA
+NGTTCGTGTGGAACCTGGCGCTAAACCATTCGTAGACGACCTGCTTCTGGGTCGGGGTTTCGTACGTAGCAGAGCAGCTCCCTCGCTGCGATCTATTGAA
++
+\#1=DDFDFHHHHHJGJJJJJJJJJJJJJJJIJIGDHIHIGIJJJJJJJIIIGHHFDD3>BDDBDDDDDDDDDDBDCCBDDDDDDDDDDDBBDDDDEEACD
+@HWI-ST1223:80:D1FMTACXX:2:1101:1452:2138 1:N:0:AGTCAA
+NTCTAGGAGGTCTAGAAAGCCCAGGCCACCGGTACAAACATCAAGGGTGTTACGGATGTGCCGCTCTGAACCTCCAGGACGACTTTGATTTCAACTACAA
++
+\#4=DFFEFHHHHHJJJJJIJJJJHIIJGJJJJ@GIIJJJJJJIJJJJFGHIIIJJHHHDFFFFDDDDDDDDDDDDCDDDDDDDDDDDCCCEDEDDDDDDD
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}80}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{screenResult}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业8}
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         
+         \PY{k}{def} \PY{n+nf}{screenResult}\PY{p}{(}\PY{n}{filename}\PY{p}{,} \PY{n}{fc\PYZus{}value}\PY{p}{,} \PY{n}{adjP\PYZus{}value}\PY{p}{)}\PY{p}{:}
+             \PY{n}{head} \PY{o}{=} \PY{l+m+mi}{1} \PY{c}{\PYZsh{}This is used to indicate there is one head line needing to skip}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{head}\PY{p}{:}
+                     \PY{n}{head} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+                     \PY{k}{continue}
+                 \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}Begin data lines\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+                 \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+             
+                 \PY{n}{foldChange} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{adjP} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{)}
+                 \PY{k}{if} \PY{n}{foldChange} \PY{o}{\PYZgt{}} \PY{n}{fc\PYZus{}value} \PY{o+ow}{and} \PY{n}{adjP} \PY{o}{\PYZlt{}} \PY{n}{adjP\PYZus{}value}\PY{p}{:}
+                     \PY{k}{print} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END screenResult\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{4}\PY{p}{:}  \PY{c}{\PYZsh{}注意这儿参数改变了}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Usage: python }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ fileName fold\PYZus{}change adjP}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{\PYZsh{}一般提示信息输出到标准错误}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+         
+             \PY{n}{filename} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{n}{fc} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+             \PY{n}{adjP} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}
+             
+             \PY{n}{screenResult}\PY{p}{(}\PY{n}{filename}\PY{p}{,} \PY{n}{fc}\PY{p}{,} \PY{n}{adjP}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting screenResult.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}81}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{screenResult} \PY{n}{data}\PY{o}{/}\PY{n}{test}\PY{o}{.}\PY{n}{expr} \PY{l+m+mi}{2} \PY{l+m+mf}{0.05}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Novel00011
+Novel00043
+Novel00047
+Novel00077
+Novel00079
+Novel00080
+Novel00084
+Novel00085
+Novel00086
+Novel00087
+Novel00090
+Novel00124
+Novel00148
+Novel00156
+Novel00162
+Novel00166
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}82}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{transferMultipleColumToMatrix}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业9}
+         
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         
+         \PY{k}{def} \PY{n+nf}{readMultipleColFile}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+             \PY{n}{head} \PY{o}{=} \PY{l+m+mi}{1}
+             \PY{n}{tissueSet} \PY{o}{=} \PY{n+nb}{set}\PY{p}{(}\PY{p}{)}
+             \PY{n}{aDict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{head}\PY{p}{:} \PY{c}{\PYZsh{}skip header line}
+                     \PY{n}{head} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+                     \PY{k}{continue}
+                 \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+                 \PY{n}{lineL} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{gene} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                 \PY{n}{tissue} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+                 \PY{n}{expr} \PY{o}{=} \PY{n}{lineL}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+                 \PY{k}{if} \PY{n}{gene} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{aDict}\PY{p}{:}
+                     \PY{n}{aDict}\PY{p}{[}\PY{n}{gene}\PY{p}{]} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+                 \PY{k}{assert} \PY{n}{tissue} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{aDict}\PY{p}{[}\PY{n}{gene}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Duplicate tissues}\PY{l+s}{\PYZdq{}}
+                 \PY{n}{aDict}\PY{p}{[}\PY{n}{gene}\PY{p}{]}\PY{p}{[}\PY{n}{tissue}\PY{p}{]} \PY{o}{=} \PY{n}{expr}
+                 \PY{n}{tissueSet}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{tissue}\PY{p}{)}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}END reading\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{n}{tissueL} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{tissueSet}\PY{p}{)}
+             \PY{n}{tissueL}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{p}{)}
+             \PY{k}{return} \PY{n}{tissueL}\PY{p}{,} \PY{n}{aDict}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END readMultipleColFile\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{2}\PY{p}{:}  \PY{c}{\PYZsh{}注意这儿参数改变了}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Usage: python }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ fileName}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{\PYZsh{}一般提示信息输出到标准错误}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+         
+             \PY{n}{filename} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{n}{tissueL}\PY{p}{,} \PY{n}{aDict} \PY{o}{=} \PY{n}{readMultipleColFile}\PY{p}{(}\PY{n}{filename}\PY{p}{)}
+         
+             \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gene}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{l+s}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{tissueL}\PY{p}{)}
+         
+             \PY{k}{for} \PY{n}{gene}\PY{p}{,} \PY{n}{tissueD} \PY{o+ow}{in} \PY{n}{aDict}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{exprL} \PY{o}{=} \PY{p}{[}\PY{n}{gene}\PY{p}{]}
+                 \PY{k}{for} \PY{n}{tissue} \PY{o+ow}{in} \PY{n}{tissueL}\PY{p}{:}
+                     \PY{n}{exprL}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{tissueD}\PY{p}{[}\PY{n}{tissue}\PY{p}{]}\PY{p}{)}
+                 \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{exprL}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}    
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting transferMultipleColumToMatrix.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}83}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{transferMultipleColumToMatrix} \PY{n}{data}\PY{o}{/}\PY{n}{multipleColExpr}\PY{o}{.}\PY{n}{txt}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Gene	A-431	A-549	AN3-CA	BEWO	CACO-2
+ENSG00000000460	25.2	14.2	10.6	24.4	14.2
+ENSG00000000938	0.0	0.0	0.0	0.0	0.0
+ENSG00000000457	2.8	3.4	3.8	5.8	2.9
+ENSG00000000419	73.8	38.6	33.9	53.7	155.5
+ENSG00000000003	21.3	32.5	38.2	31.4	63.9
+ENSG00000000005	0.0	0.0	0.0	0.0	0.0
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}84}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{reverseComplementary}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业10}
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         
+         \PY{k}{def} \PY{n+nf}{reverseComplementary}\PY{p}{(}\PY{n}{string}\PY{p}{)}\PY{p}{:}
+             \PY{n}{ATCG\PYZus{}dict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{A}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{T}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{T}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{A}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{C}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{G}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{G}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{C}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{a}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{t}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{t}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{a}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{\PYZcb{}}
+         
+             \PY{n}{tmpL} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{string}\PY{p}{:}
+                 \PY{n}{tmpL}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{ATCG\PYZus{}dict}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+             \PY{n}{tmpL}\PY{o}{.}\PY{n}{reverse}\PY{p}{(}\PY{p}{)}
+             \PY{k}{return} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{tmpL}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END reverseComplementary\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{2}\PY{p}{:}  \PY{c}{\PYZsh{}注意这儿参数改变了}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Usage: python }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ DNAsequence}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{\PYZsh{}一般提示信息输出到标准错误}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+         
+             \PY{n}{DNA} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{k}{print} \PY{n}{reverseComplementary}\PY{p}{(}\PY{n}{DNA}\PY{p}{)}    
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting reverseComplementary.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}85}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{reverseComplementary} \PY{n}{ACGTACGTACGTCACGTCAGCTAGAC}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+GTCTAGCTGACGTGACGTACGTACGT
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}86}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n}{collapsemiRNAreads}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业11}
+         
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         
+         \PY{k}{def} \PY{n+nf}{collapsemiRNAreads}\PY{p}{(}\PY{n}{smRNA\PYZus{}file}\PY{p}{,} \PY{n}{sample}\PY{p}{,} \PY{n}{head} \PY{o}{=} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+             \PY{n}{lineno} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{smRNA\PYZus{}file}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{head}\PY{p}{:}
+                     \PY{n}{head} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+                     \PY{k}{continue}
+                 \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}end skip header line\PYZhy{}\PYZhy{}\PYZhy{}}
+                 \PY{n}{seq}\PY{p}{,} \PY{n}{value} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{lineno} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+                 \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZgt{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZus{}}\PY{l+s+si}{\PYZpc{}d}\PY{l+s}{\PYZus{}x}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{sample}\PY{p}{,} \PY{n}{lineno}\PY{p}{,} \PY{n}{value}\PY{p}{,} \PY{n}{seq}\PY{p}{)}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}end collapsemiRNAreads\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{3}\PY{p}{:}  \PY{c}{\PYZsh{}注意这儿参数改变了}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PYZbs{}
+                     \PY{l+s}{\PYZdq{}}\PY{l+s}{Usage: python }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ smRNA\PYZus{}file sampleLabel (Only three letters like ESB)}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{\PYZsh{}一般提示信息输出到标准错误}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+         
+             \PY{n}{smRNA\PYZus{}file} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{n}{sample} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+             \PY{n}{collapsemiRNAreads}\PY{p}{(}\PY{n}{smRNA\PYZus{}file}\PY{p}{,} \PY{n}{sample}\PY{p}{)}    
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting collapsemiRNAreads.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}87}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n}{collapsemiRNAreads} \PY{n}{data}\PY{o}{/}\PY{n}{mir}\PY{o}{.}\PY{n}{collapse} \PY{n}{ESB}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+>ESB\_1\_x2
+ACTGCCCTAAGTGCTCCTTCTGGC
+>ESB\_2\_x2
+ATAAGGTGCATCTAGTGCAGATA
+>ESB\_3\_x1
+TGAGGTAGTAGTTTGTGCTGTTT
+>ESB\_4\_x1
+TCCTACGAGTTGCATGGATTC
+>ESB\_5\_x1
+ACCGGGTGGAGCCGCCGCA
+>ESB\_6\_x1
+ACTGCCCTAAGTGCTCCTTCTGGT
+>ESB\_7\_x1
+TACAGGGCTGGGGATGG
+>ESB\_8\_x1
+CCCTGGATGCTGTAGGATG
+>ESB\_9\_x1
+AAAATGCTACTACTTTTGAGTC
+>ESB\_10\_x1
+TCCCTGGTGGTCTAGTGGCTAGGAT
+>ESB\_11\_x4
+CTCTTAGATCGATGTGGTGCTC
+>ESB\_12\_x1
+TTGGTGGTTCAGTGGTA
+>ESB\_13\_x1
+TCACAATTCCCCTATACCATGGGCCAT
+>ESB\_14\_x1
+CAAATGCTAGGGTTGGTGG
+>ESB\_15\_x4
+AGGCAGCTTCCACAGCA
+>ESB\_16\_x3
+GCACTGAGATGGAGTGGTGTAA
+>ESB\_17\_x3
+CTCCATTTGTTTGATGATGGA
+>ESB\_18\_x1
+GCACTGAGATGGAGTGGTGTAT
+>ESB\_19\_x2
+AGTGCCCAGAGTTTGTAGTGT
+>ESB\_20\_x1
+ATAAGGTGCATCTAGTGCTGTTAGA
+>ESB\_21\_x9
+AAAATGCTTCCACTTTGTGTG
+>ESB\_22\_x2
+GGTAATTCTAGAGCTAATACATGCCG
+>ESB\_23\_x6
+CCGGGCGGAAACACCA
+>ESB\_24\_x1
+TGAAAGGCTGACCCGCCGGGC
+>ESB\_25\_x1
+TTCGTACAGTGGTCGTAAGTTCGTGC
+>ESB\_26\_x1
+GGTTAGCACTCTGGACTC
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}88}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{writefile} \PY{n}{script}\PY{o}{/}\PY{n+nb}{map}\PY{o}{.}\PY{n}{py}
+         \PY{c}{\PYZsh{}作业12}
+         \PY{k+kn}{import} \PY{n+nn}{sys}
+         
+         \PY{k}{def} \PY{n+nf}{readRef}\PY{p}{(}\PY{n}{ref}\PY{p}{)}\PY{p}{:}
+             \PY{n}{refD} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{ref}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{n}{name} \PY{o}{=} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+                     \PY{k}{assert} \PY{n}{name} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{refD}
+                     \PY{n}{refD}\PY{p}{[}\PY{n}{name}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{refD}\PY{p}{[}\PY{n}{name}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END reading\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{k}{for} \PY{n}{key}\PY{p}{,} \PY{n}{valueL} \PY{o+ow}{in} \PY{n}{refD}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{refD}\PY{p}{[}\PY{n}{key}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{valueL}\PY{p}{)}
+             \PY{k}{return} \PY{n}{refD}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END readRef\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{def} \PY{n+nf}{mapSeq}\PY{p}{(}\PY{n}{seq}\PY{p}{,} \PY{n}{refD}\PY{p}{)}\PY{p}{:}
+             \PY{n}{len\PYZus{}seq} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{seq}\PY{p}{)}
+             \PY{k}{for} \PY{n}{key}\PY{p}{,} \PY{n}{value} \PY{o+ow}{in} \PY{n}{refD}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{pos} \PY{o}{=} \PY{n}{value}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{n}{seq}\PY{p}{)}
+                 \PY{k}{while} \PY{n}{pos} \PY{o}{!=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{:}
+                     \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}d}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}d}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{key}\PY{p}{,} \PY{n}{pos}\PY{p}{,} \PY{n}{pos}\PY{o}{+}\PY{n}{len\PYZus{}seq}\PY{p}{,} \PY{n}{seq}\PY{p}{)}
+                     \PY{n}{current} \PY{o}{=} \PY{n}{pos} \PY{o}{+} \PY{l+m+mi}{1}
+                     \PY{n}{newpos} \PY{o}{=} \PY{n}{value}\PY{p}{[}\PY{n}{current}\PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{n}{seq}\PY{p}{)}
+                     \PY{k}{if} \PY{n}{newpos} \PY{o}{==} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{:}
+                         \PY{k}{break}
+                     \PY{n}{pos} \PY{o}{=} \PY{n}{current} \PY{o}{+} \PY{n}{newpos}
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END mapSeq\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{3}\PY{p}{:}  \PY{c}{\PYZsh{}注意这儿参数改变了}
+                 \PY{k}{print} \PY{o}{\PYZgt{}\PYZgt{}}\PY{n}{sys}\PY{o}{.}\PY{n}{stderr}\PY{p}{,} \PYZbs{}
+                     \PY{l+s}{\PYZdq{}}\PY{l+s}{Usage: python }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ Ref\PYZus{}genome.fa reads.fa}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{c}{\PYZsh{}一般提示信息输出到标准错误}
+                 \PY{n}{sys}\PY{o}{.}\PY{n}{exit}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+         
+             \PY{n}{ref} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{n}{read} \PY{o}{=} \PY{n}{sys}\PY{o}{.}\PY{n}{argv}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+             \PY{n}{refD} \PY{o}{=} \PY{n}{readRef}\PY{p}{(}\PY{n}{ref}\PY{p}{)}
+             \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{open}\PY{p}{(}\PY{n}{read}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{line}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+                     \PY{k}{pass}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{seq} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
+                     \PY{n}{mapSeq}\PY{p}{(}\PY{n}{seq}\PY{p}{,} \PY{n}{refD}\PY{p}{)}   
+         \PY{c}{\PYZsh{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}END main\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{k}{if} \PY{n}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{:}
+             \PY{n}{main}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Overwriting map.py
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}89}]:} \PY{o}{\PYZpc{}}\PY{k}{run} \PY{n}{script}\PY{o}{/}\PY{n+nb}{map} \PY{n}{data}\PY{o}{/}\PY{n}{ref}\PY{o}{.}\PY{n}{fa} \PY{n}{data}\PY{o}{/}\PY{n}{short}\PY{o}{.}\PY{n}{fa}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+chr1	199	208	TGGCGTTCA
+chr1	207	216	ACCCCGCTG
+chr2	63	70	AAATTGC
+chr3	0	7	AATAAAT
+chr3	66	74	CCACACAA
+chr3	206	214	ATATCACT
+chr2	163	171	ATATCACT
+chr3	417	423	AGAGGA
+chr2	374	380	AGAGGA
+chrX	137	143	AGAGGA
+    \end{Verbatim}
+
+
+    \section{References}
+
+
+    \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  http://www.byteofpython.info/
+\item
+  http://woodpecker.org.cn/abyteofpython\_cn/chinese/index.html
+\item
+  http://www.python-course.eu/
+\end{itemize}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
